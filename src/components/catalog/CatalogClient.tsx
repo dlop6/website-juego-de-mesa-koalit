@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import type { Game } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";
 import { filterGames } from "@/lib/filters/filterGames";
+import Link from "next/link";
 import { GameCard } from "@/components/game/GameCard";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/states/EmptyState";
@@ -280,17 +281,23 @@ export function CatalogClient({ games }: { games: Game[] }) {
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredGames.map((game) => (
-                  <GameCard
+                  <Link
                     key={game.id}
-                    id={game.id}
-                    name={game.name}
-                    imageSrc={game.image?.src ?? ""}
-                    imageAlt={game.image?.alt ?? game.name}
-                    priceAmount={game.price?.amount ?? 0}
-                    priceCurrency={game.price?.currency ?? "GTQ"}
-                    ratingValue={game.rating?.value ?? 0}
-                    themes={Array.isArray(game.themes) ? game.themes : []}
-                  />
+                    href={`/catalogo/${game.id}`}
+                    className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                    aria-label={`Ver detalles de ${game.name}`}
+                  >
+                    <GameCard
+                      id={game.id}
+                      name={game.name}
+                      imageSrc={game.image?.src ?? ""}
+                      imageAlt={game.image?.alt ?? game.name}
+                      priceAmount={game.price?.amount ?? 0}
+                      priceCurrency={game.price?.currency ?? "GTQ"}
+                      ratingValue={game.rating?.value ?? 0}
+                      themes={Array.isArray(game.themes) ? game.themes : []}
+                    />
+                  </Link>
                 ))}
               </div>
             )}
