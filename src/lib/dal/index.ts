@@ -1,14 +1,29 @@
+import { DataAccessError } from "./errors";
+import { simulateNetwork } from "./simulation";
 import type { Database, Game, Promotion, Sponsor } from "./types";
 
 const DB_PATH = "/db.json";
 
 async function fetchDatabase(): Promise<Database> {
-  const response = await fetch(DB_PATH);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch dataset: ${response.status}`);
-  }
+  try {
+    await simulateNetwork();
+    const response = await fetch(DB_PATH);
+    if (!response.ok) {
+      throw new DataAccessError(
+        "FETCH_FAILED",
+        `Failed to fetch dataset: ${response.status}`
+      );
+    }
 
-  return (await response.json()) as Database;
+    return (await response.json()) as Database;
+  } catch (error) {
+    if (error instanceof DataAccessError) {
+      throw error;
+    }
+
+    const message = error instanceof Error ? error.message : "Unknown error";
+    throw new DataAccessError("UNKNOWN", message);
+  }
 }
 
 export async function getGames(): Promise<Game[]> {
@@ -31,4 +46,5 @@ export async function getPromotions(): Promise<Promotion[]> {
   return promotions;
 }
 
+export { DataAccessError } from "./errors";
 export type { Database, Game, Promotion, Sponsor } from "./types";
