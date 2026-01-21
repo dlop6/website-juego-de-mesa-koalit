@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <rect width="600" height="400" fill="#162235" />
+  <rect x="24" y="24" width="552" height="352" fill="#101826" stroke="#24344d" stroke-width="2" />
+  <text x="50%" y="50%" fill="#E8EEF6" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" dominant-baseline="middle">Ticket to Ride</text>
+  <text x="50%" y="58%" fill="#A9B4C3" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" dominant-baseline="middle">Board Game</text>
+</svg>

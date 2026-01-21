@@ -1,0 +1,917 @@
+{
+  "games": [
+    {
+      "id": "g-catan",
+      "name": "Catan",
+      "price": {
+        "amount": 289.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 1420
+      },
+      "themes": [
+        "Estrategia",
+        "Familia"
+      ],
+      "shortDescription": "Construye rutas y colonias mientras negocias recursos.",
+      "image": {
+        "src": "/images/g-catan.svg",
+        "alt": "Portada del juego Catan"
+      },
+      "purchaseUrl": "https://example.com/juegos/catan",
+      "players": {
+        "min": 3,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Trade",
+        "Resource Management"
+      ],
+      "publisher": "Kosmos",
+      "releaseYear": 1995
+    },
+    {
+      "id": "g-ticket-to-ride",
+      "name": "Ticket to Ride",
+      "price": {
+        "amount": 319.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.5,
+        "scale": 5,
+        "count": 1890
+      },
+      "themes": [
+        "Familia",
+        "Aventuras"
+      ],
+      "shortDescription": "Conecta ciudades completando rutas de tren y objetivos.",
+      "image": {
+        "src": "/images/g-ticket-to-ride.svg",
+        "alt": "Portada del juego Ticket to Ride"
+      },
+      "purchaseUrl": "https://example.com/juegos/ticket-to-ride",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 60
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Route Building",
+        "Set Collection"
+      ],
+      "publisher": "Days of Wonder",
+      "releaseYear": 2004
+    },
+    {
+      "id": "g-carcassonne",
+      "name": "Carcassonne",
+      "price": {
+        "amount": 249.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.4,
+        "scale": 5,
+        "count": 1605
+      },
+      "themes": [
+        "Familia",
+        "Estrategia"
+      ],
+      "shortDescription": "Construye ciudades y caminos colocando losetas y seguidores.",
+      "image": {
+        "src": "/images/g-carcassonne.svg",
+        "alt": "Portada del juego Carcassonne"
+      },
+      "purchaseUrl": "https://example.com/juegos/carcassonne",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 35,
+        "max": 45
+      },
+      "age": {
+        "min": 7
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Tile Placement",
+        "Area Control"
+      ],
+      "publisher": "Hans im Gluck",
+      "releaseYear": 2000
+    },
+    {
+      "id": "g-azul",
+      "name": "Azul",
+      "price": {
+        "amount": 239.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.3,
+        "scale": 5,
+        "count": 1210
+      },
+      "themes": [
+        "Abstracto",
+        "Familia"
+      ],
+      "shortDescription": "Elige azulejos y completa patrones con tacticas simples.",
+      "image": {
+        "src": "/images/g-azul.svg",
+        "alt": "Portada del juego Azul"
+      },
+      "purchaseUrl": "https://example.com/juegos/azul",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Drafting",
+        "Pattern Building"
+      ],
+      "publisher": "Next Move",
+      "releaseYear": 2017
+    },
+    {
+      "id": "g-pandemic",
+      "name": "Pandemic",
+      "price": {
+        "amount": 299.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.7,
+        "scale": 5,
+        "count": 2100
+      },
+      "themes": [
+        "Cooperativo",
+        "Aventuras"
+      ],
+      "shortDescription": "Coordina equipos para contener brotes en todo el mundo.",
+      "image": {
+        "src": "/images/g-pandemic.svg",
+        "alt": "Portada del juego Pandemic"
+      },
+      "purchaseUrl": "https://example.com/juegos/pandemic",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 60
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Cooperative Play",
+        "Hand Management"
+      ],
+      "publisher": "Z-Man Games",
+      "releaseYear": 2008
+    },
+    {
+      "id": "g-7-wonders",
+      "name": "7 Wonders",
+      "price": {
+        "amount": 269.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.4,
+        "scale": 5,
+        "count": 1750
+      },
+      "themes": [
+        "Estrategia",
+        "Familia"
+      ],
+      "shortDescription": "Desarrolla tu civilizacion con cartas y recursos.",
+      "image": {
+        "src": "/images/g-7-wonders.svg",
+        "alt": "Portada del juego 7 Wonders"
+      },
+      "purchaseUrl": "https://example.com/juegos/7-wonders",
+      "players": {
+        "min": 3,
+        "max": 7
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Card Drafting",
+        "Set Collection"
+      ],
+      "publisher": "Repos Production",
+      "releaseYear": 2010
+    },
+    {
+      "id": "g-splendor",
+      "name": "Splendor",
+      "price": {
+        "amount": 259.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.2,
+        "scale": 5,
+        "count": 1330
+      },
+      "themes": [
+        "Estrategia",
+        "Familia"
+      ],
+      "shortDescription": "Colecciona gemas y construye tu motor de puntos.",
+      "image": {
+        "src": "/images/g-splendor.svg",
+        "alt": "Portada del juego Splendor"
+      },
+      "purchaseUrl": "https://example.com/juegos/splendor",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Engine Building",
+        "Open Drafting"
+      ],
+      "publisher": "Space Cowboys",
+      "releaseYear": 2014
+    },
+    {
+      "id": "g-terraforming-mars",
+      "name": "Terraforming Mars",
+      "price": {
+        "amount": 589.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.8,
+        "scale": 5,
+        "count": 980
+      },
+      "themes": [
+        "Ciencia Ficcion",
+        "Estrategia"
+      ],
+      "shortDescription": "Compite por transformar Marte con proyectos globales.",
+      "image": {
+        "src": "/images/g-terraforming-mars.svg",
+        "alt": "Portada del juego Terraforming Mars"
+      },
+      "purchaseUrl": "https://example.com/juegos/terraforming-mars",
+      "players": {
+        "min": 1,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 90,
+        "max": 120
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Engine Building",
+        "Area Control"
+      ],
+      "publisher": "FryxGames",
+      "releaseYear": 2016
+    },
+    {
+      "id": "g-wingspan",
+      "name": "Wingspan",
+      "price": {
+        "amount": 549.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 1100
+      },
+      "themes": [
+        "Naturaleza",
+        "Estrategia"
+      ],
+      "shortDescription": "Crea un santuario de aves con cartas y recursos.",
+      "image": {
+        "src": "/images/g-wingspan.svg",
+        "alt": "Portada del juego Wingspan"
+      },
+      "purchaseUrl": "https://example.com/juegos/wingspan",
+      "players": {
+        "min": 1,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 40,
+        "max": 70
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Engine Building",
+        "Hand Management"
+      ],
+      "publisher": "Stonemaier Games",
+      "releaseYear": 2019
+    },
+    {
+      "id": "g-dixit",
+      "name": "Dixit",
+      "price": {
+        "amount": 279.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.1,
+        "scale": 5,
+        "count": 890
+      },
+      "themes": [
+        "Familia",
+        "Fantasia"
+      ],
+      "shortDescription": "Cuenta pistas creativas y adivina la carta correcta.",
+      "image": {
+        "src": "/images/g-dixit.svg",
+        "alt": "Portada del juego Dixit"
+      },
+      "purchaseUrl": "https://example.com/juegos/dixit",
+      "players": {
+        "min": 3,
+        "max": 6
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 40
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Storytelling",
+        "Voting"
+      ],
+      "publisher": "Libellud",
+      "releaseYear": 2008
+    },
+    {
+      "id": "g-kingdomino",
+      "name": "Kingdomino",
+      "price": {
+        "amount": 219.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.0,
+        "scale": 5,
+        "count": 760
+      },
+      "themes": [
+        "Familia",
+        "Fantasia"
+      ],
+      "shortDescription": "Construye tu reino con losetas y controla el orden.",
+      "image": {
+        "src": "/images/g-kingdomino.svg",
+        "alt": "Portada del juego Kingdomino"
+      },
+      "purchaseUrl": "https://example.com/juegos/kingdomino",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 25
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Tile Placement",
+        "Drafting"
+      ],
+      "publisher": "Blue Orange",
+      "releaseYear": 2016
+    },
+    {
+      "id": "g-codenames",
+      "name": "Codenames",
+      "price": {
+        "amount": 199.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.3,
+        "scale": 5,
+        "count": 1520
+      },
+      "themes": [
+        "Deduccion",
+        "Familia"
+      ],
+      "shortDescription": "Da pistas de una palabra para conectar agentes secretos.",
+      "image": {
+        "src": "/images/g-codenames.svg",
+        "alt": "Portada del juego Codenames"
+      },
+      "purchaseUrl": "https://example.com/juegos/codenames",
+      "players": {
+        "min": 2,
+        "max": 8
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 25
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Word Game",
+        "Team Play"
+      ],
+      "publisher": "Czech Games Edition",
+      "releaseYear": 2015
+    },
+    {
+      "id": "g-the-mind",
+      "name": "The Mind",
+      "price": {
+        "amount": 149.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.9,
+        "scale": 5,
+        "count": 640
+      },
+      "themes": [
+        "Cartas",
+        "Cooperativo"
+      ],
+      "shortDescription": "Sin hablar, ordenen cartas de forma sincronizada.",
+      "image": {
+        "src": "/images/g-the-mind.svg",
+        "alt": "Portada del juego The Mind"
+      },
+      "purchaseUrl": "https://example.com/juegos/the-mind",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 20
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Cooperative Play",
+        "Hand Management"
+      ],
+      "publisher": "NSV",
+      "releaseYear": 2018
+    },
+    {
+      "id": "g-sushi-go",
+      "name": "Sushi Go",
+      "price": {
+        "amount": 159.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.0,
+        "scale": 5,
+        "count": 980
+      },
+      "themes": [
+        "Cartas",
+        "Familia"
+      ],
+      "shortDescription": "Drafting rapido para armar combinaciones de sushi.",
+      "image": {
+        "src": "/images/g-sushi-go.svg",
+        "alt": "Portada del juego Sushi Go"
+      },
+      "purchaseUrl": "https://example.com/juegos/sushi-go",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 20
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Card Drafting",
+        "Set Collection"
+      ],
+      "publisher": "Gamewright",
+      "releaseYear": 2013
+    },
+    {
+      "id": "g-ark-nova",
+      "name": "Ark Nova",
+      "price": {
+        "amount": 749.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.7,
+        "scale": 5,
+        "count": 520
+      },
+      "themes": [
+        "Naturaleza",
+        "Estrategia"
+      ],
+      "shortDescription": "Disena un zoologico moderno con cartas y acciones.",
+      "image": {
+        "src": "/images/g-ark-nova.svg",
+        "alt": "Portada del juego Ark Nova"
+      },
+      "purchaseUrl": "https://example.com/juegos/ark-nova",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 90,
+        "max": 150
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Action Selection",
+        "Card Play"
+      ],
+      "publisher": "Feuerland",
+      "releaseYear": 2021
+    },
+    {
+      "id": "g-gloomhaven-jotl",
+      "name": "Gloomhaven Jaws of the Lion",
+      "price": {
+        "amount": 699.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 430
+      },
+      "themes": [
+        "Fantasia",
+        "Aventuras",
+        "Cooperativo"
+      ],
+      "shortDescription": "Campana tactica con combates y progresion.",
+      "image": {
+        "src": "/images/g-gloomhaven-jotl.svg",
+        "alt": "Portada del juego Gloomhaven Jaws of the Lion"
+      },
+      "purchaseUrl": "https://example.com/juegos/gloomhaven-jotl",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Cooperative Play",
+        "Tactical Combat"
+      ],
+      "publisher": "Cephalofair",
+      "releaseYear": 2020
+    },
+    {
+      "id": "g-azul-summer",
+      "name": "Azul Summer Pavilion",
+      "price": {
+        "amount": 259.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.2,
+        "scale": 5,
+        "count": 510
+      },
+      "themes": [
+        "Abstracto",
+        "Familia"
+      ],
+      "shortDescription": "Completa patrones en un tablero modular con draft.",
+      "image": {
+        "src": "/images/g-azul-summer.svg",
+        "alt": "Portada del juego Azul Summer Pavilion"
+      },
+      "purchaseUrl": "https://example.com/juegos/azul-summer",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Drafting",
+        "Pattern Building"
+      ],
+      "publisher": "Next Move",
+      "releaseYear": 2019
+    },
+    {
+      "id": "g-clank",
+      "name": "Clank",
+      "price": {
+        "amount": 459.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.4,
+        "scale": 5,
+        "count": 690
+      },
+      "themes": [
+        "Aventuras",
+        "Fantasia",
+        "Estrategia"
+      ],
+      "shortDescription": "Explora un calabozo con un mazo que hace ruido.",
+      "image": {
+        "src": "/images/g-clank.svg",
+        "alt": "Portada del juego Clank"
+      },
+      "purchaseUrl": "https://example.com/juegos/clank",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 60
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Deck Building",
+        "Push Your Luck"
+      ],
+      "publisher": "Renegade Game Studios",
+      "releaseYear": 2016
+    },
+    {
+      "id": "g-lost-ruins-of-arnak",
+      "name": "Lost Ruins of Arnak",
+      "price": {
+        "amount": 579.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.5,
+        "scale": 5,
+        "count": 640
+      },
+      "themes": [
+        "Aventuras",
+        "Estrategia"
+      ],
+      "shortDescription": "Explora ruinas y combina workers con cartas.",
+      "image": {
+        "src": "/images/g-lost-ruins-of-arnak.svg",
+        "alt": "Portada del juego Lost Ruins of Arnak"
+      },
+      "purchaseUrl": "https://example.com/juegos/lost-ruins-of-arnak",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Worker Placement",
+        "Deck Building"
+      ],
+      "publisher": "Czech Games Edition",
+      "releaseYear": 2020
+    },
+    {
+      "id": "g-root",
+      "name": "Root",
+      "price": {
+        "amount": 599.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.3,
+        "scale": 5,
+        "count": 560
+      },
+      "themes": [
+        "Fantasia",
+        "Estrategia"
+      ],
+      "shortDescription": "Facciones asimetricas compiten por el control del bosque.",
+      "image": {
+        "src": "/images/g-root.svg",
+        "alt": "Portada del juego Root"
+      },
+      "purchaseUrl": "https://example.com/juegos/root",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Area Control",
+        "Asymmetric Play"
+      ],
+      "publisher": "Leder Games",
+      "releaseYear": 2018
+    },
+    {
+      "id": "g-azul-queen",
+      "name": "Azul Queens Garden",
+      "price": {
+        "amount": 279.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.1,
+        "scale": 5,
+        "count": 320
+      },
+      "themes": [
+        "Abstracto",
+        "Familia"
+      ],
+      "shortDescription": "Disena jardines con losetas y objetivos variables.",
+      "image": {
+        "src": "/images/g-azul-queen.svg",
+        "alt": "Portada del juego Azul Queens Garden"
+      },
+      "purchaseUrl": "https://example.com/juegos/azul-queens-garden",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 60
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Drafting",
+        "Tile Placement"
+      ],
+      "publisher": "Next Move",
+      "releaseYear": 2021
+    }
+  ],
+  "sponsors": [
+    {
+      "id": "s-koalit",
+      "name": "Koalit",
+      "logo": {
+        "src": "/logos/koalit.svg",
+        "alt": "Logo de Koalit"
+      },
+      "websiteUrl": "https://example.com/koalit",
+      "tagline": "Patrocinador oficial",
+      "priority": 10
+    },
+    {
+      "id": "s-ludica",
+      "name": "Ludica Works",
+      "logo": {
+        "src": "/logos/ludica-works.svg",
+        "alt": "Logo de Ludica Works"
+      },
+      "websiteUrl": "https://example.com/ludica-works",
+      "tagline": "Juegos y experiencias para mesa",
+      "priority": 6
+    }
+  ],
+  "promotions": [
+    {
+      "id": "p-terraforming",
+      "gameId": "g-terraforming-mars",
+      "label": "Promocionado",
+      "weight": 12
+    },
+    {
+      "id": "p-wingspan",
+      "gameId": "g-wingspan",
+      "label": "Promocionado",
+      "weight": 10
+    },
+    {
+      "id": "p-azul",
+      "gameId": "g-azul",
+      "label": "Promocionado",
+      "weight": 8
+    },
+    {
+      "id": "p-codenames",
+      "gameId": "g-codenames",
+      "label": "Promocionado",
+      "weight": 7
+    }
+  ]
+}

@@ -1,0 +1,969 @@
+{
+  "games": [
+    {
+      "id": "g-neon-nexus",
+      "name": "Neon Nexus",
+      "price": {
+        "amount": 289,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 312
+      },
+      "themes": [
+        "Cyberpunk",
+        "Estrategia",
+        "Construcción de motor"
+      ],
+      "shortDescription": "Optimiza rutas de datos en una ciudad de neón y domina el mercado de energía.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 90
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Gestión de recursos",
+        "Construcción de motor",
+        "Draft"
+      ],
+      "publisher": "Lúdica Works",
+      "releaseYear": 2022,
+      "image": {
+        "src": "/images/g-neon-nexus.svg",
+        "alt": "Portada del juego Neon Nexus"
+      },
+      "purchaseUrl": "https://example.com/comprar/neon-nexus"
+    },
+    {
+      "id": "g-arcana-atelier",
+      "name": "Arcana Atelier",
+      "price": {
+        "amount": 245,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.2,
+        "scale": 5,
+        "count": 198
+      },
+      "themes": [
+        "Fantasía",
+        "Colección",
+        "Optimización"
+      ],
+      "shortDescription": "Mezcla ingredientes místicos, completa encargos y convierte tu taller en leyenda.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 35,
+        "max": 60
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Colección de sets",
+        "Gestión de mano",
+        "Acciones por turnos"
+      ],
+      "publisher": "Cobre & Hueso Studio",
+      "releaseYear": 2021,
+      "image": {
+        "src": "/images/g-arcana-atelier.svg",
+        "alt": "Portada del juego Arcana Atelier"
+      },
+      "purchaseUrl": "https://example.com/comprar/arcana-atelier"
+    },
+    {
+      "id": "g-obsidian-orbit",
+      "name": "Obsidian Orbit",
+      "price": {
+        "amount": 399,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.8,
+        "scale": 5,
+        "count": 421
+      },
+      "themes": [
+        "Espacio",
+        "Exploración",
+        "Sci‑Fi"
+      ],
+      "shortDescription": "Explora un cinturón oscuro de asteroides, negocia minerales y evita tormentas solares.",
+      "players": {
+        "min": 1,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "age": {
+        "min": 14
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Exploración",
+        "Gestión de riesgos",
+        "Acciones simultáneas"
+      ],
+      "publisher": "Koalit Editions",
+      "releaseYear": 2023,
+      "image": {
+        "src": "/images/g-obsidian-orbit.svg",
+        "alt": "Portada del juego Obsidian Orbit"
+      },
+      "purchaseUrl": "https://example.com/comprar/obsidian-orbit"
+    },
+    {
+      "id": "g-copper-grove",
+      "name": "Copper Grove",
+      "price": {
+        "amount": 215,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.9,
+        "scale": 5,
+        "count": 97
+      },
+      "themes": [
+        "Naturaleza",
+        "Construcción",
+        "Familiar"
+      ],
+      "shortDescription": "Diseña un bosque modular con senderos de cobre y santuarios de madera antigua.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 25,
+        "max": 45
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Colocación de losetas",
+        "Patrones",
+        "Puntuación por áreas"
+      ],
+      "publisher": "Bosque Claro",
+      "releaseYear": 2020,
+      "image": {
+        "src": "/images/g-copper-grove.svg",
+        "alt": "Portada del juego Copper Grove"
+      },
+      "purchaseUrl": "https://example.com/comprar/copper-grove"
+    },
+    {
+      "id": "g-void-market",
+      "name": "Void Market",
+      "price": {
+        "amount": 335,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.1,
+        "scale": 5,
+        "count": 156
+      },
+      "themes": [
+        "Comercio",
+        "Sci‑Fi",
+        "Táctico"
+      ],
+      "shortDescription": "Compra barato, vende caro y manipula la oferta en un bazar interplanetario.",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 50,
+        "max": 80
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Subasta",
+        "Gestión de recursos",
+        "Mayorías"
+      ],
+      "publisher": "Delta Drift",
+      "releaseYear": 2019,
+      "image": {
+        "src": "/images/g-void-market.svg",
+        "alt": "Portada del juego Void Market"
+      },
+      "purchaseUrl": "https://example.com/comprar/void-market"
+    },
+    {
+      "id": "g-starlight-sabotage",
+      "name": "Starlight Sabotage",
+      "price": {
+        "amount": 179,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.6,
+        "scale": 5,
+        "count": 64
+      },
+      "themes": [
+        "Deducción",
+        "Sci‑Fi",
+        "Competitivo"
+      ],
+      "shortDescription": "Hay un infiltrado en la tripulación. Lee patrones, acusa con criterio y sobrevive.",
+      "players": {
+        "min": 3,
+        "max": 8
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 30
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Deducción social",
+        "Roles ocultos",
+        "Votación"
+      ],
+      "publisher": "Noir Nebula",
+      "releaseYear": 2024,
+      "image": {
+        "src": "/images/g-starlight-sabotage.svg",
+        "alt": "Portada del juego Starlight Sabotage"
+      },
+      "purchaseUrl": "https://example.com/comprar/starlight-sabotage"
+    },
+    {
+      "id": "g-hollow-harvest",
+      "name": "Hollow Harvest",
+      "price": {
+        "amount": 260,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.0,
+        "scale": 5,
+        "count": 110
+      },
+      "themes": [
+        "Terror ligero",
+        "Cooperativo",
+        "Narrativa"
+      ],
+      "shortDescription": "Cierra portales en un pueblo gris antes de que el otoño se lo trague todo.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 40,
+        "max": 75
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Cooperativo",
+        "Eventos",
+        "Gestión de cartas"
+      ],
+      "publisher": "Umbra Tabletop",
+      "releaseYear": 2021,
+      "image": {
+        "src": "/images/g-hollow-harvest.svg",
+        "alt": "Portada del juego Hollow Harvest"
+      },
+      "purchaseUrl": "https://example.com/comprar/hollow-harvest"
+    },
+    {
+      "id": "g-chrono-caravan",
+      "name": "Chrono Caravan",
+      "price": {
+        "amount": 310,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.4,
+        "scale": 5,
+        "count": 203
+      },
+      "themes": [
+        "Viaje en el tiempo",
+        "Aventura",
+        "Estrategia"
+      ],
+      "shortDescription": "Salta entre eras, negocia artefactos y repara paradojas antes del colapso.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 55,
+        "max": 95
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Rondel",
+        "Gestión de tiempo",
+        "Colección de sets"
+      ],
+      "publisher": "Koalit Editions",
+      "releaseYear": 2022,
+      "image": {
+        "src": "/images/g-chrono-caravan.svg",
+        "alt": "Portada del juego Chrono Caravan"
+      },
+      "purchaseUrl": "https://example.com/comprar/chrono-caravan"
+    },
+    {
+      "id": "g-verdant-veil",
+      "name": "Verdant Veil",
+      "price": {
+        "amount": 230,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.3,
+        "scale": 5,
+        "count": 144
+      },
+      "themes": [
+        "Naturaleza",
+        "Abstracto",
+        "Minimalista"
+      ],
+      "shortDescription": "Construye un jardín secreto con decisiones pequeñas que importan mucho.",
+      "players": {
+        "min": 2,
+        "max": 2
+      },
+      "durationMinutes": {
+        "min": 20,
+        "max": 35
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Control de área",
+        "Patrones",
+        "Acciones limitadas"
+      ],
+      "publisher": "Bosque Claro",
+      "releaseYear": 2018,
+      "image": {
+        "src": "/images/g-verdant-veil.svg",
+        "alt": "Portada del juego Verdant Veil"
+      },
+      "purchaseUrl": "https://example.com/comprar/verdant-veil"
+    },
+    {
+      "id": "g-iron-ink",
+      "name": "Iron & Ink",
+      "price": {
+        "amount": 275,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.5,
+        "scale": 5,
+        "count": 266
+      },
+      "themes": [
+        "Arte",
+        "Economía",
+        "Estrategia"
+      ],
+      "shortDescription": "Gestiona un estudio de impresión: contratos, tintas raras y reputación.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 70
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Gestión de recursos",
+        "Cumplimiento de contratos",
+        "Puntos por objetivos"
+      ],
+      "publisher": "Cobre & Hueso Studio",
+      "releaseYear": 2020,
+      "image": {
+        "src": "/images/g-iron-ink.svg",
+        "alt": "Portada del juego Iron & Ink"
+      },
+      "purchaseUrl": "https://example.com/comprar/iron-ink"
+    },
+    {
+      "id": "g-aurora-outpost",
+      "name": "Aurora Outpost",
+      "price": {
+        "amount": 420,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.7,
+        "scale": 5,
+        "count": 389
+      },
+      "themes": [
+        "Espacio",
+        "Cooperativo",
+        "Sci‑Fi"
+      ],
+      "shortDescription": "Mantén viva una estación en la frontera: energía, moral y amenazas desconocidas.",
+      "players": {
+        "min": 1,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 70,
+        "max": 120
+      },
+      "age": {
+        "min": 14
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Cooperativo",
+        "Gestión de recursos",
+        "Eventos"
+      ],
+      "publisher": "Lúdica Works",
+      "releaseYear": 2024,
+      "image": {
+        "src": "/images/g-aurora-outpost.svg",
+        "alt": "Portada del juego Aurora Outpost"
+      },
+      "purchaseUrl": "https://example.com/comprar/aurora-outpost"
+    },
+    {
+      "id": "g-brass-bazaar",
+      "name": "Brass Bazaar",
+      "price": {
+        "amount": 195,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.8,
+        "scale": 5,
+        "count": 88
+      },
+      "themes": [
+        "Comercio",
+        "Familiar",
+        "Colección"
+      ],
+      "shortDescription": "Intercambia reliquias, arma colecciones y evita quedarte con mercancía inútil.",
+      "players": {
+        "min": 2,
+        "max": 6
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 50
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Colección de sets",
+        "Push-your-luck",
+        "Mercado dinámico"
+      ],
+      "publisher": "Delta Drift",
+      "releaseYear": 2017,
+      "image": {
+        "src": "/images/g-brass-bazaar.svg",
+        "alt": "Portada del juego Brass Bazaar"
+      },
+      "purchaseUrl": "https://example.com/comprar/brass-bazaar"
+    },
+    {
+      "id": "g-signal-and-salt",
+      "name": "Signal & Salt",
+      "price": {
+        "amount": 160,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.4,
+        "scale": 5,
+        "count": 52
+      },
+      "themes": [
+        "Supervivencia",
+        "Narrativa",
+        "Cooperativo"
+      ],
+      "shortDescription": "Explora una costa extraña; cada decisión cambia el mapa y el ánimo del equipo.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 35,
+        "max": 60
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Narrativa ramificada",
+        "Exploración",
+        "Gestión de recursos"
+      ],
+      "publisher": "Umbra Tabletop",
+      "releaseYear": 2019,
+      "image": {
+        "src": "/images/g-signal-and-salt.svg",
+        "alt": "Portada del juego Signal & Salt"
+      },
+      "purchaseUrl": "https://example.com/comprar/signal-and-salt"
+    },
+    {
+      "id": "g-quantum-quarry",
+      "name": "Quantum Quarry",
+      "price": {
+        "amount": 350,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.2,
+        "scale": 5,
+        "count": 173
+      },
+      "themes": [
+        "Sci‑Fi",
+        "Optimización",
+        "Puzzle"
+      ],
+      "shortDescription": "Extrae cristales cuánticos y sincroniza máquinas para maximizar energía estable.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 40,
+        "max": 75
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Puzzle táctico",
+        "Colocación de trabajadores",
+        "Optimización"
+      ],
+      "publisher": "Koalit Editions",
+      "releaseYear": 2021,
+      "image": {
+        "src": "/images/g-quantum-quarry.svg",
+        "alt": "Portada del juego Quantum Quarry"
+      },
+      "purchaseUrl": "https://example.com/comprar/quantum-quarry"
+    },
+    {
+      "id": "g-ember-archive",
+      "name": "Ember Archive",
+      "price": {
+        "amount": 240,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.0,
+        "scale": 5,
+        "count": 121
+      },
+      "themes": [
+        "Fantasía",
+        "Exploración",
+        "Narrativa"
+      ],
+      "shortDescription": "Recupera tomos perdidos, negocia con guardianes y evita incendios mágicos.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 45,
+        "max": 80
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Exploración",
+        "Gestión de cartas",
+        "Eventos"
+      ],
+      "publisher": "Cobre & Hueso Studio",
+      "releaseYear": 2023,
+      "image": {
+        "src": "/images/g-ember-archive.svg",
+        "alt": "Portada del juego Ember Archive"
+      },
+      "purchaseUrl": "https://example.com/comprar/ember-archive"
+    },
+    {
+      "id": "g-spectral-syndicate",
+      "name": "Spectral Syndicate",
+      "price": {
+        "amount": 305,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.1,
+        "scale": 5,
+        "count": 142
+      },
+      "themes": [
+        "Noir",
+        "Deducción",
+        "Competitivo"
+      ],
+      "shortDescription": "Investiga pistas en una ciudad espectral donde todos mienten con elegancia.",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 35,
+        "max": 65
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Deducción",
+        "Gestión de mano",
+        "Colección de sets"
+      ],
+      "publisher": "Noir Nebula",
+      "releaseYear": 2020,
+      "image": {
+        "src": "/images/g-spectral-syndicate.svg",
+        "alt": "Portada del juego Spectral Syndicate"
+      },
+      "purchaseUrl": "https://example.com/comprar/spectral-syndicate"
+    },
+    {
+      "id": "g-moss-and-machines",
+      "name": "Moss & Machines",
+      "price": {
+        "amount": 285,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.3,
+        "scale": 5,
+        "count": 211
+      },
+      "themes": [
+        "Naturaleza",
+        "Sci‑Fi",
+        "Construcción"
+      ],
+      "shortDescription": "Robots suaves y musgo inteligente: construye ecosistemas mecánicos eficientes.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 50,
+        "max": 90
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Construcción de motor",
+        "Gestión de recursos",
+        "Objetivos"
+      ],
+      "publisher": "Lúdica Works",
+      "releaseYear": 2022,
+      "image": {
+        "src": "/images/g-moss-and-machines.svg",
+        "alt": "Portada del juego Moss & Machines"
+      },
+      "purchaseUrl": "https://example.com/comprar/moss-and-machines"
+    },
+    {
+      "id": "g-asteroid-almanac",
+      "name": "Asteroid Almanac",
+      "price": {
+        "amount": 210,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.7,
+        "scale": 5,
+        "count": 79
+      },
+      "themes": [
+        "Espacio",
+        "Familiar",
+        "Exploración"
+      ],
+      "shortDescription": "Cartografía un cinturón de rocas y descubre rutas seguras en 30 minutos.",
+      "players": {
+        "min": 2,
+        "max": 6
+      },
+      "durationMinutes": {
+        "min": 25,
+        "max": 40
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Exploración",
+        "Selección simultánea",
+        "Colección de sets"
+      ],
+      "publisher": "Delta Drift",
+      "releaseYear": 2016,
+      "image": {
+        "src": "/images/g-asteroid-almanac.svg",
+        "alt": "Portada del juego Asteroid Almanac"
+      },
+      "purchaseUrl": "https://example.com/comprar/asteroid-almanac"
+    },
+    {
+      "id": "g-lantern-logic",
+      "name": "Lantern Logic",
+      "price": {
+        "amount": 150,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.2,
+        "scale": 5,
+        "count": 41
+      },
+      "themes": [
+        "Puzzle",
+        "Familiar",
+        "Minimalista"
+      ],
+      "shortDescription": "Resuelve patrones de luz con reglas simples y decisiones sorprendentemente profundas.",
+      "players": {
+        "min": 1,
+        "max": 2
+      },
+      "durationMinutes": {
+        "min": 15,
+        "max": 25
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Puzzle",
+        "Patrones",
+        "Acciones limitadas"
+      ],
+      "publisher": "Bosque Claro",
+      "releaseYear": 2018,
+      "image": {
+        "src": "/images/g-lantern-logic.svg",
+        "alt": "Portada del juego Lantern Logic"
+      },
+      "purchaseUrl": "https://example.com/comprar/lantern-logic"
+    },
+    {
+      "id": "g-citadel-of-cards",
+      "name": "Citadel of Cards",
+      "price": {
+        "amount": 190,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.9,
+        "scale": 5,
+        "count": 103
+      },
+      "themes": [
+        "Fantasía",
+        "Cartas",
+        "Competitivo"
+      ],
+      "shortDescription": "Construye una ciudadela con cartas, bloquea rivales y gana prestigio.",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 55
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Construcción por cartas",
+        "Interacción directa",
+        "Colección de sets"
+      ],
+      "publisher": "Cobre & Hueso Studio",
+      "releaseYear": 2017,
+      "image": {
+        "src": "/images/g-citadel-of-cards.svg",
+        "alt": "Portada del juego Citadel of Cards"
+      },
+      "purchaseUrl": "https://example.com/comprar/citadel-of-cards"
+    },
+    {
+      "id": "g-rift-runners",
+      "name": "Rift Runners",
+      "price": {
+        "amount": 365,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 297
+      },
+      "themes": [
+        "Acción",
+        "Sci‑Fi",
+        "Cooperativo"
+      ],
+      "shortDescription": "Corre entre grietas dimensionales, coordina habilidades y escapa con el botín.",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 55,
+        "max": 95
+      },
+      "age": {
+        "min": 12
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Cooperativo",
+        "Gestión de acciones",
+        "Eventos"
+      ],
+      "publisher": "Koalit Editions",
+      "releaseYear": 2024,
+      "image": {
+        "src": "/images/g-rift-runners.svg",
+        "alt": "Portada del juego Rift Runners"
+      },
+      "purchaseUrl": "https://example.com/comprar/rift-runners"
+    }
+  ],
+  "sponsors": [
+    {
+      "id": "s-koalit",
+      "name": "Koalit",
+      "logo": {
+        "src": "/logos/koalit.svg",
+        "alt": "Logo de Koalit"
+      },
+      "websiteUrl": "https://example.com/koalit",
+      "tagline": "Calidad de producto, sin humo.",
+      "priority": 20
+    },
+    {
+      "id": "s-ludica-works",
+      "name": "Lúdica Works",
+      "logo": {
+        "src": "/logos/ludica-works.svg",
+        "alt": "Logo de Lúdica Works"
+      },
+      "websiteUrl": "https://example.com/ludica-works",
+      "tagline": "Juegos que se sienten vivos.",
+      "priority": 10
+    }
+  ],
+  "promotions": [
+    {
+      "id": "p-obsidian-orbit",
+      "gameId": "g-obsidian-orbit",
+      "label": "Promocionado",
+      "weight": 50,
+      "reason": "Top ventas del mes",
+      "startsAt": "2026-01-20",
+      "endsAt": "2026-12-31"
+    },
+    {
+      "id": "p-aurora-outpost",
+      "gameId": "g-aurora-outpost",
+      "label": "Promocionado",
+      "weight": 40,
+      "reason": "Recomendado para cooperativo",
+      "startsAt": "2026-01-20",
+      "endsAt": "2026-12-31"
+    },
+    {
+      "id": "p-rift-runners",
+      "gameId": "g-rift-runners",
+      "label": "Promocionado",
+      "weight": 30,
+      "reason": "Nuevo lanzamiento",
+      "startsAt": "2026-01-20",
+      "endsAt": "2026-12-31"
+    },
+    {
+      "id": "p-neon-nexus",
+      "gameId": "g-neon-nexus",
+      "label": "Promocionado",
+      "weight": 20,
+      "reason": "Estrategia favorita del equipo",
+      "startsAt": "2026-01-20",
+      "endsAt": "2026-12-31"
+    }
+  ]
+}
