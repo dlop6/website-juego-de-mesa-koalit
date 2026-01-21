@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import { ThemeProvider } from '@/providers/ThemeProvider';
-import './styles.css';
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import "./styles.css";
 
 export const metadata: Metadata = {
-  title: 'Bóveda de Juegos',
-  description: 'Catálogo de juegos de mesa',
+  title: "Bóveda de Juegos",
+  description: "Catálogo de juegos de mesa",
 };
 
 export default function RootLayout({

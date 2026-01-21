@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* modo oscuro */
 :root {
@@ -59,7 +59,7 @@
 }
 
 /*  modo claro */
-[data-theme='light'] {
+[data-theme="light"] {
   --bg: #f4f0e8;
   --surface: #ffffff;
   --elevated: #faf7f2;
@@ -81,7 +81,7 @@ html,
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: var(--fs-600);
   font-weight: var(--fw-400);
   line-height: var(--lh-normal);
