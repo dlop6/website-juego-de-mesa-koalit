@@ -44,7 +44,7 @@ export function GameDetail({
     typeof game.complexity === "number" ? `${game.complexity}` : null;
 
   return (
-    <main className="min-h-screen bg-bg text-text">
+    <div className="min-h-screen bg-bg text-text">
       <div className="mx-auto w-full max-w-5xl px-4 py-6 lg:px-6">
         <BackToCatalog searchParams={searchParams} />
 
@@ -142,6 +142,6 @@ export function GameDetail({
           </p>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

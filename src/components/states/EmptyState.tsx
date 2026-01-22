@@ -1,7 +1,8 @@
 "use client";
 
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
+import { VaultIcon } from "@/components/icons/VaultIcon";
 
 export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -10,6 +11,7 @@ export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   onAction: () => void;
   secondaryActionLabel?: string;
   onSecondaryAction?: () => void;
+  icon?: ReactNode;
 }
 
 export function EmptyState({
@@ -19,6 +21,7 @@ export function EmptyState({
   onAction,
   secondaryActionLabel,
   onSecondaryAction,
+  icon,
   className,
   ...props
 }: EmptyStateProps) {
@@ -33,6 +36,9 @@ export function EmptyState({
         .join(" ")}
       {...props}
     >
+      <div className="mx-auto w-fit">
+        {icon ?? <VaultIcon className="h-20 w-20 text-accent" />}
+      </div>
       <div className="space-y-2">
         <h2 className="text-700 font-700 text-text">{title}</h2>
         {description ? <p className="text-500 text-muted">{description}</p> : null}

@@ -2,6 +2,7 @@
 
 import type { HTMLAttributes, ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
+import { VaultIcon } from "@/components/icons/VaultIcon";
 
 export interface ErrorStateProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -35,7 +36,9 @@ export function ErrorState({
         .join(" ")}
       {...props}
     >
-      {icon ? <div className="mx-auto w-fit">{icon}</div> : null}
+      <div className="mx-auto w-fit">
+        {icon ?? <VaultIcon className="h-20 w-20 text-accent" />}
+      </div>
       <div className="space-y-2">
         <h2 className="text-700 font-700 text-text">{title}</h2>
         {description ? <p className="text-500 text-muted">{description}</p> : null}

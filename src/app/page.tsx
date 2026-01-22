@@ -6,8 +6,11 @@ export default async function Home() {
   const hasSponsor = sponsors.length > 0;
 
   return (
-    <main className="min-h-screen bg-bg text-text">
-      <div className="mx-auto w-full max-w-6xl px-4 py-10 lg:px-6">
+    <div className="relative min-h-screen overflow-hidden bg-bg text-text">
+      {/* Glow radiante desde abajo */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-accent/10 via-accent/5 to-transparent" />
+      
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-10 lg:px-6">
         <section className="space-y-4">
           <h1 className="text-900 font-700 text-text">Encuentra tu próxima mesa.</h1>
           <p className="max-w-xl text-500 text-muted">
@@ -81,6 +84,6 @@ export default async function Home() {
           </section>
         ) : null}
       </div>
-    </main>
+    </div>
   );
 }
