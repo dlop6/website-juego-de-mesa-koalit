@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import type { Game } from "@/lib/dal";
+import type { Game, Promotion, Sponsor } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";
 import { filterGames } from "@/lib/filters/filterGames";
 import {
@@ -10,8 +10,11 @@ import {
   parseFiltersFromSearchParams,
   serializeFiltersToSearchParams,
 } from "@/lib/filters/urlFilters";
+import { excludePromotedGames, selectPromotedGames } from "@/lib/ads/ads";
 import Link from "next/link";
 import { GameCard } from "@/components/game/GameCard";
+import { PromotedSection } from "@/components/ads/PromotedSection";
+import { SponsorModule } from "@/components/ads/SponsorModule";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/states/EmptyState";
 
@@ -26,7 +29,15 @@ function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-export function CatalogClient({ games }: { games: Game[] }) {
+export function CatalogClient({
+  games,
+  promotions,
+  sponsors,
+}: {
+  games: Game[];
+  promotions: Promotion[];
+  sponsors: Sponsor[];
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -87,6 +98,11 @@ export function CatalogClient({ games }: { games: Game[] }) {
     return ordered;
   }, [games]);
 
+  const gamesById = useMemo(() => {
+    const entries: Array<[string, Game]> = games.map((game) => [game.id, game]);
+    return new Map(entries);
+  }, [games]);
+
   const initialFilters = useMemo(() => {
     if (initialFiltersRef.current) {
       return initialFiltersRef.current;
@@ -113,6 +129,18 @@ export function CatalogClient({ games }: { games: Game[] }) {
     () => filterGames(games, normalizedFilters),
     [games, normalizedFilters]
   );
+
+  const promotedGames = useMemo(
+    () => selectPromotedGames(promotions, gamesById, normalizedFilters),
+    [promotions, gamesById, normalizedFilters]
+  );
+
+  const baseGames = useMemo(
+    () => excludePromotedGames(filteredGames, promotedGames),
+    [filteredGames, promotedGames]
+  );
+
+  const hasSponsor = sponsors.length > 0;
 
   useEffect(() => {
     if (!didSyncRef.current) {
@@ -295,7 +323,7 @@ export function CatalogClient({ games }: { games: Game[] }) {
             </Button>
           </aside>
 
-          <section className="space-y-4">
+          <section className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <h1 className="text-800 font-700">Catálogo de juegos</h1>
@@ -311,7 +339,51 @@ export function CatalogClient({ games }: { games: Game[] }) {
               </div>
             </div>
 
-            {filteredGames.length === 0 ? (
+            <PromotedSection
+              promotions={promotions}
+              gamesById={gamesById}
+              filters={normalizedFilters}
+            />
+
+            {hasSponsor ? (
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px]">
+                <div>
+                  {filteredGames.length === 0 ? (
+                    <EmptyState
+                      title="No hay resultados con estos filtros"
+                      description="Intenta ajustar los filtros para encontrar lo que buscas."
+                      actionLabel="Limpiar filtros"
+                      onAction={clearFilters}
+                      secondaryActionLabel="Ajustar filtros"
+                      onSecondaryAction={focusFilters}
+                    />
+                  ) : (
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {baseGames.map((game) => (
+                        <Link
+                          key={game.id}
+                          href={`/catalogo/${game.id}`}
+                          className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                          aria-label={`Ver detalles de ${game.name}`}
+                        >
+                          <GameCard
+                            id={game.id}
+                            name={game.name}
+                            imageSrc={game.image?.src ?? ""}
+                            imageAlt={game.image?.alt ?? game.name}
+                            priceAmount={game.price?.amount ?? 0}
+                            priceCurrency={game.price?.currency ?? "GTQ"}
+                            ratingValue={game.rating?.value ?? 0}
+                            themes={Array.isArray(game.themes) ? game.themes : []}
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <SponsorModule sponsors={sponsors} />
+              </div>
+            ) : filteredGames.length === 0 ? (
               <EmptyState
                 title="No hay resultados con estos filtros"
                 description="Intenta ajustar los filtros para encontrar lo que buscas."
@@ -322,7 +394,7 @@ export function CatalogClient({ games }: { games: Game[] }) {
               />
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {filteredGames.map((game) => (
+                {baseGames.map((game) => (
                   <Link
                     key={game.id}
                     href={`/catalogo/${game.id}`}
