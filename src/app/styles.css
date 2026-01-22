@@ -1,107 +1,168 @@
 @import "tailwindcss";
 
-/* modo oscuro */
-:root {
-  --bg: #0b0f14;
-  --surface: #101826;
-  --elevated: #162235;
-  --text: #e8eef6;
-  --muted: #a9b4c3;
-  --border: #24344d;
-  --accent: #c58b5a;
-  --accent-muted: #9e6f49;
-  --support: #1f6f4a;
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME: Design tokens para Bóveda de Juegos
+   Tailwind v4 usa @theme para extender el sistema de diseño
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-  /* semantica */
-  --danger: #d64545;
-  --warning: #d9a441;
-  --info: #3a7bd5;
+@theme {
+  /* ─── Colores (Dark mode default) ─── */
+  --color-bg: #0b0f14;
+  --color-surface: #101826;
+  --color-elevated: #162235;
+  --color-text: #e8eef6;
+  --color-muted: #a9b4c3;
+  --color-border: #24344d;
+  --color-accent: #c58b5a;
+  --color-accent-muted: #9e6f49;
+  --color-support: #1f6f4a;
+  --color-danger: #d64545;
+  --color-warning: #d9a441;
+  --color-info: #3a7bd5;
 
-  /* tipografia */
-  --fs-900: 32px;
-  --fs-800: 24px;
-  --fs-700: 20px;
-  --fs-600: 16px;
-  --fs-500: 14px;
-  --fs-400: 12px;
+  /* ─── Tipografía ─── */
+  --font-size-900: 2rem;      /* 32px - H1 */
+  --font-size-800: 1.5rem;    /* 24px - H2 */
+  --font-size-700: 1.25rem;   /* 20px - H3 */
+  --font-size-600: 1rem;      /* 16px - Body */
+  --font-size-500: 0.875rem;  /* 14px - Small */
+  --font-size-400: 0.75rem;   /* 12px - Caption */
 
-  --fw-700: 700;
-  --fw-600: 600;
-  --fw-500: 500;
-  --fw-400: 400;
+  /* ─── Espaciado ─── */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.5rem;    /* 24px */
+  --spacing-6: 2rem;      /* 32px */
+  --spacing-7: 3rem;      /* 48px */
+  --spacing-8: 4rem;      /* 64px */
 
-  --lh-tight: 1.2;
-  --lh-normal: 1.5;
-  --lh-relaxed: 1.6;
+  /* ─── Border Radius ─── */
+  --radius-1: 0.5rem;     /* 8px */
+  --radius-2: 0.75rem;    /* 12px */
+  --radius-3: 1rem;       /* 16px */
 
-  /* espaciado   */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
+  /* ─── Duración de transiciones ─── */
+  --duration-1: 120ms;
+  --duration-2: 180ms;
+  --duration-3: 240ms;
 
-  /* border radius */
-  --radius-1: 8px;
-  --radius-2: 12px;
-  --radius-3: 16px;
-
-  /* motion */
-  --dur-1: 120ms;
-  --dur-2: 180ms;
-  --dur-3: 240ms;
-
+  /* ─── Easing ─── */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ─── Fuentes ─── */
+  --font-family-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/*  modo claro */
-[data-theme="light"] {
-  --bg: #f4f0e8;
-  --surface: #ffffff;
-  --elevated: #faf7f2;
-  --text: #121a24;
-  --muted: #4c5a6a;
-  --border: #e3ddd3;
-  --accent: #b8794c;
-  --accent-muted: #99623d;
-  --support: #16583a;
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-600);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+  }
+
+  /* Focus ring accesible */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Smooth transitions */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-property: background-color, color, border-color, opacity;
+    transition-duration: var(--duration-2);
+    transition-timing-function: var(--ease-standard);
+  }
+
+  /* ─── Light mode ─── */
+  [data-theme="light"] {
+    --color-bg: #f4f0e8;
+    --color-surface: #ffffff;
+    --color-elevated: #faf7f2;
+    --color-text: #121a24;
+    --color-muted: #4c5a6a;
+    --color-border: #e3ddd3;
+    --color-accent: #b8794c;
+    --color-accent-muted: #99623d;
+    --color-support: #16583a;
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ═══════════════════════════════════════════════════════════════════════════
+   CUSTOM UTILITIES
+   Tailwind v4 usa @utility para crear clases personalizadas
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Font Weights ─── */
+@utility font-700 {
+  font-weight: 700;
 }
 
-html,
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: var(--fs-600);
-  font-weight: var(--fw-400);
-  line-height: var(--lh-normal);
-  transition: background-color var(--dur-2) var(--ease-standard),
-    color var(--dur-2) var(--ease-standard);
+@utility font-600 {
+  font-weight: 600;
 }
 
-/* focus ring visible */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+@utility font-500 {
+  font-weight: 500;
 }
 
-/* transicion entre estlos  */
-button,
-a,
-input,
-select,
-textarea {
-  transition: background-color var(--dur-2) var(--ease-standard),
-    color var(--dur-2) var(--ease-standard),
-    border-color var(--dur-2) var(--ease-standard);
+@utility font-400 {
+  font-weight: 400;
+}
+
+/* ─── Font Sizes ─── */
+@utility text-900 {
+  font-size: var(--font-size-900);
+  line-height: 1.2;
+}
+
+@utility text-800 {
+  font-size: var(--font-size-800);
+  line-height: 1.25;
+}
+
+@utility text-700 {
+  font-size: var(--font-size-700);
+  line-height: 1.3;
+}
+
+@utility text-600 {
+  font-size: var(--font-size-600);
+  line-height: 1.5;
+}
+
+@utility text-500 {
+  font-size: var(--font-size-500);
+  line-height: 1.5;
+}
+
+@utility text-400 {
+  font-size: var(--font-size-400);
+  line-height: 1.5;
 }

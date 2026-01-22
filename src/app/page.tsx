@@ -1,4 +1,10 @@
-export default function Home() {
+import { SponsorModule } from "@/components/ads/SponsorModule";
+import { getSponsors } from "@/lib/dal";
+
+export default async function Home() {
+  const sponsors = await getSponsors();
+  const hasSponsor = sponsors.length > 0;
+
   return (
     <main className="min-h-screen bg-bg text-text">
       <div className="mx-auto w-full max-w-6xl px-4 py-10 lg:px-6">
@@ -68,6 +74,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {hasSponsor ? (
+          <section className="mt-10 max-w-sm">
+            <SponsorModule sponsors={sponsors} />
+          </section>
+        ) : null}
       </div>
     </main>
   );

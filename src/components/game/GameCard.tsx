@@ -51,7 +51,7 @@ export function GameCard({
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="relative overflow-hidden rounded-2 bg-surface">
+      <div className="relative overflow-hidden rounded-2 bg-surface aspect-[4/3] w-full">
         {badgeSlot ? <div className="absolute right-2 top-2">{badgeSlot}</div> : null}
         <Image
           src={imageSrc}

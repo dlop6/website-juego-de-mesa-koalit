@@ -155,7 +155,7 @@ export function serializeFiltersToSearchParams(
   if (normalized.ratingMin !== 0) {
     params.set("ratingMin", String(normalized.ratingMin));
   }
-  if (normalized.themes.length > 0) {
+  if (normalized.themes && normalized.themes.length > 0) {
     params.set("themes", normalized.themes.join(","));
   }
 
