@@ -1,9 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Game } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";
 import { filterGames } from "@/lib/filters/filterGames";
+import {
+  normalizeFilters,
+  parseFiltersFromSearchParams,
+  serializeFiltersToSearchParams,
+} from "@/lib/filters/urlFilters";
 import Link from "next/link";
 import { GameCard } from "@/components/game/GameCard";
 import { Button } from "@/components/ui/Button";
@@ -21,7 +27,12 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 
 export function CatalogClient({ games }: { games: Game[] }) {
-  const [filters, setFilters] = useState<GameFilters>(defaultFilters);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const searchParamsString = searchParams.toString();
+  const initialFiltersRef = useRef<GameFilters | null>(null);
+  const didSyncRef = useRef(false);
   const [isPending, startTransition] = useTransition();
   const [showSpinner, setShowSpinner] = useState(false);
   const spinnerTimeout = useRef<number | null>(null);
@@ -76,6 +87,20 @@ export function CatalogClient({ games }: { games: Game[] }) {
     return ordered;
   }, [games]);
 
+  const initialFilters = useMemo(() => {
+    if (initialFiltersRef.current) {
+      return initialFiltersRef.current;
+    }
+    const parsed = parseFiltersFromSearchParams(
+      new URLSearchParams(searchParamsString),
+      themeOptions
+    );
+    initialFiltersRef.current = parsed;
+    return parsed;
+  }, [searchParamsString, themeOptions]);
+
+  const [filters, setFilters] = useState<GameFilters>(initialFilters);
+
   const normalizedFilters = useMemo(
     () => ({
       ...filters,
@@ -89,10 +114,27 @@ export function CatalogClient({ games }: { games: Game[] }) {
     [games, normalizedFilters]
   );
 
+  useEffect(() => {
+    if (!didSyncRef.current) {
+      didSyncRef.current = true;
+      return;
+    }
+    const params = serializeFiltersToSearchParams(filters, themeOptions);
+    const nextQuery = params.toString();
+    const nextUrl = nextQuery.length > 0 ? `${pathname}?${nextQuery}` : pathname;
+    const currentQuery = searchParamsString;
+    const currentUrl =
+      currentQuery.length > 0 ? `${pathname}?${currentQuery}` : pathname;
+
+    if (nextUrl !== currentUrl) {
+      router.replace(nextUrl, { scroll: false });
+    }
+  }, [filters, pathname, router, searchParamsString, themeOptions]);
+
   function startFiltering(update: (prev: GameFilters) => GameFilters) {
     setShowSpinner(true);
     startTransition(() => {
-      setFilters(update);
+      setFilters((prev) => normalizeFilters(update(prev), themeOptions));
     });
   }
 

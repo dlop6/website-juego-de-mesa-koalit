@@ -26,7 +26,7 @@ function SkeletonCard() {
 
 export function LoadingState({
   count = 9,
-  label = "Cargando catalogo...",
+  label = "Cargando...",
   className,
   ...props
 }: LoadingStateProps) {

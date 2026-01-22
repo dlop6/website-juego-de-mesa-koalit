@@ -43,7 +43,7 @@ export default function CatalogoLoading() {
 
           <section className="space-y-4">
             <div className="h-6 w-48 rounded-1 bg-border/40" />
-            <LoadingState />
+            <LoadingState label="Cargando..." />
           </section>
         </div>
       </div>
