@@ -1,21 +1,18 @@
+import { notFound } from "next/navigation";
 import { getGameById } from "@/lib/dal";
+import { GameDetail } from "@/components/game/GameDetail";
 
-export default async function GameDetailPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: { id: string };
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
+export default async function GameDetailPage({ params, searchParams }: PageProps) {
   const game = await getGameById(params.id);
 
   if (!game) {
-    return (
-      <main className="min-h-screen bg-bg text-text p-24">
-        <h1 className="text-900 font-700 mb-8">Juego no encontrado</h1>
-        <p>Revisa el identificador o vuelve al catálogo.</p>
-      </main>
-    );
+    notFound();
   }
 
-  return (
-    <main className="min-h-screen bg-bg text-text p-24">
-      <h1 className="text-900 font-700 mb-8">{game.name}</h1>
-      <p>{game.shortDescription}</p>
-    </main>
-  );
+  return <GameDetail game={game} searchParams={searchParams} />;
 }
