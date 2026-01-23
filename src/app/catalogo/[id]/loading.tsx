@@ -1,12 +1,14 @@
 export default function GameDetailLoading() {
   return (
     <main className="min-h-screen bg-bg text-text">
-      <div className="mx-auto w-full max-w-5xl px-4 py-6 lg:px-6">
+      <div className="mx-auto w-full max-w-5xl px-4 py-8 lg:px-6 lg:py-10">
         <div className="h-4 w-40 rounded-1 bg-border/40" />
 
-        <section className="mt-4 rounded-3 border border-border bg-surface p-4 lg:p-6">
+        <section className="mt-5 rounded-3 border border-border bg-surface p-4 shadow-[0_18px_36px_rgba(6,10,18,0.35)] lg:p-6">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-            <div className="h-64 w-full rounded-2 border border-border bg-elevated sm:h-72 lg:h-80" />
+            <div className="overflow-hidden rounded-3 border border-border bg-elevated">
+              <div className="aspect-[4/3] w-full" />
+            </div>
             <div className="space-y-4">
               <div className="space-y-2">
                 <div className="h-6 w-48 rounded-1 bg-border/40" />
@@ -33,7 +35,7 @@ export default function GameDetailLoading() {
           </div>
         </section>
 
-        <section className="mt-6 rounded-3 border border-border bg-surface p-4 lg:p-6">
+        <section className="mt-6 rounded-3 border border-border bg-surface p-4 shadow-[0_18px_36px_rgba(6,10,18,0.35)] lg:p-6">
           <div className="h-5 w-32 rounded-1 bg-border/40" />
           <div className="mt-3 space-y-2">
             {Array.from({ length: 3 }).map((_, index) => (
