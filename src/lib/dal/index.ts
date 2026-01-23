@@ -33,7 +33,21 @@ export async function getGames(): Promise<Game[]> {
 
 export async function getGameById(id: string): Promise<Game | null> {
   const { games } = await readDatabase();
-  return games.find((game) => game.id === id) ?? null;
+  if (!id) {
+    return null;
+  }
+  let normalized = id;
+  try {
+    normalized = decodeURIComponent(id).trim();
+  } catch {
+    normalized = id.trim();
+  }
+  const direct = games.find((game) => game.id === normalized);
+  if (direct) {
+    return direct;
+  }
+  const lower = normalized.toLowerCase();
+  return games.find((game) => game.id.toLowerCase() === lower) ?? null;
 }
 
 export async function getSponsors(): Promise<Sponsor[]> {

@@ -14,8 +14,10 @@ export interface GameCardProps {
   priceCurrency: string;
   ratingValue: number;
   themes: string[];
+  variant?: "default" | "promo";
   badgeSlot?: ReactNode;
   className?: string;
+  imageWrapperClassName?: string;
 }
 
 function formatPrice(amount: number) {
@@ -35,23 +37,35 @@ export function GameCard({
   priceCurrency,
   ratingValue,
   themes,
+  variant = "default",
   badgeSlot,
   className,
+  imageWrapperClassName,
 }: GameCardProps) {
   const priceLabel = `${formatPrice(priceAmount)} ${priceCurrency}`;
+  const imageWrapperClasses = [
+    "relative w-full overflow-hidden rounded-2 border border-border bg-surface",
+    variant === "promo" ? "aspect-[16/9]" : "aspect-[4/3]",
+    imageWrapperClassName,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <article
       data-game-id={id}
       className={[
-        "overflow-hidden rounded-2 border border-border bg-elevated",
-        "p-3",
+        "overflow-hidden rounded-3 border border-border bg-elevated",
+        "p-4",
+        "shadow-[0_14px_30px_rgba(6,10,18,0.35)]",
+        "transition-transform duration-2 ease-[cubic-bezier(0.2,0,0,1)]",
+        "hover:-translate-y-1",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="relative overflow-hidden rounded-2 bg-surface aspect-[4/3] w-full">
+      <div className={imageWrapperClasses}>
         {badgeSlot ? <div className="absolute right-2 top-2">{badgeSlot}</div> : null}
         <Image
           src={imageSrc}
@@ -63,7 +77,7 @@ export function GameCard({
         />
       </div>
 
-      <div className="mt-3 space-y-2">
+      <div className="mt-4 space-y-2">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="text-600 font-600 text-text">{name}</h3>

@@ -44,27 +44,29 @@ export function GameDetail({
     typeof game.complexity === "number" ? `${game.complexity}` : null;
 
   return (
-    <div className="min-h-screen bg-bg text-text">
-      <div className="mx-auto w-full max-w-5xl px-4 py-6 lg:px-6">
+    <main className="min-h-screen bg-bg text-text">
+      <div className="mx-auto w-full max-w-5xl px-4 py-8 lg:px-6 lg:py-10">
         <BackToCatalog searchParams={searchParams} />
 
-        <section className="mt-4 rounded-3 border border-border bg-surface p-4 lg:p-6">
+        <section className="mt-5 rounded-3 border border-border bg-surface p-4 shadow-[0_18px_36px_rgba(6,10,18,0.35)] lg:p-6">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-            <div className="relative h-64 w-full overflow-hidden rounded-2 border border-border bg-elevated sm:h-72 lg:h-80">
-              {game.image?.src ? (
-                <Image
-                  src={game.image.src}
-                  alt={game.image.alt ?? game.name}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center text-500 text-muted">
-                  Imagen no disponible
-                </div>
-              )}
+            <div className="relative overflow-hidden rounded-3 border border-border bg-elevated">
+              <div className="relative aspect-[4/3] w-full">
+                {game.image?.src ? (
+                  <Image
+                    src={game.image.src}
+                    alt={game.image.alt ?? game.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-500 text-muted">
+                    Imagen no disponible
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -135,13 +137,13 @@ export function GameDetail({
           </div>
         </section>
 
-        <section className="mt-6 rounded-3 border border-border bg-surface p-4 lg:p-6">
+        <section className="mt-6 rounded-3 border border-border bg-surface p-4 shadow-[0_18px_36px_rgba(6,10,18,0.35)] lg:p-6">
           <h2 className="text-700 font-700 text-text">Descripción</h2>
-          <p className="mt-2 text-500 text-muted">
+          <p className="mt-2 text-500 leading-relaxed text-muted">
             {game.shortDescription}
           </p>
         </section>
       </div>
-    </div>
+    </main>
   );
 }

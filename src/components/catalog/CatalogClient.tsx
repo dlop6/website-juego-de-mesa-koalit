@@ -42,7 +42,6 @@ export function CatalogClient({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const searchParamsString = searchParams.toString();
-  const initialFiltersRef = useRef<GameFilters | null>(null);
   const didSyncRef = useRef(false);
   const [isPending, startTransition] = useTransition();
   const [showSpinner, setShowSpinner] = useState(false);
@@ -104,15 +103,10 @@ export function CatalogClient({
   }, [games]);
 
   const initialFilters = useMemo(() => {
-    if (initialFiltersRef.current) {
-      return initialFiltersRef.current;
-    }
-    const parsed = parseFiltersFromSearchParams(
+    return parseFiltersFromSearchParams(
       new URLSearchParams(searchParamsString),
       themeOptions
     );
-    initialFiltersRef.current = parsed;
-    return parsed;
   }, [searchParamsString, themeOptions]);
 
   const [filters, setFilters] = useState<GameFilters>(initialFilters);
@@ -221,12 +215,12 @@ export function CatalogClient({
 
   return (
     <main className="min-h-screen bg-bg text-text">
-      <div className="mx-auto w-full max-w-6xl px-4 py-6 lg:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 py-8 lg:px-6 lg:py-10">
         <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
           <aside
             ref={filtersPanelRef}
             id="filters-panel"
-            className="space-y-6 rounded-3 border border-border bg-surface p-4"
+            className="space-y-6 rounded-3 border border-border bg-surface/90 p-5 shadow-[0_18px_40px_rgba(7,11,18,0.35)]"
           >
             <div className="space-y-4">
               <h2 className="text-600 font-600">Filtros</h2>
@@ -237,7 +231,7 @@ export function CatalogClient({
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1">
-                    <span className="text-400 text-muted">Min (GTQ)</span>
+                    <span className="text-400 font-600 text-muted">Min (GTQ)</span>
                     <input
                       id="price-min"
                       type="number"
@@ -249,7 +243,7 @@ export function CatalogClient({
                     />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-400 text-muted">Max (GTQ)</span>
+                    <span className="text-400 font-600 text-muted">Max (GTQ)</span>
                     <input
                       id="price-max"
                       type="number"
@@ -276,7 +270,7 @@ export function CatalogClient({
                         type="button"
                         aria-pressed={isActive}
                         className={cn(
-                          "flex h-8 w-8 items-center justify-center rounded-full border text-500 font-600",
+                          "flex h-9 w-9 items-center justify-center rounded-full border text-500 font-600",
                           isActive
                             ? "border-transparent bg-accent text-white"
                             : "border-border bg-elevated text-muted"
@@ -346,7 +340,7 @@ export function CatalogClient({
             />
 
             {hasSponsor ? (
-              <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px]">
+              <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px]">
                 <div>
                   {filteredGames.length === 0 ? (
                     <EmptyState
@@ -358,11 +352,11 @@ export function CatalogClient({
                       onSecondaryAction={focusFilters}
                     />
                   ) : (
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                       {baseGames.map((game) => (
                         <Link
                           key={game.id}
-                          href={`/catalogo/${game.id}`}
+                          href={`/catalogo/${encodeURIComponent(game.id)}`}
                           className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
                           aria-label={`Ver detalles de ${game.name}`}
                         >
@@ -393,11 +387,11 @@ export function CatalogClient({
                 onSecondaryAction={focusFilters}
               />
             ) : (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {baseGames.map((game) => (
                   <Link
                     key={game.id}
-                    href={`/catalogo/${game.id}`}
+                    href={`/catalogo/${encodeURIComponent(game.id)}`}
                     className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
                     aria-label={`Ver detalles de ${game.name}`}
                   >
