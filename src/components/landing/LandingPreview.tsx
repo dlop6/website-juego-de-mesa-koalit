@@ -1,35 +1,50 @@
 import Link from "next/link";
 
-import { PLACEHOLDER_IMAGE_SQUARE } from "@/lib/formatters";
+import type { Game } from "@/lib/dal";
+import {
+  PLACEHOLDER_IMAGE_SQUARE,
+  formatPriceWithQ,
+  formatRatingTenScale,
+} from "@/lib/formatters";
 
-const previewItems = [
-  {
-    name: "MONOPOLY_1985",
-    year: "1985",
-    rating: "8.5/10",
-    price: "Q450.00",
-    image: PLACEHOLDER_IMAGE_SQUARE,
-    alt: "Monopoly board game pieces",
-  },
-  {
-    name: "CATAN_COLONOS",
-    year: "1995",
-    rating: "9.2/10",
-    price: "Q520.00",
-    image: PLACEHOLDER_IMAGE_SQUARE,
-    alt: "Settlers of Catan hexagonal tiles",
-  },
-  {
-    name: "DUNE_IMPERIO",
-    year: "2020",
-    rating: "9.7/10",
-    price: "Q800.00",
-    image: PLACEHOLDER_IMAGE_SQUARE,
-    alt: "Dune Imperium game box or sci-fi landscape",
-  },
-];
+const PREVIEW_COUNT = 3;
 
-export function LandingPreview() {
+function normalizePreviewName(name: string) {
+  return name
+    .toUpperCase()
+    .replace(/[^A-Z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function pickRandomGames(games: Game[], count: number, random: () => number) {
+  const pool = [...games];
+
+  for (let index = pool.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [pool[index], pool[swapIndex]] = [pool[swapIndex], pool[index]];
+  }
+
+  return pool.slice(0, Math.max(0, Math.min(count, pool.length)));
+}
+
+export function LandingPreview({
+  games,
+  random = Math.random,
+}: {
+  games: Game[];
+  random?: () => number;
+}) {
+  const previewItems = pickRandomGames(games, PREVIEW_COUNT, random).map((game) => ({
+    name: normalizePreviewName(game.name),
+    year: game.releaseYear ? `${game.releaseYear}` : "--",
+    rating: `${formatRatingTenScale(game.rating?.value ?? 0)}/10`,
+    price: formatPriceWithQ(game.price?.amount ?? 0, 2),
+    image: game.image?.src || PLACEHOLDER_IMAGE_SQUARE,
+    alt: game.image?.alt ?? game.name,
+  }));
+  const totalCount = games.length;
+  const shownCount = previewItems.length;
+
   return (
     <section className="space-y-6">
       <div className="flex items-center justify-between border-b border-primary pb-2">
@@ -38,7 +53,7 @@ export function LandingPreview() {
           VISTA PREVIA DEL ARCHIVO
         </h3>
         <span className="text-xs font-mono text-primary/60">
-          MOSTRANDO 3 DE 4208 REGISTROS
+          MOSTRANDO {shownCount} DE {totalCount} REGISTROS
         </span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

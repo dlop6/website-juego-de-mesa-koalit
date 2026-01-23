@@ -21,7 +21,7 @@ export function LandingHero() {
               MUNDO ANALÓGICO.
             </h2>
             <p className="text-lg md:text-xl text-primary/80 font-mono max-w-lg border-l-2 border-primary pl-4">
-              El repositorio digital definitivo para el descubrimiento y colección de
+              El sitio digital definitivo para el descubrimiento y colección de
               juegos de mesa.
             </p>
             <div className="pt-4 flex flex-wrap gap-4">
