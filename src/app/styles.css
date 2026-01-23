@@ -259,8 +259,9 @@
   }
 
   .amber-filter {
-    filter: grayscale(100%) sepia(100%) hue-rotate(5deg) saturate(400%) contrast(1.2);
-    mix-blend-mode: luminosity;
+    filter: grayscale(100%) sepia(100%) hue-rotate(350deg) saturate(300%)
+      contrast(1.2);
+    mix-blend-mode: hard-light;
   }
 
   .amber-tint-container {
