@@ -1,56 +1,71 @@
-import Image from "next/image";
 import type { Sponsor } from "@/lib/dal";
-import { Badge } from "@/components/ui/Badge";
 import { selectSponsor } from "@/lib/ads/ads";
 
-const linkClasses =
-  "inline-flex items-center justify-center gap-2 rounded-2 border border-transparent font-600 transition-colors duration-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 bg-accent text-white hover:bg-accent-muted px-4 py-2 text-600";
+const sponsorTexture =
+  "https://www.transparenttextures.com/patterns/carbon-fibre.png";
 
-export function SponsorModule({ sponsors }: { sponsors: Sponsor[] }) {
+export function SponsorModule({
+  sponsors,
+  className,
+}: {
+  sponsors: Sponsor[];
+  className?: string;
+}) {
   const sponsor = selectSponsor(sponsors);
 
   if (!sponsor) {
     return null;
   }
 
+  const sponsorLabel = sponsor.tagline ?? "ORGANIZADORES DE JUEGOS";
+
   return (
-    <aside className="rounded-3 border border-border bg-surface p-4">
-      <div className="space-y-4">
-        <Badge variant="sponsor">Patrocinado</Badge>
+    <article
+      className={[
+        "col-span-1 md:col-span-2 xl:col-span-1 group relative flex flex-col justify-center",
+        "bg-gradient-to-br from-background-dark to-[#2a2410] border border-[#544c3b] overflow-hidden",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: `url('${sponsorTexture}')` }}
+        aria-hidden="true"
+      />
+      <div className="absolute top-2 right-2 text-[10px] text-[#544c3b] font-mono border border-[#544c3b] px-1">
+        // PATROCINADO
+      </div>
+      <div className="p-6 relative z-10 flex flex-col h-full justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="relative h-12 w-12 rounded-2 border border-border bg-elevated">
-            {sponsor.logo?.src ? (
-              <Image
-                src={sponsor.logo.src}
-                alt={sponsor.logo.alt ?? sponsor.name}
-                fill
-                sizes="48px"
-                className="object-contain p-2"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-500 text-muted">
-                {sponsor.name.slice(0, 2).toUpperCase()}
-              </div>
-            )}
+          <div className="size-10 rounded bg-primary/20 flex items-center justify-center text-primary">
+            <span className="material-symbols-outlined">token</span>
           </div>
-          <div className="space-y-1">
-            <p className="text-600 font-600 text-text">{sponsor.name}</p>
-            {sponsor.tagline ? (
-              <p className="text-500 text-muted">{sponsor.tagline}</p>
-            ) : null}
+          <div>
+            <h3 className="text-white text-lg font-bold">{sponsor.name}</h3>
+            <p className="text-primary text-xs tracking-wider">{sponsorLabel}</p>
           </div>
         </div>
+        <p className="text-[#bab09c] text-sm leading-relaxed">
+          {sponsor.tagline ??
+            "Mejora tus protocolos de almacenamiento. Insertos premium para mayor eficiencia."}
+        </p>
         {sponsor.websiteUrl ? (
           <a
             href={sponsor.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={linkClasses}
+            className="w-full py-2 bg-transparent border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-black transition-colors uppercase tracking-widest text-center"
           >
-            Visitar {sponsor.name}
+            [ ACCEDER_AL_CATÁLOGO ]
           </a>
-        ) : null}
+        ) : (
+          <button className="w-full py-2 bg-transparent border border-primary text-primary text-xs font-bold hover:bg-primary hover:text-black transition-colors uppercase tracking-widest">
+            [ ACCEDER_AL_CATÁLOGO ]
+          </button>
+        )}
       </div>
-    </aside>
+    </article>
   );
 }
