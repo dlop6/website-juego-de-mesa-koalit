@@ -49,7 +49,7 @@ export function CatalogFilters({
   return (
     <aside
       id="filters-panel"
-      className="hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto"
+      className="hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 sticky top-16 overflow-hidden"
     >
       <div className="mb-8">
         <h1 className="text-primary text-xl font-bold tracking-widest mb-1">
