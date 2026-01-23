@@ -21,13 +21,16 @@ export function PromotedSection({
   }
 
   return (
-    <section className="space-y-4">
-      <h2 className="text-700 font-700 text-text">Juegos Promocionados</h2>
+    <section className="space-y-3">
+      <div className="space-y-1">
+        <h2 className="text-700 font-700 text-text">Juegos Promocionados</h2>
+        <p className="text-400 text-muted">Selección patrocinada (máx. 3)</p>
+      </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {promotedGames.map(({ game }) => (
           <Link
             key={game.id}
-            href={`/catalogo/${game.id}`}
+            href={`/catalogo/${encodeURIComponent(game.id)}`}
             className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             aria-label={`Ver detalles de ${game.name}`}
           >
@@ -40,6 +43,8 @@ export function PromotedSection({
               priceCurrency={game.price?.currency ?? "GTQ"}
               ratingValue={game.rating?.value ?? 0}
               themes={Array.isArray(game.themes) ? game.themes : []}
+              variant="promo"
+              imageWrapperClassName="lg:aspect-[5/2]"
               badgeSlot={<Badge variant="promo">Promocionado</Badge>}
             />
           </Link>
