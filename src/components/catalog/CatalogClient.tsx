@@ -90,7 +90,7 @@ export function CatalogClient({
       return { min: 0, max: 0 };
     }
 
-    return { min, max };
+    return { min: Math.floor(min), max: Math.ceil(max) };
   }, [games]);
 
   const gamesById = useMemo(() => {

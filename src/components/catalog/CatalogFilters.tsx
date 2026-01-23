@@ -79,6 +79,7 @@ export function CatalogFilters({
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}
+                step={1}
                 value={priceMin}
                 onChange={(event) => onPriceMinChange(Number(event.target.value))}
                 aria-label="Precio mínimo"
@@ -89,6 +90,7 @@ export function CatalogFilters({
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}
+                step={1}
                 value={priceMax}
                 onChange={(event) => onPriceMaxChange(Number(event.target.value))}
                 aria-label="Precio máximo"
