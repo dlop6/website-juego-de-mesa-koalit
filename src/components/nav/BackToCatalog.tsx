@@ -35,7 +35,7 @@ export function BackToCatalog({ searchParams }: { searchParams?: SearchParams })
   return (
     <Link
       href={href}
-      className="group flex items-center gap-2 text-primary/70 hover:text-primary transition-colors"
+      className="group flex items-center gap-2 text-primary/70 hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
     >
       <span className="text-sm font-medium font-mono">&lt;&lt; VOLVER_AL_CATÁLOGO</span>
     </Link>

@@ -1,7 +1,6 @@
 import { LandingHero } from "@/components/landing/LandingHero";
 import { LandingPreview } from "@/components/landing/LandingPreview";
 import { LandingProtocols } from "@/components/landing/LandingProtocols";
-import { LandingTrust } from "@/components/landing/LandingTrust";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
         <LandingHero />
         <LandingPreview />
         <LandingProtocols />
-        <LandingTrust />
       </main>
     </div>
   );

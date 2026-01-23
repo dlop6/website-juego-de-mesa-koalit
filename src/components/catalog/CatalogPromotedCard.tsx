@@ -1,18 +1,14 @@
 import type { Game } from "@/lib/dal";
-
-function formatPrice(amount: number) {
-  if (!Number.isFinite(amount)) {
-    return "--";
-  }
-  return amount.toFixed(2);
-}
-
-const fallbackImage =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM0MCIgdmlld0JveD0iMCAwIDYwMCAzNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIzNDAiIGZpbGw9IiMxMDEwMTAiLz48cGF0aCBkPSJNMCAxNzBIMTYwVjE3MEg0NDBWMzEwSDE2MFYxNzBaIiBmaWxsPSIjMjIyIi8+PC9zdmc+";
+import {
+  PLACEHOLDER_IMAGE_WIDE,
+  formatPriceWithQ,
+} from "@/lib/formatters";
 
 export function CatalogPromotedCard({ game }: { game: Game }) {
-  const imageSrc = game.image?.src?.length ? game.image.src : fallbackImage;
-  const priceLabel = `Q${formatPrice(game.price?.amount ?? 0)}`;
+  const imageSrc = game.image?.src?.length
+    ? game.image.src
+    : PLACEHOLDER_IMAGE_WIDE;
+  const priceLabel = formatPriceWithQ(game.price?.amount ?? 0);
 
   return (
     <article className="group relative flex flex-col bg-[#1a1505] border-2 border-dashed border-primary/50 hover:border-primary transition-all duration-300">

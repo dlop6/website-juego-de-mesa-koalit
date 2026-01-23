@@ -8,5 +8,5 @@ test("SiteFooter renderiza secciones base", () => {
 
   assert.match(html, /NAVEGACIÓN/);
   assert.match(html, /LEGAL/);
-  assert.match(html, /EL BAÚL/);
+  assert.match(html, /The Board Game Vault/);
 });

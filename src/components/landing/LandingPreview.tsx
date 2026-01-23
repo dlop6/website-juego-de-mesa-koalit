@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-const placeholderImage =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDYwMCA2MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI2MDAiIGZpbGw9IiMxMDEwMTAiLz48cGF0aCBkPSJNMCAzMDBIMTYwVjMwMEg0NDBWNTQwSDE2MFYzMDBaIiBmaWxsPSIjMjIyIi8+PHBhdGggZD0iTTQ0MCA2MEg1NDBWMTYwSDQ0MFY2MFoiIGZpbGw9IiMyMjIiLz48L3N2Zz4=";
+import { PLACEHOLDER_IMAGE_SQUARE } from "@/lib/formatters";
 
 const previewItems = [
   {
@@ -9,7 +8,7 @@ const previewItems = [
     year: "1985",
     rating: "8.5/10",
     price: "Q450.00",
-    image: placeholderImage,
+    image: PLACEHOLDER_IMAGE_SQUARE,
     alt: "Monopoly board game pieces",
   },
   {
@@ -17,7 +16,7 @@ const previewItems = [
     year: "1995",
     rating: "9.2/10",
     price: "Q520.00",
-    image: placeholderImage,
+    image: PLACEHOLDER_IMAGE_SQUARE,
     alt: "Settlers of Catan hexagonal tiles",
   },
   {
@@ -25,7 +24,7 @@ const previewItems = [
     year: "2020",
     rating: "9.7/10",
     price: "Q800.00",
-    image: placeholderImage,
+    image: PLACEHOLDER_IMAGE_SQUARE,
     alt: "Dune Imperium game box or sci-fi landscape",
   },
 ];

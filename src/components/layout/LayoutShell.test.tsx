@@ -22,7 +22,7 @@ test("LayoutShell integra header, contenido y footer", () => {
     </ThemeProvider>
   );
 
-  assert.match(html, /EL BAÚL/);
+  assert.match(html, /The Board Game Vault/);
   assert.match(html, /Contenido/);
   assert.match(html, /ESTADO DEL SERVIDOR/);
 });

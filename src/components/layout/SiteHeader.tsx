@@ -10,7 +10,7 @@ export function SiteHeader() {
             terminal
           </span>
           <span className="text-2xl font-bold tracking-widest text-primary text-glow uppercase">
-            EL BAÚL
+            The Board Game Vault
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8" aria-label="principal">

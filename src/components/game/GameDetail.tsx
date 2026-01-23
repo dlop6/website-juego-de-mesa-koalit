@@ -1,15 +1,9 @@
 import type { Game } from "@/lib/dal";
 import { BuyButton } from "@/components/game/BuyButton";
 import { BackToCatalog } from "@/components/nav/BackToCatalog";
+import { formatPriceWithQ, formatThemeLabel } from "@/lib/formatters";
 
 type SearchParams = Record<string, string | string[] | undefined>;
-
-function formatPrice(amount: number) {
-  if (!Number.isFinite(amount)) {
-    return "--";
-  }
-  return amount.toFixed(2);
-}
 
 function formatRange(min?: number, max?: number) {
   if (typeof min !== "number") {
@@ -24,10 +18,6 @@ function formatRange(min?: number, max?: number) {
 function buildSystemId(gameId: string) {
   const cleaned = gameId.toUpperCase().replace(/[^A-Z0-9]+/g, "-");
   return `#${cleaned}`;
-}
-
-function formatThemeLabel(theme: string) {
-  return theme.replaceAll(" ", "_");
 }
 
 function formatRating(value: number) {
@@ -64,7 +54,7 @@ export function GameDetail({
   game: Game;
   searchParams?: SearchParams;
 }) {
-  const priceLabel = `Q${formatPrice(game.price?.amount ?? 0)}`;
+  const priceLabel = formatPriceWithQ(game.price?.amount ?? 0, 2);
   const playersLabel = formatRange(game.players?.min, game.players?.max);
   const durationLabel = formatRange(
     game.durationMinutes?.min,
@@ -86,15 +76,16 @@ export function GameDetail({
   const imageAlt = game.image?.alt ?? game.name;
 
   return (
-    <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-background-dark">
-      <main className="flex-grow flex flex-col items-center py-6 px-4 sm:px-8 relative scanlines">
+    <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-background-dark relative">
+      <div className="scanlines fixed inset-0 z-0 opacity-20 h-full w-full" />
+      <main className="flex-grow flex flex-col items-center py-6 px-4 sm:px-8 relative">
         <div className="w-full max-w-[1280px] flex flex-col gap-6 relative z-10">
-          <div className="flex items-center gap-2 py-2">
+          <div className="flex items-center gap-2 py-2 animate-fade-up anim-delay-1">
             <BackToCatalog searchParams={searchParams} />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="relative w-full aspect-square rounded-lg border-2 border-primary/20 bg-black overflow-hidden group">
+            <div className="lg:col-span-5 flex flex-col gap-4 animate-fade-up anim-delay-2">
+              <div className="relative w-full aspect-square rounded-lg border-2 border-primary/20 bg-black overflow-hidden group anim-float">
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary z-20" />
                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary z-20" />
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary z-20" />
@@ -124,9 +115,9 @@ export function GameDetail({
               </div>
             </div>
             <div className="lg:col-span-7 flex flex-col gap-6">
-              <div className="border-b border-primary/20 pb-6 relative">
+              <div className="border-b border-primary/20 pb-6 relative animate-fade-up anim-delay-3">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-background-dark tracking-widest">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-background-dark tracking-widest anim-flicker-soft">
                     CLASIFICADO
                   </span>
                   <span className="text-primary/60 text-xs font-mono tracking-wider">
@@ -140,7 +131,7 @@ export function GameDetail({
                   // ARCHIVO_{game.name.toUpperCase().replaceAll(" ", "_")}
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-up anim-delay-4">
                 <div className="flex flex-col p-4 rounded bg-primary/5 border border-primary/20 relative group hover:bg-primary/10 transition-colors">
                   <div className="absolute top-0 left-0 w-1 h-full bg-primary/30 group-hover:bg-primary transition-colors" />
                   <span className="text-xs font-mono text-primary/60 mb-1">
@@ -187,7 +178,7 @@ export function GameDetail({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 animate-fade-up anim-delay-5">
                 {Array.isArray(game.themes)
                   ? game.themes.map((theme) => (
                       <span
@@ -199,7 +190,7 @@ export function GameDetail({
                     ))
                   : null}
               </div>
-              <div className="flex flex-col gap-2 p-6 rounded-lg border border-dashed border-primary/30 bg-surface-dark/50">
+              <div className="flex flex-col gap-2 p-6 rounded-lg border border-dashed border-primary/30 bg-surface-dark/50 animate-fade-up anim-delay-6">
                 <div className="flex items-center gap-2 mb-2 border-b border-primary/10 pb-2">
                   <span className="material-symbols-outlined text-primary/50 text-base">
                     terminal
@@ -215,8 +206,10 @@ export function GameDetail({
                   <p>{summarySecondary}</p>
                 </div>
               </div>
-              <BuyButton purchaseUrl={game.purchaseUrl} />
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
+              <div className="animate-fade-up anim-delay-6">
+                <BuyButton purchaseUrl={game.purchaseUrl} />
+              </div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start animate-fade-up anim-delay-6">
                 <span className="material-symbols-outlined text-primary/40 text-xs">
                   link
                 </span>
@@ -225,7 +218,7 @@ export function GameDetail({
                 </p>
               </div>
               {durationLabel || ageLabel || complexityLabel ? (
-                <div className="text-xs font-mono text-primary/50 uppercase flex flex-wrap gap-4">
+                <div className="text-xs font-mono text-primary/50 uppercase flex flex-wrap gap-4 animate-fade-up anim-delay-6">
                   {durationLabel ? <span>DURACIÓN: {durationLabel} MIN</span> : null}
                   {ageLabel ? <span>EDAD: {ageLabel}</span> : null}
                   {complexityLabel ? <span>COMPLEJIDAD: {complexityLabel}</span> : null}

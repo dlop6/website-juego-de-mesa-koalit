@@ -1,5 +1,10 @@
-import type { ReactNode } from "react";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import {
+  PLACEHOLDER_IMAGE_WIDE,
+  formatPriceWithQ,
+  formatRatingTenScale,
+  formatThemeTag,
+} from "@/lib/formatters";
 
 export interface GameCardProps {
   id: string;
@@ -14,24 +19,6 @@ export interface GameCardProps {
   className?: string;
 }
 
-function formatPrice(amount: number) {
-  if (!Number.isFinite(amount)) {
-    return "--";
-  }
-
-  return amount.toFixed(2);
-}
-
-function formatRating(value: number) {
-  if (!Number.isFinite(value)) {
-    return "--";
-  }
-  return (value * 2).toFixed(1);
-}
-
-const fallbackImage =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM0MCIgdmlld0JveD0iMCAwIDYwMCAzNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIzNDAiIGZpbGw9IiMxMTEiLz48cGF0aCBkPSJNMCAxNzBIMTYwVjE3MEg0NDBWMzEwSDE2MFYxNzBaIiBmaWxsPSIjMjIyIi8+PC9zdmc+";
-
 export function GameCard({
   id,
   name,
@@ -44,9 +31,9 @@ export function GameCard({
   badgeSlot,
   className,
 }: GameCardProps) {
-  const priceLabel = `Q${formatPrice(priceAmount)}`;
-  const ratingLabel = formatRating(ratingValue);
-  const backgroundImage = imageSrc?.length ? imageSrc : fallbackImage;
+  const priceLabel = formatPriceWithQ(priceAmount);
+  const ratingLabel = formatRatingTenScale(ratingValue);
+  const backgroundImage = imageSrc?.length ? imageSrc : PLACEHOLDER_IMAGE_WIDE;
   const imageStyles: CSSProperties = {
     backgroundImage: `url('${backgroundImage}')`,
   };
@@ -82,12 +69,12 @@ export function GameCard({
           </span>
         </div>
         <div className="flex items-center gap-2 mt-auto">
-          {themes.map((theme) => (
+              {themes.map((theme) => (
             <span
               key={theme}
               className="px-2 py-0.5 bg-[#393328] text-[#bab09c] text-xs font-mono rounded-sm"
             >
-              [{theme.toUpperCase().replaceAll(" ", "_")}]
+              [{formatThemeTag(theme)}]
             </span>
           ))}
         </div>

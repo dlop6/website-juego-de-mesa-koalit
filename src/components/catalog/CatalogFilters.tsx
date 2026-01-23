@@ -1,3 +1,5 @@
+import { formatPriceWithQ, formatThemeTag } from "@/lib/formatters";
+
 type CatalogFiltersProps = {
   priceMin: number;
   priceMax: number;
@@ -13,13 +15,6 @@ type CatalogFiltersProps = {
   onToggleTheme: (theme: string) => void;
   onClear: () => void;
 };
-
-function formatPrice(value: number) {
-  if (!Number.isFinite(value)) {
-    return "--";
-  }
-  return `Q${value.toFixed(0)}`;
-}
 
 function toSlug(value: string) {
   return value
@@ -44,7 +39,7 @@ export function CatalogFilters({
   onToggleTheme,
   onClear,
 }: CatalogFiltersProps) {
-  const valueLabel = `${formatPrice(priceMin)} - ${formatPrice(priceMax)}`;
+  const valueLabel = `${formatPriceWithQ(priceMin, 2)} - ${formatPriceWithQ(priceMax, 2)}`;
 
   return (
     <aside
@@ -69,8 +64,8 @@ export function CatalogFilters({
           </div>
           <div className="bg-surface-dark p-4 border border-[#393328] rounded">
             <div className="flex justify-between text-xs text-primary font-mono mb-2">
-              <span>MIN: {formatPrice(priceBoundMin)}</span>
-              <span>MAX: {formatPrice(priceBoundMax)}</span>
+              <span>MIN: {formatPriceWithQ(priceBoundMin, 0)}</span>
+              <span>MAX: {formatPriceWithQ(priceBoundMax, 0)}</span>
             </div>
             <div className="relative flex flex-col gap-3">
               <input
@@ -157,7 +152,7 @@ export function CatalogFilters({
                     </span>
                   </div>
                   <span className="text-sm text-[#bab09c] group-hover:text-primary transition-colors font-mono">
-                    [{theme.toUpperCase().replaceAll(" ", "_")}]
+                    [{formatThemeTag(theme)}]
                   </span>
                 </label>
               );

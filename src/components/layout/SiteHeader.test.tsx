@@ -11,7 +11,7 @@ test("SiteHeader renderiza marca y enlaces principales", () => {
     </ThemeProvider>
   );
 
-  assert.match(html, /EL BAÚL/);
+  assert.match(html, /The Board Game Vault/);
   assert.match(html, /INICIO/);
   assert.match(html, /CATÁLOGO/);
   assert.match(html, /\[MODO\]/);

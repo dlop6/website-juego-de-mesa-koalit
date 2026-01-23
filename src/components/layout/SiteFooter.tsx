@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-8">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-bold text-primary tracking-widest uppercase">
-            EL BAÚL
+            The Board Game Vault
           </h2>
           <div className="text-primary/50 text-xs font-mono space-y-1">
             <p>VERSIÓN DEL SISTEMA v1.0.4</p>
@@ -46,7 +46,7 @@ export function SiteFooter() {
         </div>
         <div className="md:text-right">
           <p className="text-primary/40 text-[10px] font-mono max-w-[200px]">
-            © 2024 EL BAÚL DE LOS JUEGOS.
+            © 2024 The Board Game Vault DE LOS JUEGOS.
             <br />
             TODOS LOS DERECHOS ANALÓGICOS RESERVADOS.
             <br />
