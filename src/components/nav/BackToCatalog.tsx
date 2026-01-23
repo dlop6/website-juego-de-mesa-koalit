@@ -29,15 +29,24 @@ function buildCatalogHref(searchParams?: SearchParams) {
   return query.length > 0 ? `/catalogo?${query}` : "/catalogo";
 }
 
+function ArrowLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className} aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7" />
+    </svg>
+  );
+}
+
 export function BackToCatalog({ searchParams }: { searchParams?: SearchParams }) {
   const href = buildCatalogHref(searchParams);
 
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-2 text-500 font-600 text-muted hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      className="group inline-flex items-center gap-2 text-500 font-600 text-muted transition-all duration-200 ease-out hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
     >
-      Volver al catálogo
+      <ArrowLeftIcon className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+      Volver a la boveda
     </Link>
   );
 }

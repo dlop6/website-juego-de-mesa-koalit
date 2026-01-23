@@ -96,7 +96,7 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link
             href="/"
-            className="flex items-center gap-2 text-text transition-colors duration-2 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="flex items-center gap-2 text-text transition-colors duration-[var(--duration-2)] ease-[cubic-bezier(0.2,0,0,1)] hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             aria-label="Bóveda de Juegos - Inicio"
           >
             <VaultIcon className="h-6 w-6 text-accent" />
@@ -107,7 +107,7 @@ export function Header() {
             <Link
               href="/"
               className={[
-                "rounded-2 px-3 py-2 text-500 font-600 transition-colors duration-2",
+                "rounded-2 px-3 py-2 text-500 font-600 transition-colors duration-[var(--duration-2)] ease-[cubic-bezier(0.2,0,0,1)]",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
                 isActive("/")
                   ? "text-accent"
@@ -122,7 +122,7 @@ export function Header() {
             <Link
               href="/catalogo"
               className={[
-                "rounded-2 px-3 py-2 text-500 font-600 transition-colors duration-2",
+                "rounded-2 px-3 py-2 text-500 font-600 transition-colors duration-[var(--duration-2)] ease-[cubic-bezier(0.2,0,0,1)]",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2",
                 isActive("/catalogo") || pathname?.startsWith("/catalogo/")
                   ? "text-accent"
@@ -144,7 +144,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="rounded-2 p-2 text-muted transition-colors duration-2 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="rounded-2 p-2 text-muted transition-colors transition-transform duration-[var(--duration-2)] ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:text-text active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             aria-label="Buscar juegos"
           >
             <SearchIcon className="h-5 w-5" />
@@ -153,7 +153,7 @@ export function Header() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="rounded-2 p-2 text-accent transition-colors duration-2 hover:text-accent-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="rounded-2 p-2 text-accent transition-colors transition-transform duration-[var(--duration-2)] ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:text-accent-muted active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             aria-label={
               theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
             }

@@ -20,19 +20,22 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6">
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <div className="flex flex-col items-center justify-center gap-3 text-center">
           <div className="flex items-center gap-2 text-500 text-muted">
             <span className="font-600 text-text">Koalit</span>
             <span>×</span>
             <span className="font-600 text-text">Ludica Works</span>
+            <span className="mx-2">·</span>
+            <span>2025</span>
           </div>
 
-          <div className="flex items-center gap-4 text-500 text-muted">
-            <span>2025</span>
-            {prefersReducedMotion && (
-              <span className="text-400">*prefers-reduced-motion enabled*</span>
-            )}
-          </div>
+          <p className="text-400 text-muted max-w-md">
+            Hecho con cuidado para amantes de mesa
+          </p>
+
+          {prefersReducedMotion && (
+            <span className="text-400 text-muted/60">*prefers-reduced-motion enabled*</span>
+          )}
         </div>
       </div>
     </footer>
