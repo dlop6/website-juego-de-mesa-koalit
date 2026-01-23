@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { renderToStaticMarkup } from "react-dom/server";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 
@@ -15,7 +16,11 @@ function LayoutShell({ children }: { children: string }) {
 }
 
 test("LayoutShell integra header, contenido y footer", () => {
-  const html = renderToStaticMarkup(<LayoutShell>Contenido</LayoutShell>);
+  const html = renderToStaticMarkup(
+    <ThemeProvider>
+      <LayoutShell>Contenido</LayoutShell>
+    </ThemeProvider>
+  );
 
   assert.match(html, /EL BAÚL/);
   assert.match(html, /Contenido/);
