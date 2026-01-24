@@ -62,15 +62,16 @@ export function LandingPreview({
             key={item.name}
             className="group border-2 border-primary bg-background-dark p-1 hover:border-white transition-colors duration-300"
           >
-            <div className="relative aspect-square w-full overflow-hidden bg-black mb-3 amber-tint-container border border-primary/30">
+            <div className="relative aspect-square w-full overflow-hidden bg-black mb-3 border border-primary/30">
+              <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 pointer-events-none" />
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:scale-110 grayscale sepia contrast-125 group-hover:grayscale-0 group-hover:sepia-0 opacity-80 group-hover:opacity-100"
                 style={{ backgroundImage: `url('${item.image}')` }}
                 data-alt={item.alt}
                 role="img"
                 aria-label={item.alt}
               />
-              <div className="absolute top-2 right-2 bg-black/80 border border-primary px-2 py-1 text-xs text-primary font-bold">
+              <div className="absolute top-2 right-2 bg-black/80 border border-primary px-2 py-1 text-xs text-primary font-bold z-20">
                 {item.year}
               </div>
             </div>
