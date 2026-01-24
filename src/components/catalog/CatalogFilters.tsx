@@ -68,9 +68,10 @@ export function CatalogFilters({
               <span>MAX: {formatPriceWithQ(priceBoundMax, 0)}</span>
             </div>
             <div className="relative h-6">
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 rounded bg-[#544c3b]" />
               <input
                 id="price-min"
-                className="range-thumb absolute inset-0 w-full"
+                className="range-thumb absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 w-full z-10"
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}
@@ -81,7 +82,7 @@ export function CatalogFilters({
               />
               <input
                 id="price-max"
-                className="range-thumb absolute inset-0 w-full"
+                className="range-thumb absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 w-full z-20"
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}
