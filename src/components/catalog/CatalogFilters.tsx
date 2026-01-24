@@ -47,7 +47,7 @@ export function CatalogFilters({
       className="hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 sticky top-16 overflow-hidden"
     >
       <div className="mb-8">
-        <h1 className="text-primary text-xl font-bold tracking-widest mb-1">
+        <h1 className="text-primary text-xl font-bold tracking-widest mb-1 break-all leading-tight">
           ENTRADA_DE_PARÁMETROS
         </h1>
         <p className="text-[#bab09c] text-xs font-mono border-l-2 border-primary/50 pl-2">
@@ -67,10 +67,10 @@ export function CatalogFilters({
               <span>MIN: {formatPriceWithQ(priceBoundMin, 0)}</span>
               <span>MAX: {formatPriceWithQ(priceBoundMax, 0)}</span>
             </div>
-            <div className="relative flex flex-col gap-3">
+            <div className="relative h-6">
               <input
                 id="price-min"
-                className="w-full bg-transparent appearance-none"
+                className="range-thumb absolute inset-0 w-full"
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}
@@ -81,7 +81,7 @@ export function CatalogFilters({
               />
               <input
                 id="price-max"
-                className="w-full bg-transparent appearance-none"
+                className="range-thumb absolute inset-0 w-full"
                 type="range"
                 min={priceBoundMin}
                 max={priceBoundMax}

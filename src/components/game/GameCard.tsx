@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import {
   PLACEHOLDER_IMAGE_WIDE,
   formatPriceWithQ,
-  formatRatingTenScale,
+  formatRatingFiveScale,
   formatThemeTag,
 } from "@/lib/formatters";
 
@@ -32,7 +32,7 @@ export function GameCard({
   className,
 }: GameCardProps) {
   const priceLabel = formatPriceWithQ(priceAmount);
-  const ratingLabel = formatRatingTenScale(ratingValue);
+  const ratingLabel = formatRatingFiveScale(ratingValue);
   const backgroundImage = imageSrc?.length ? imageSrc : PLACEHOLDER_IMAGE_WIDE;
   const imageStyles: CSSProperties = {
     backgroundImage: `url('${backgroundImage}')`,
@@ -80,9 +80,9 @@ export function GameCard({
         </div>
         <div className="flex items-center justify-between pt-3 border-t border-[#393328] mt-2 group-hover:border-primary/30">
           <div className="flex items-center gap-1 text-primary">
-            <span className="material-symbols-outlined text-sm">star</span>
+            <span className="material-symbols-outlined text-sm icon-filled">star</span>
             <span className="font-mono font-bold">{ratingLabel}</span>
-            <span className="text-xs text-[#544c3b]">/10</span>
+            <span className="text-xs text-[#544c3b]">/5</span>
           </div>
           <div className="font-mono text-white font-bold">{priceLabel}</div>
         </div>

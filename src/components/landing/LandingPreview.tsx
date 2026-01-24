@@ -4,7 +4,7 @@ import type { Game } from "@/lib/dal";
 import {
   PLACEHOLDER_IMAGE_SQUARE,
   formatPriceWithQ,
-  formatRatingTenScale,
+  formatRatingFiveScale,
 } from "@/lib/formatters";
 
 const PREVIEW_COUNT = 3;
@@ -37,7 +37,7 @@ export function LandingPreview({
   const previewItems = pickRandomGames(games, PREVIEW_COUNT, random).map((game) => ({
     name: normalizePreviewName(game.name),
     year: game.releaseYear ? `${game.releaseYear}` : "--",
-    rating: `${formatRatingTenScale(game.rating?.value ?? 0)}/10`,
+    rating: `${formatRatingFiveScale(game.rating?.value ?? 0)}/5`,
     price: formatPriceWithQ(game.price?.amount ?? 0, 2),
     image: game.image?.src || PLACEHOLDER_IMAGE_SQUARE,
     alt: game.image?.alt ?? game.name,
@@ -81,7 +81,7 @@ export function LandingPreview({
               </h4>
               <div className="flex justify-between items-center mt-2 text-sm font-mono text-primary/80 border-t border-primary/30 pt-2">
                 <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-xs">star</span>
+                  <span className="material-symbols-outlined text-xs icon-filled">star</span>
                   {item.rating}
                 </span>
                 <span>{item.price}</span>

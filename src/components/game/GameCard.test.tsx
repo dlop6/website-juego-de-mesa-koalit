@@ -19,6 +19,6 @@ test("GameCard renderiza rating y etiquetas", () => {
 
   assert.match(html, /DUNE: IMPERIUM/);
   assert.match(html, /Q425.00/);
-  assert.match(html, /8.7/);
+  assert.match(html, /4.3/);
   assert.match(html, /\[CIENCIA_FICCION\]/);
 });

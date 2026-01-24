@@ -1,7 +1,12 @@
 import type { Game } from "@/lib/dal";
 import { BuyButton } from "@/components/game/BuyButton";
 import { BackToCatalog } from "@/components/nav/BackToCatalog";
-import { formatPriceWithQ, formatThemeLabel } from "@/lib/formatters";
+import {
+  RATING_MAX,
+  formatPriceWithQ,
+  formatRatingFiveScale,
+  formatThemeLabel,
+} from "@/lib/formatters";
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -20,31 +25,24 @@ function buildSystemId(gameId: string) {
   return `#${cleaned}`;
 }
 
-function formatRating(value: number) {
-  if (!Number.isFinite(value)) {
-    return "--";
-  }
-  return value.toFixed(1);
-}
-
 function getStarIcons(value: number) {
-  const clamped = Math.max(0, Math.min(5, value));
+  const clamped = Math.max(0, Math.min(RATING_MAX, value));
   const rounded = Math.round(clamped * 2) / 2;
   const full = Math.floor(rounded);
   const hasHalf = rounded - full >= 0.5;
   const icons: Array<{ icon: string; className: string }> = [];
 
   for (let index = 0; index < full; index += 1) {
-    icons.push({ icon: "star", className: "text-primary/80" });
+    icons.push({ icon: "star", className: "text-primary/80 icon-filled" });
   }
   if (hasHalf) {
-    icons.push({ icon: "star_half", className: "text-primary/80" });
+    icons.push({ icon: "star_half", className: "text-primary/80 icon-filled" });
   }
-  while (icons.length < 5) {
-    icons.push({ icon: "star", className: "text-primary/20" });
+  while (icons.length < RATING_MAX) {
+    icons.push({ icon: "star", className: "text-primary/20 icon-outline" });
   }
 
-  return icons.slice(0, 5);
+  return icons.slice(0, RATING_MAX);
 }
 
 export function GameDetail({
@@ -151,8 +149,9 @@ export function GameDetail({
                   </span>
                   <div className="flex items-center gap-2">
                     <span className="text-2xl font-bold text-primary">
-                      {formatRating(ratingValue)}
+                      {formatRatingFiveScale(ratingValue)}
                     </span>
+                    <span className="text-xs text-primary/50">/5</span>
                     <div className="flex text-primary/80">
                       {getStarIcons(ratingValue).map((entry, index) => (
                         <span
