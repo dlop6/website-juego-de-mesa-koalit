@@ -6,6 +6,23 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [activePath, setActivePath] = useState("");
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    setActivePath(window.location.pathname);
+  }, []);
+
+  function navClass(isActive: boolean) {
+    return [
+      "text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group",
+      isActive ? "bg-primary text-black px-2" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  }
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -37,14 +54,16 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-8" aria-label="principal">
           <Link
-            className="text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group"
+            className={navClass(activePath === "/")}
             href="/"
+            aria-current={activePath === "/" ? "page" : undefined}
           >
             <span className="opacity-0 group-hover:opacity-100">&gt;</span> INICIO
           </Link>
           <Link
-            className="text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group"
+            className={navClass(activePath.startsWith("/catalogo"))}
             href="/catalogo"
+            aria-current={activePath.startsWith("/catalogo") ? "page" : undefined}
           >
             <span className="opacity-0 group-hover:opacity-100">&gt;</span> CATÁLOGO
           </Link>
@@ -90,16 +109,18 @@ export function SiteHeader() {
             </div>
             <nav className="flex flex-col gap-4" aria-label="principal mobile">
               <Link
-                className="text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group"
+                className={navClass(activePath === "/")}
                 href="/"
                 onClick={() => setMenuOpen(false)}
+                aria-current={activePath === "/" ? "page" : undefined}
               >
                 <span className="opacity-0 group-hover:opacity-100">&gt;</span> INICIO
               </Link>
               <Link
-                className="text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group"
+                className={navClass(activePath.startsWith("/catalogo"))}
                 href="/catalogo"
                 onClick={() => setMenuOpen(false)}
+                aria-current={activePath.startsWith("/catalogo") ? "page" : undefined}
               >
                 <span className="opacity-0 group-hover:opacity-100">&gt;</span> CATÁLOGO
               </Link>

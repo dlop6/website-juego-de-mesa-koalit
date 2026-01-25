@@ -9,7 +9,7 @@ let cache: Database | null = null;
 
 async function readDatabase(): Promise<Database> {
   try {
-    if (cache) {
+    if (cache && process.env.NODE_ENV === "production") {
       return cache;
     }
     await simulateNetwork();

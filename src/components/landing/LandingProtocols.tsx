@@ -1,3 +1,6 @@
+import type { Sponsor } from "@/lib/dal";
+import { selectSponsor } from "@/lib/ads/ads";
+
 const protocolItems = [
   {
     icon: "payments",
@@ -16,7 +19,12 @@ const protocolItems = [
   },
 ];
 
-export function LandingProtocols() {
+export function LandingProtocols({ sponsors }: { sponsors?: Sponsor[] }) {
+  const sponsor = sponsors && sponsors.length > 0 ? selectSponsor(sponsors) : null;
+  const sponsorLabel = sponsor?.tagline ?? "ORGANIZADORES DE JUEGOS";
+  const sponsorName = sponsor?.name ?? "GAME_CORP";
+  const sponsorLink = sponsor?.websiteUrl;
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 border border-primary p-6 relative bg-primary/5">
@@ -53,15 +61,26 @@ export function LandingProtocols() {
               </span>
             </div>
             <div>
-              <p className="text-white font-bold text-xl tracking-wide">GAME_CORP</p>
+              <p className="text-white font-bold text-xl tracking-wide">{sponsorName}</p>
               <p className="text-primary/60 text-sm mt-1 font-mono">
-                "Impulsando la próxima generación."
+                "{sponsorLabel}"
               </p>
             </div>
           </div>
-          <button className="w-full border border-primary/50 text-primary text-xs py-2 hover:bg-primary hover:text-black transition-colors uppercase">
-            VISITAR PATROCINADOR
-          </button>
+          {sponsorLink ? (
+            <a
+              href={sponsorLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full border border-primary/50 text-primary text-xs py-2 hover:bg-primary hover:text-black transition-colors uppercase text-center"
+            >
+              VISITAR PATROCINADOR
+            </a>
+          ) : (
+            <button className="w-full border border-primary/50 text-primary text-xs py-2 hover:bg-primary hover:text-black transition-colors uppercase">
+              VISITAR PATROCINADOR
+            </button>
+          )}
         </div>
       </div>
     </section>

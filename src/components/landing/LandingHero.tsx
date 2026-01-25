@@ -31,9 +31,12 @@ export function LandingHero() {
               >
                 [ ACCEDER AL CATÁLOGO ]
               </Link>
-              <button className="border border-primary text-primary px-6 py-3 uppercase tracking-widest hover:bg-primary/20 transition-all font-bold text-sm flex items-center gap-2">
+              <Link
+                href="/docs"
+                className="border border-primary text-primary px-6 py-3 uppercase tracking-widest hover:bg-primary/20 transition-all font-bold text-sm flex items-center gap-2"
+              >
                 <span className="material-symbols-outlined text-sm">info</span> LEER_DOCS
-              </button>
+              </Link>
             </div>
           </div>
           <div className="w-full md:w-5/12 aspect-video bg-black border-2 border-primary/50 relative p-4 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
