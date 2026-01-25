@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { renderToStaticMarkup } from "react-dom/server";
 import { BrandsMarquee } from "./BrandsMarquee";
 
-test("BrandsMarquee renderiza marcas", () => {
+test("BrandsMarquee renderiza Patrocinadores", () => {
   const html = renderToStaticMarkup(
     <BrandsMarquee
       sponsors={[
@@ -27,7 +27,7 @@ test("BrandsMarquee renderiza marcas", () => {
     />
   );
 
-  assert.match(html, /Marcas/);
+  assert.match(html, /Patrocinadores/);
   assert.match(html, /Hasbro/);
   assert.match(html, /aria-hidden=\"true\"/);
 });

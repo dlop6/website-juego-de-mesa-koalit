@@ -20,7 +20,7 @@
       ],
       "shortDescription": "En la década de 2400, corporaciones compiten por terraformar Marte mientras expanden la infraestructura humana.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuAhmlCXFR4LXKMdWEpCtWO2KU3D_non9_9_rm2-WG2DD_JKSUzD4oZ0o8T0UhZ8xVePfhDVjJGXV-Ltc4n_QLAFFCI5thfhqBTbrogaPGOvWoaD8JhskffsybFH6M0BQu9sCdv7_7LmvrZt8kmcURCOmI9B3R1xnRmzM9v7eRikYRp39H1c87vR-5Ub3WH-09GWwS48gJkl3SpFfU9d32J41iobdkSc-8GzirU9l6ntIvAToW0e88HnUd2k1I3VXmc_ZVW9h-whzBYv",
+        "src": "/images/terraforming mars.jpg",
         "alt": "Arte de caja de Terraforming Mars"
       },
       "purchaseUrl": "https://example.com/juegos/terraforming-mars",
@@ -61,7 +61,7 @@
       ],
       "shortDescription": "Construye tu mazo y lucha por el control del imperio en Arrakis.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuAGhBQF90HobZwHVCpMbGMMX-Kh1PdjmAY9UohCeHsuMMb7-mIZRvw9meGQ7uKlX5j__OYGHEl229xPOhAxEm_hQ_ojbaW6WTlP_QB5T0v9sMx5UoHEgsFmIKMIRVcd9TX6tM0zOY8KlkmmFc4Q704YOHNnscKQfRXuFRfN0ISyTIKyOyhgEkq4FsPqUdoqNFAiNwH60Yp6-QG6TP2om9f5jsPSOc20DyE1llQmT8Nh__9ISPPVfJTAalQ9tFnFWXr2lvllD6QnNi0r",
+        "src": "/images/dune imperium.jpg",
         "alt": "Arte de Dune: Imperium"
       },
       "purchaseUrl": "https://example.com/juegos/dune-imperium",
@@ -102,7 +102,7 @@
       ],
       "shortDescription": "Un 4X espacial para comandantes que buscan dominar el vacío.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCjdeNgDc3Kjj5aalwVA6wo0-hecOuY7WlAKb8KS6UuQYxP6Ia0NYzJiCBxPsgW3rgd7T1si-Ab4aZdYfFVnQ2KmQQZ9lfa2tlC6xGMomfoM5BxMebm9hWADFgSIvi-RH1kg9qWLbOSL83pn0eqquUVqPPU9X-V8WF1UEK6MW-mTsf4JAFtWGnlkPVmEu3dWbuqvv0L2p4zDrSl1RyNECxiMvwheQyW712VEBtvkR5JQ0Ky3ap-ryV3fCcVeMyZ7T60Nm8DmvWqaHS9",
+        "src": "/images/voidfall.jpg",
         "alt": "Arte de Voidfall"
       },
       "purchaseUrl": "https://example.com/juegos/voidfall",
@@ -143,7 +143,7 @@
       ],
       "shortDescription": "Colecciona aves y optimiza hábitats en este engine builder naturalista.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuAe-m5-3mVgDVx4bPUyH_9kMSmIfo-9fXNxazx8vUry-5nv0b-AYufzR24zN1Nogu8wZxoeWTDmvDOI7lUr0-Q9xE1zDh9mUm7N7hDC6F4-0LaFYcPyCQ4yIL6r-b5Qd80Osc1kPote5JWURgUGuZOsmaHSCubluuV2YDWu--KNSdZ70UKC2YQ7JPik0LtVhlCpezLfpXNdnsO51IYllH_4k0NR6lqkHF9QkxGGwdlKm84S0BoX1fvtldRIWoPut3SYDLVkbEmc_Xg6",
+        "src": "/images/wingspan.jpg",
         "alt": "Arte de Wingspan"
       },
       "purchaseUrl": "https://example.com/juegos/wingspan",
@@ -184,7 +184,7 @@
       ],
       "shortDescription": "Decora el palacio con losetas y patrones estratégicos.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuALnpWUylCQMhcVEZhNTTFNUw5JSffmpFLJzIq_XiUGoUuYHrA-ktCSxoZhn9hNBLWxbJEXDLIH3uYD4INFDhKRLq5R3Wc-nMORMPFKCvtL1mCrJXtH3ogZOyifujLVCrfWx7Qn2CTIpEFtqwKE4WzshI46cs5frbE1_Xz59xXe_GgsNiyU7hzsJW6ka0KMsYMJz3mdG5kSM5IPEluGNnKb94QeJSRArhCexkAEhhmH4SNqNjVw15yEaJlucNA7gyIpJlqt8XByoAI3",
+        "src": "/images/azul.jpg",
         "alt": "Arte de Azul"
       },
       "purchaseUrl": "https://example.com/juegos/azul",
@@ -225,7 +225,7 @@
       ],
       "shortDescription": "Desarrolla industrias y canales durante la revolución industrial.",
       "image": {
-        "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCgWLJ4py_hjubh6ZD3sf5q1rXot9uT6OEM9oD9wTNZLfhveQ7yY-CcUwrlOLHsYE2dPDy0EQP38SWN9LaSIWe-BDrGCTpAgxFlC78443BYa5dOu84z433EUJPzHybUoFkdxrfQ8TryhfJ-CFI_uTO-8y1FG_zanvYWp4phfO34NGVqyyJrBu-raTRfNpNOd_0VDZn4iTjgWAjjp2cEUZg_856Snr-5l6v8DVy04UXRO5XIVxwurt_-kgvJA_hAdIViA41AofTFXMul",
+        "src": "/images/brass birmingham.jpg",
         "alt": "Arte de Brass: Birmingham"
       },
       "purchaseUrl": "https://example.com/juegos/brass-birmingham",

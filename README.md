@@ -6,11 +6,11 @@ Los datos viven en `public/db.json` e incluyen:
 
 - `games`: juegos del catalogo.
 - `promotions`: juegos promocionados.
-- `sponsors`: marcas patrocinadoras (con placeholders de logo).
+- `sponsors`: Patrocinadores patrocinadoras (con placeholders de logo).
 
-### Marcas (marquee)
+### Patrocinadores (marquee)
 
-La sección de marcas usa un marquee horizontal infinito con placeholders.
+La sección de Patrocinadores usa un marquee horizontal infinito con placeholders.
 Para agregar logos reales, reemplaza `logo.src` y `logo.alt` en `public/db.json`
 con archivos locales o URLs permitidas.
 

@@ -29,7 +29,7 @@ export function BrandsMarquee({ sponsors }: { sponsors: Sponsor[] }) {
         id={headingId}
         className="text-primary text-lg font-bold tracking-widest uppercase"
       >
-        Marcas
+        Patrocinadores
       </h2>
       <div className="marquee w-full max-w-full rounded-lg border border-primary/20 bg-background-dark/60 px-4 py-6">
         <ul className="marquee-track" role="list">
