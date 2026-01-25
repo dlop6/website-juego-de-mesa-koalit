@@ -248,6 +248,422 @@
       "publisher": "Roxley",
       "releaseYear": 2018
     }
+    ,
+    {
+      "id": "g-gloomhaven",
+      "name": "Gloomhaven",
+      "price": {
+        "amount": 1299.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.8,
+        "scale": 5,
+        "count": 5400
+      },
+      "themes": [
+        "Campaña",
+        "Fantasía",
+        "Cooperativo"
+      ],
+      "shortDescription": "Un juego de aventuras y campaña con escenarios tácticos y progresión de personajes.",
+      "image": {
+        "src": "/images/gloomhaven.png",
+        "alt": "Caja de Gloomhaven"
+      },
+      "purchaseUrl": "https://example.com/juegos/gloomhaven",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "age": {
+        "min": 14
+      },
+      "complexity": 5,
+      "mechanics": [
+        "Dungeon Crawl",
+        "Campaign",
+        "Hand Management"
+      ],
+      "publisher": "Cephalofair Games",
+      "releaseYear": 2017
+    },
+    {
+      "id": "g-scythe",
+      "name": "Scythe",
+      "price": {
+        "amount": 650.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.45,
+        "scale": 5,
+        "count": 2000
+      },
+      "themes": [
+        "Estrategia",
+        "Alternativa Historia",
+        "Motor"
+      ],
+      "shortDescription": "Controla facciones en una Europa dieselpunk para expandir economía y territorio.",
+      "image": {
+        "src": "/images/scythe.png",
+        "alt": "Caja de Scythe"
+      },
+      "purchaseUrl": "https://example.com/juegos/scythe",
+      "players": {
+        "min": 1,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 90,
+        "max": 115
+      },
+      "age": {
+        "min": 14
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Area Control",
+        "Resource Management"
+      ],
+      "publisher": "Stonemaier Games",
+      "releaseYear": 2016
+    },
+    {
+      "id": "g-pandemic-legacy-season-1",
+      "name": "Pandemic Legacy: Season 1",
+      "price": {
+        "amount": 499.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 3400
+      },
+      "themes": [
+        "Cooperativo",
+        "Crisis"
+      ],
+      "shortDescription": "Campaña cooperativa donde las decisiones alteran el juego para siempre.",
+      "image": {
+        "src": "/images/pandemic.png",
+        "alt": "Caja de Pandemic Legacy Season 1"
+      },
+      "purchaseUrl": "https://example.com/juegos/pandemic-legacy-s1",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "age": {
+        "min": 13
+      },
+      "complexity": 3,
+      "mechanics": [
+        "Cooperative Play",
+        "Legacy"
+      ],
+      "publisher": "Z-Man Games",
+      "releaseYear": 2015
+    },
+    {
+      "id": "g-catan",
+      "name": "Catan",
+      "price": {
+        "amount": 250.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.95,
+        "scale": 5,
+        "count": 2300
+      },
+      "themes": [
+        "Familiar",
+        "Estrategia"
+      ],
+      "shortDescription": "Asienta colonias, comercia y compite por recursos en la isla de Catan.",
+      "image": {
+        "src": "/images/catan.png",
+        "alt": "Caja de Catan"
+      },
+      "purchaseUrl": "https://example.com/juegos/catan",
+      "players": {
+        "min": 3,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 120
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Trading",
+        "Tile Placement"
+      ],
+      "publisher": "Kosmos",
+      "releaseYear": 1995
+    },
+    {
+      "id": "g-ticket-to-ride",
+      "name": "Ticket to Ride",
+      "price": {
+        "amount": 220.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.85,
+        "scale": 5,
+        "count": 1900
+      },
+      "themes": [
+        "Familiar",
+        "Trenes"
+      ],
+      "shortDescription": "Construye rutas ferroviarias y completa billetes para ganar puntos.",
+      "image": {
+        "src": "/images/ticket to ride.png",
+        "alt": "Caja de Ticket to Ride"
+      },
+      "purchaseUrl": "https://example.com/juegos/ticket-to-ride",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 60
+      },
+      "age": {
+        "min": 8
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Route Building",
+        "Set Collection"
+      ],
+      "publisher": "Days of Wonder",
+      "releaseYear": 2004
+    },
+    {
+      "id": "g-carcassonne",
+      "name": "Carcassonne",
+      "price": {
+        "amount": 180.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.8,
+        "scale": 5,
+        "count": 1600
+      },
+      "themes": [
+        "Abstracto",
+        "Medieval"
+      ],
+      "shortDescription": "Coloca losetas para construir paisaje y puntuar con tus seguidores.",
+      "image": {
+        "src": "/images/carcassonne.png",
+        "alt": "Caja de Carcassonne"
+      },
+      "purchaseUrl": "https://example.com/juegos/carcassonne",
+      "players": {
+        "min": 2,
+        "max": 5
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 7
+      },
+      "complexity": 1,
+      "mechanics": [
+        "Tile Placement",
+        "Area Control"
+      ],
+      "publisher": "Z-Man Games",
+      "releaseYear": 2000
+    },
+    {
+      "id": "g-root",
+      "name": "Root",
+      "price": {
+        "amount": 495.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.2,
+        "scale": 5,
+        "count": 1500
+      },
+      "themes": [
+        "Asimétrico",
+        "Fantasía"
+      ],
+      "shortDescription": "Juego asimétrico de guerra por el control del bosque con facciones únicas.",
+      "image": {
+        "src": "/images/root.png",
+        "alt": "Caja de Root"
+      },
+      "purchaseUrl": "https://example.com/juegos/root",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 60,
+        "max": 90
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 4,
+      "mechanics": [
+        "Area Control",
+        "Asymmetric Player Powers"
+      ],
+      "publisher": "Leder Games",
+      "releaseYear": 2018
+    },
+    {
+      "id": "g-twilight-imperium-4",
+      "name": "Twilight Imperium (4th Edition)",
+      "price": {
+        "amount": 1499.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.75,
+        "scale": 5,
+        "count": 600
+      },
+      "themes": [
+        "Estrategia",
+        "Espacial",
+        "Épico"
+      ],
+      "shortDescription": "Épico juego de conquista galáctica con negociación, política y guerra.",
+      "image": {
+        "src": "/images/twighlight imperium.png",
+        "alt": "Caja de Twilight Imperium 4"
+      },
+      "purchaseUrl": "https://example.com/juegos/twilight-imperium-4",
+      "players": {
+        "min": 3,
+        "max": 6
+      },
+      "durationMinutes": {
+        "min": 240,
+        "max": 480
+      },
+      "age": {
+        "min": 14
+      },
+      "complexity": 5,
+      "mechanics": [
+        "Area Control",
+        "Negotiation",
+        "Action Programming"
+      ],
+      "publisher": "Fantasy Flight Games",
+      "releaseYear": 2017
+    },
+    {
+      "id": "g-spirit-island",
+      "name": "Spirit Island",
+      "price": {
+        "amount": 720.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 4.6,
+        "scale": 5,
+        "count": 1100
+      },
+      "themes": [
+        "Cooperativo",
+        "Fantasía"
+      ],
+      "shortDescription": "Los jugadores son espíritus que defienden una isla de colonizadores invasores.",
+      "image": {
+        "src": "/images/spirit island.png",
+        "alt": "Caja de Spirit Island"
+      },
+      "purchaseUrl": "https://example.com/juegos/spirit-island",
+      "players": {
+        "min": 1,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 90,
+        "max": 120
+      },
+      "age": {
+        "min": 13
+      },
+      "complexity": 5,
+      "mechanics": [
+        "Cooperative",
+        "Area Control"
+      ],
+      "publisher": "Greater Than Games",
+      "releaseYear": 2017
+    },
+    {
+      "id": "g-splendor",
+      "name": "Splendor",
+      "price": {
+        "amount": 210.0,
+        "currency": "GTQ"
+      },
+      "rating": {
+        "value": 3.9,
+        "scale": 5,
+        "count": 1250
+      },
+      "themes": [
+        "Familiar",
+        "Economía"
+      ],
+      "shortDescription": "Compra fichas y cartas para construir un motor económico y ganar prestigio.",
+      "image": {
+        "src": "/images/splendor.png",
+        "alt": "Caja de Splendor"
+      },
+      "purchaseUrl": "https://example.com/juegos/splendor",
+      "players": {
+        "min": 2,
+        "max": 4
+      },
+      "durationMinutes": {
+        "min": 30,
+        "max": 45
+      },
+      "age": {
+        "min": 10
+      },
+      "complexity": 2,
+      "mechanics": [
+        "Set Collection",
+        "Engine Building"
+      ],
+      "publisher": "Space Cowboys",
+      "releaseYear": 2014
+    }
   ],
   "sponsors": [
     {
