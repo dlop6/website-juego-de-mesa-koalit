@@ -11,6 +11,7 @@ import {
   parseFiltersFromSearchParams,
   serializeFiltersToSearchParams,
 } from "@/lib/filters/urlFilters";
+import { clampPage, getTotalPages, parsePageParam } from "@/lib/pagination";
 import { excludePromotedGames, selectPromotedGames } from "@/lib/ads/ads";
 import { GameCard } from "@/components/game/GameCard";
 import { SponsorModule } from "@/components/ads/SponsorModule";
@@ -27,6 +28,7 @@ const defaultFilters: GameFilters = {
 };
 
 const ratingStep = 0.5;
+const PAGE_SIZE = 9;
 
 function toCountLabel(value: number) {
   return value.toLocaleString("es-GT");
@@ -111,6 +113,9 @@ export function CatalogClient({
   }, [searchParamsString, themeOptions]);
 
   const [filters, setFilters] = useState<GameFilters>(initialFilters);
+  const [page, setPage] = useState(() =>
+    parsePageParam(new URLSearchParams(searchParamsString).get("page"))
+  );
   const [isFiltersOpen, setFiltersOpen] = useState(false);
 
   const normalizedFilters = useMemo(
@@ -136,10 +141,44 @@ export function CatalogClient({
     [filteredGames, promotedGames]
   );
 
+  const totalPages = useMemo(
+    () => getTotalPages(baseGames.length, PAGE_SIZE),
+    [baseGames.length]
+  );
+
+  const currentPage = useMemo(
+    () => clampPage(page, totalPages),
+    [page, totalPages]
+  );
+
+  const pagedGames = useMemo(() => {
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    return baseGames.slice(startIndex, startIndex + PAGE_SIZE);
+  }, [baseGames, currentPage]);
+
   const hasSponsor = sponsors.length > 0;
+  const hasPrevPage = currentPage > 1;
+  const hasNextPage = currentPage < totalPages;
+  const showPromotedBlocks = currentPage === 1;
   const ratingMin = typeof filters.ratingMin === "number" ? filters.ratingMin : 0;
   const priceMinValue = filters.priceMin ?? priceBounds.min;
   const priceMaxValue = filters.priceMax ?? priceBounds.max;
+
+  useEffect(() => {
+    const nextPage = clampPage(
+      parsePageParam(new URLSearchParams(searchParamsString).get("page")),
+      totalPages
+    );
+    if (nextPage !== page) {
+      setPage(nextPage);
+    }
+  }, [page, searchParamsString, totalPages]);
+
+  useEffect(() => {
+    if (page !== currentPage) {
+      setPage(currentPage);
+    }
+  }, [page, currentPage]);
 
   useEffect(() => {
     if (!didSyncRef.current) {
@@ -147,6 +186,9 @@ export function CatalogClient({
       return;
     }
     const params = serializeFiltersToSearchParams(filters, themeOptions);
+    if (currentPage > 1) {
+      params.set("page", String(currentPage));
+    }
     const nextQuery = params.toString();
     const nextUrl = nextQuery.length > 0 ? `${pathname}?${nextQuery}` : pathname;
     const currentQuery = searchParamsString;
@@ -156,7 +198,7 @@ export function CatalogClient({
     if (nextUrl !== currentUrl) {
       router.replace(nextUrl, { scroll: false });
     }
-  }, [filters, pathname, router, searchParamsString, themeOptions]);
+  }, [currentPage, filters, pathname, router, searchParamsString, themeOptions]);
 
   useEffect(() => {
     if (!isFiltersOpen) {
@@ -178,6 +220,17 @@ export function CatalogClient({
   function startFiltering(update: (prev: GameFilters) => GameFilters) {
     startTransition(() => {
       setFilters((prev) => normalizeFilters(update(prev), themeOptions));
+      setPage(1);
+    });
+  }
+
+  function goToPage(nextPage: number) {
+    const clamped = clampPage(nextPage, totalPages);
+    if (clamped === currentPage) {
+      return;
+    }
+    startTransition(() => {
+      setPage(clamped);
     });
   }
 
@@ -358,49 +411,78 @@ export function CatalogClient({
           {filteredGames.length === 0 ? (
             <CatalogEmptyState onClear={clearFilters} onFocus={focusFilters} />
           ) : (
-            <div className="grid gap-3 sm:gap-6 mb-10 sm:mb-12 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))] lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
-              {promotedGames.map(({ game }) => (
-                <Link
-                  key={`promo-${game.id}`}
-                  href={`/catalogo/${game.id}`}
-                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 col-span-full sm:col-auto lg:col-auto h-full"
-                  aria-label={`Ver detalles de ${game.name}`}
-                >
-                  <CatalogPromotedCard game={game} />
-                </Link>
-              ))}
-              {baseGames.map((game, index) => (
-                <Link
-                  key={game.id}
-                  href={`/catalogo/${game.id}`}
-                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 h-full"
-                  aria-label={`Ver detalles de ${game.name}`}
-                >
-                  <GameCard
-                    id={game.id}
-                    name={game.name}
-                    imageSrc={game.image?.src ?? ""}
-                    imageAlt={game.image?.alt ?? game.name}
-                    priceAmount={game.price?.amount ?? 0}
-                    priceCurrency={game.price?.currency ?? "GTQ"}
-                    ratingValue={game.rating?.value ?? 0}
-                    themes={Array.isArray(game.themes) ? game.themes : []}
-                    badgeSlot={
-                      <span className="px-2 py-1 bg-black/80 border border-primary text-primary text-[10px] font-bold tracking-wider uppercase">
-                        Rango #{index + 1}
-                      </span>
-                    }
-                  />
-                </Link>
-              ))}
-              {hasSponsor ? (
-                <div className="col-span-full sm:col-auto lg:col-auto h-full">
-                  <SponsorModule sponsors={sponsors} />
+            <>
+              <div className="grid gap-3 sm:gap-6 mb-6 sm:mb-8 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))] lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
+                {showPromotedBlocks
+                  ? promotedGames.map(({ game }) => (
+                      <Link
+                        key={`promo-${game.id}`}
+                        href={`/catalogo/${game.id}`}
+                        className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 col-span-full sm:col-auto lg:col-auto h-full"
+                        aria-label={`Ver detalles de ${game.name}`}
+                      >
+                        <CatalogPromotedCard game={game} />
+                      </Link>
+                    ))
+                  : null}
+                {pagedGames.map((game, index) => (
+                  <Link
+                    key={game.id}
+                    href={`/catalogo/${game.id}`}
+                    className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 h-full"
+                    aria-label={`Ver detalles de ${game.name}`}
+                  >
+                    <GameCard
+                      id={game.id}
+                      name={game.name}
+                      imageSrc={game.image?.src ?? ""}
+                      imageAlt={game.image?.alt ?? game.name}
+                      priceAmount={game.price?.amount ?? 0}
+                      priceCurrency={game.price?.currency ?? "GTQ"}
+                      ratingValue={game.rating?.value ?? 0}
+                      themes={Array.isArray(game.themes) ? game.themes : []}
+                      badgeSlot={
+                        <span className="px-2 py-1 bg-black/80 border border-primary text-primary text-[10px] font-bold tracking-wider uppercase">
+                          Rango #{index + 1 + (currentPage - 1) * PAGE_SIZE}
+                        </span>
+                      }
+                    />
+                  </Link>
+                ))}
+                {showPromotedBlocks && hasSponsor ? (
+                  <div className="col-span-full sm:col-auto lg:col-auto h-full">
+                    <SponsorModule sponsors={sponsors} />
+                  </div>
+                ) : null}
+                <CatalogSkeletonCard />
+                <CatalogSkeletonCard className="hidden md:flex" />
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6 mb-10 sm:mb-12">
+                <div className="text-xs font-mono uppercase tracking-[0.2em] text-[#bab09c]">
+                  Página {currentPage} de {totalPages}
                 </div>
-              ) : null}
-              <CatalogSkeletonCard />
-              <CatalogSkeletonCard className="hidden md:flex" />
-            </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    className="px-4 py-2 border border-primary text-primary text-xs font-bold uppercase tracking-widest transition-colors hover:bg-primary hover:text-black disabled:opacity-40 disabled:cursor-not-allowed"
+                    onClick={() => goToPage(currentPage - 1)}
+                    disabled={!hasPrevPage}
+                    aria-disabled={!hasPrevPage}
+                  >
+                    Anterior
+                  </button>
+                  <button
+                    type="button"
+                    className="px-4 py-2 border border-primary text-primary text-xs font-bold uppercase tracking-widest transition-colors hover:bg-primary hover:text-black disabled:opacity-40 disabled:cursor-not-allowed"
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={!hasNextPage}
+                    aria-disabled={!hasNextPage}
+                  >
+                    Siguiente
+                  </button>
+                </div>
+              </div>
+            </>
           )}
           <div className="mt-auto flex justify-center pb-8 px-3 sm:px-0">
             <button className="relative group w-full max-w-[520px] px-6 sm:px-8 py-3 bg-transparent border border-primary text-primary font-bold tracking-widest uppercase overflow-hidden hover:text-black transition-colors duration-300">

@@ -29,7 +29,7 @@ export function SiteFooter() {
               &gt; CATÁLOGO
             </Link>
             <a className="text-primary/70 hover:text-primary text-xs hover:underline" href="#">
-              &gt; ENVIAR_ENTRADA
+              &gt; VENDE_TUS_JUEGOS
             </a>
           </div>
           <div className="flex flex-col gap-2">
