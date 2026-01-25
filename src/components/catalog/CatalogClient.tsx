@@ -15,6 +15,7 @@ import { clampPage, getTotalPages, parsePageParam } from "@/lib/pagination";
 import { excludePromotedGames, selectPromotedGames } from "@/lib/ads/ads";
 import { GameCard } from "@/components/game/GameCard";
 import { SponsorModule } from "@/components/ads/SponsorModule";
+import { BrandsMarquee } from "@/components/ads/BrandsMarquee";
 import { CatalogFilters } from "@/components/catalog/CatalogFilters";
 import { CatalogPromotedCard } from "@/components/catalog/CatalogPromotedCard";
 import { CatalogSkeletonCard } from "@/components/catalog/CatalogSkeletonCard";
@@ -367,7 +368,7 @@ export function CatalogClient({
             </div>
           </div>
         ) : null}
-        <main className="flex-1 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
+        <main className="flex-1 min-w-0 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-[#393328] pb-4">
             <div>
               <div className="flex items-center gap-2 text-xs font-mono text-gray-500 mb-1">
@@ -387,9 +388,8 @@ export function CatalogClient({
             </div>
             <div className="flex items-center gap-4 text-sm font-mono text-[#bab09c]">
               <span>ENCONTRADOS: {toCountLabel(filteredGames.length)} REGISTROS</span>
-              <span className="hidden sm:inline">|</span>
-              <span className="hidden sm:inline">{isPending ? "LATENCIA: ..." : "LATENCIA: 12ms"}</span>
-              <button
+              <span className="hidden sm:inline"></span>
+                            <button
                 type="button"
                 className="lg:hidden ml-auto px-3 py-1 border border-primary text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-colors"
                 aria-controls="filters-drawer"
@@ -400,11 +400,14 @@ export function CatalogClient({
               </button>
             </div>
           </div>
+          <div className="mb-8 w-full max-w-full overflow-hidden">
+            <BrandsMarquee sponsors={sponsors} />
+          </div>
           {filteredGames.length === 0 ? (
             <CatalogEmptyState onClear={clearFilters} onFocus={focusFilters} />
           ) : (
             <>
-              <div className="grid gap-3 sm:gap-6 mb-6 sm:mb-8 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))] lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
+              <div className="catalog-grid grid w-full max-w-full gap-3 sm:gap-6 mb-6 sm:mb-8 lg:[grid-auto-rows:1fr]">
                 {showPromotedBlocks
                   ? promotedGames.map(({ game }) => (
                       <Link

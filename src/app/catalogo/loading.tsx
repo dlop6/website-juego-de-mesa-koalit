@@ -58,7 +58,7 @@ export default function CatalogoLoading() {
             </div>
           </div>
         </aside>
-        <main className="flex-1 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
+        <main className="flex-1 min-w-0 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-[#393328] pb-4">
             <div className="animate-pulse space-y-2">
               <SkeletonLine className="h-3 w-40 bg-[#2a2410]" />
@@ -70,7 +70,7 @@ export default function CatalogoLoading() {
               <SkeletonLine className="lg:hidden h-7 w-20" />
             </div>
           </div>
-          <div className="grid gap-3 sm:gap-6 mb-6 sm:mb-8 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))] lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
+          <div className="catalog-grid grid w-full max-w-full gap-3 sm:gap-6 mb-6 sm:mb-8 lg:[grid-auto-rows:1fr]">
             <div className="col-span-full sm:col-auto lg:col-auto h-full">
               <div className="h-full flex flex-col bg-surface-dark border border-[#393328]/50 opacity-40 animate-pulse">
                 <div className="w-full aspect-video bg-[#2a2410]" />

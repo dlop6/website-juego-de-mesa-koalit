@@ -667,14 +667,91 @@
   ],
   "sponsors": [
     {
-      "id": "s-broken-token",
-      "name": "THE BROKEN TOKEN",
+      "id": "s-hasbro",
+      "name": "Hasbro",
       "logo": {
         "src": "",
-        "alt": "Logo de The Broken Token"
+        "alt": "Logo de Hasbro"
       },
-      "websiteUrl": "https://example.com/the-broken-token",
-      "tagline": "ORGANIZADORES DE JUEGOS",
+      "websiteUrl": "",
+      "tagline": "EDITORIAL GLOBAL DE JUEGOS",
+      "priority": 80
+    },
+    {
+      "id": "s-mattel",
+      "name": "Mattel",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Mattel"
+      },
+      "websiteUrl": "",
+      "tagline": "CLÁSICOS Y JUEGOS FAMILIARES",
+      "priority": 70
+    },
+    {
+      "id": "s-ravensburger",
+      "name": "Ravensburger",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Ravensburger"
+      },
+      "websiteUrl": "",
+      "tagline": "PUZZLES Y JUEGOS PREMIUM",
+      "priority": 60
+    },
+    {
+      "id": "s-asmodee",
+      "name": "Asmodee",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Asmodee"
+      },
+      "websiteUrl": "",
+      "tagline": "EDITORIAL INTERNACIONAL",
+      "priority": 50
+    },
+    {
+      "id": "s-goliath",
+      "name": "Goliath",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Goliath"
+      },
+      "websiteUrl": "",
+      "tagline": "JUEGOS PARA TODA LA FAMILIA",
+      "priority": 40
+    },
+    {
+      "id": "s-games-workshop",
+      "name": "Games Workshop",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Games Workshop"
+      },
+      "websiteUrl": "",
+      "tagline": "ESTRATEGIA Y MINIATURAS",
+      "priority": 30
+    },
+    {
+      "id": "s-stratego",
+      "name": "Stratego",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Stratego"
+      },
+      "websiteUrl": "",
+      "tagline": "ESTRATEGIA CLÁSICA",
+      "priority": 20
+    },
+    {
+      "id": "s-days-of-wonder",
+      "name": "Días de Maravilla",
+      "logo": {
+        "src": "",
+        "alt": "Logo de Días de Maravilla"
+      },
+      "websiteUrl": "",
+      "tagline": "EXPERIENCIAS FAMILIARES",
       "priority": 10
     }
   ],

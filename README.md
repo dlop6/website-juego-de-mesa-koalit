@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Datos del proyecto
+
+Los datos viven en `public/db.json` e incluyen:
+
+- `games`: juegos del catalogo.
+- `promotions`: juegos promocionados.
+- `sponsors`: marcas patrocinadoras (con placeholders de logo).
+
+### Marcas (marquee)
+
+La sección de marcas usa un marquee horizontal infinito con placeholders.
+Para agregar logos reales, reemplaza `logo.src` y `logo.alt` en `public/db.json`
+con archivos locales o URLs permitidas.
+
 ## Getting Started
 
 First, run the development server:

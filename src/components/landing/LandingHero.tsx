@@ -39,7 +39,7 @@ export function LandingHero() {
               </Link>
             </div>
           </div>
-          <div className="w-full md:w-5/12 aspect-video bg-black border-2 border-primary/50 relative p-4 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
+          <div className="w-full md:w-6/12 aspect-video bg-black border-2 border-primary/50 relative p-6 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
             <div className="absolute top-2 left-2 right-2 h-px bg-primary/30" />
             <div className="text-primary font-mono text-xs md:text-sm leading-relaxed w-full">
               <span className="text-primary-dim">C:\VAULT&gt;</span> ejecutar_diagnostico.exe
@@ -54,12 +54,12 @@ export function LandingHero() {
               <span className="text-primary-dim">C:\VAULT&gt;</span>{" "}
               <span className="blink-cursor">_</span>
             </div>
-            <div className="mt-4 w-full h-32 border border-primary/30 relative overflow-hidden amber-tint-container">
+            <div className="mt-4 w-full h-44 border border-primary/30 relative overflow-hidden amber-tint-container">
               <div
-                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center"
-                data-alt="Retro computer board or detailed map"
+                className="absolute inset-0 bg-[url('/images/coleccion_juegos.png')] bg-cover bg-center"
+                data-alt="Colección de cajas de juegos de mesa"
                 role="img"
-                aria-label="Retro computer board or detailed map"
+                aria-label="Colección de cajas de juegos de mesa"
               />
               <div className="absolute inset-0 bg-primary/20 backdrop-blur-[1px]" />
             </div>
