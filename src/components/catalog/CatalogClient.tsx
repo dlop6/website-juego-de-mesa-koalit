@@ -49,6 +49,7 @@ export function CatalogClient({
   const searchParamsString = searchParams.toString();
   const initialFiltersRef = useRef<GameFilters | null>(null);
   const didSyncRef = useRef(false);
+  const resetPageRef = useRef(false);
   const [isPending, startTransition] = useTransition();
 
   const themeOptions = useMemo(() => {
@@ -113,9 +114,6 @@ export function CatalogClient({
   }, [searchParamsString, themeOptions]);
 
   const [filters, setFilters] = useState<GameFilters>(initialFilters);
-  const [page, setPage] = useState(() =>
-    parsePageParam(new URLSearchParams(searchParamsString).get("page"))
-  );
   const [isFiltersOpen, setFiltersOpen] = useState(false);
 
   const normalizedFilters = useMemo(
@@ -146,10 +144,12 @@ export function CatalogClient({
     [baseGames.length]
   );
 
-  const currentPage = useMemo(
-    () => clampPage(page, totalPages),
-    [page, totalPages]
-  );
+  const currentPage = useMemo(() => {
+    const pageParam = parsePageParam(
+      new URLSearchParams(searchParamsString).get("page")
+    );
+    return clampPage(pageParam, totalPages);
+  }, [searchParamsString, totalPages]);
 
   const pagedGames = useMemo(() => {
     const startIndex = (currentPage - 1) * PAGE_SIZE;
@@ -165,29 +165,15 @@ export function CatalogClient({
   const priceMaxValue = filters.priceMax ?? priceBounds.max;
 
   useEffect(() => {
-    const nextPage = clampPage(
-      parsePageParam(new URLSearchParams(searchParamsString).get("page")),
-      totalPages
-    );
-    if (nextPage !== page) {
-      setPage(nextPage);
-    }
-  }, [page, searchParamsString, totalPages]);
-
-  useEffect(() => {
-    if (page !== currentPage) {
-      setPage(currentPage);
-    }
-  }, [page, currentPage]);
-
-  useEffect(() => {
     if (!didSyncRef.current) {
       didSyncRef.current = true;
       return;
     }
     const params = serializeFiltersToSearchParams(filters, themeOptions);
-    if (currentPage > 1) {
-      params.set("page", String(currentPage));
+    const nextPage = resetPageRef.current ? 1 : currentPage;
+    resetPageRef.current = false;
+    if (nextPage > 1) {
+      params.set("page", String(nextPage));
     }
     const nextQuery = params.toString();
     const nextUrl = nextQuery.length > 0 ? `${pathname}?${nextQuery}` : pathname;
@@ -219,8 +205,8 @@ export function CatalogClient({
 
   function startFiltering(update: (prev: GameFilters) => GameFilters) {
     startTransition(() => {
+      resetPageRef.current = true;
       setFilters((prev) => normalizeFilters(update(prev), themeOptions));
-      setPage(1);
     });
   }
 
@@ -229,8 +215,14 @@ export function CatalogClient({
     if (clamped === currentPage) {
       return;
     }
+    const params = serializeFiltersToSearchParams(filters, themeOptions);
+    if (clamped > 1) {
+      params.set("page", String(clamped));
+    }
+    const nextQuery = params.toString();
+    const nextUrl = nextQuery.length > 0 ? `${pathname}?${nextQuery}` : pathname;
     startTransition(() => {
-      setPage(clamped);
+      router.replace(nextUrl, { scroll: false });
     });
   }
 
@@ -487,7 +479,7 @@ export function CatalogClient({
           <div className="mt-auto flex justify-center pb-8 px-3 sm:px-0">
             <button className="relative group w-full max-w-[520px] px-6 sm:px-8 py-3 bg-transparent border border-primary text-primary font-bold tracking-widest uppercase overflow-hidden hover:text-black transition-colors duration-300">
               <span className="absolute inset-0 w-full h-full bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
-              <span className="relative flex items-center gap-2">
+              <span className="relative flex items-center justify-center gap-2 w-full">
                 [ EJECUTAR_SIGUIENTE_LOTE ]
                 <span className="material-symbols-outlined animate-bounce">
                   keyboard_double_arrow_down

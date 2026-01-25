@@ -91,7 +91,7 @@ export function GameDetail({
                 <div className="absolute inset-2 overflow-hidden bg-background-dark">
                   {imageSrc ? (
                     <div
-                      className="w-full h-full bg-cover bg-center amber-filter opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                      className="w-full h-full bg-cover bg-center"
                       style={{ backgroundImage: `url('${imageSrc}')` }}
                       role="img"
                       aria-label={imageAlt}
@@ -101,7 +101,6 @@ export function GameDetail({
                       IMAGEN_NO_DISPONIBLE
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-primary/10 mix-blend-overlay pointer-events-none" />
                 </div>
                 <div className="absolute bottom-6 right-6 text-primary text-xs font-mono tracking-widest bg-black/80 px-2 py-1 border border-primary/30">
                   ESCANEO_DE_IMAGEN

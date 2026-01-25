@@ -12,7 +12,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={`cambiar a modo ${nextThemeLabel}`}
-      className="flex items-center gap-2 border border-primary px-3 py-1 text-xs text-primary hover:bg-primary hover:text-black transition-colors uppercase font-bold"
+      className="flex items-center gap-2 border border-primary px-3 py-1 text-xs text-primary hover:bg-primary hover:text-background-dark transition-colors uppercase font-bold"
     >
       <span className="material-symbols-outlined text-sm">{icon}</span>
       <span>[MODO]</span>

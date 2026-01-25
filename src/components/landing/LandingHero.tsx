@@ -42,16 +42,16 @@ export function LandingHero() {
           <div className="w-full md:w-5/12 aspect-video bg-black border-2 border-primary/50 relative p-4 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
             <div className="absolute top-2 left-2 right-2 h-px bg-primary/30" />
             <div className="text-primary font-mono text-xs md:text-sm leading-relaxed w-full">
-              <span className="text-primary-dim">C:\BAUL&gt;</span> ejecutar_diagnostico.exe
+              <span className="text-primary-dim">C:\VAULT&gt;</span> ejecutar_diagnostico.exe
               <br />
               <span className="text-green-500">Verificando memoria...</span> 640K OK
               <br />
               <span className="text-green-500">Cargando recursos...</span>{" "}
               <span className="animate-pulse">LISTO</span>
               <br />
-              <span className="text-primary-dim">C:\BAUL&gt;</span> montar_unidad A:
+              <span className="text-primary-dim">C:\VAULT&gt;</span> montar_unidad A:
               <br />
-              <span className="text-primary-dim">C:\BAUL&gt;</span>{" "}
+              <span className="text-primary-dim">C:\VAULT&gt;</span>{" "}
               <span className="blink-cursor">_</span>
             </div>
             <div className="mt-4 w-full h-32 border border-primary/30 relative overflow-hidden amber-tint-container">

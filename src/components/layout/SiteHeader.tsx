@@ -2,26 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [activePath, setActivePath] = useState("");
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    setActivePath(window.location.pathname);
-  }, []);
+  const activePath = usePathname() ?? "";
 
   function navClass(isActive: boolean) {
-    return [
-      "text-primary hover:text-white hover:bg-primary hover:px-2 -mx-2 transition-all duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group",
-      isActive ? "bg-primary text-black px-2" : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+    const base =
+      "px-2 rounded-sm transition-colors duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group";
+    if (isActive) {
+      return `${base} bg-primary text-background-dark`;
+    }
+    return `${base} text-primary hover:text-background-dark hover:bg-primary`;
   }
 
   useEffect(() => {
@@ -58,14 +52,14 @@ export function SiteHeader() {
             href="/"
             aria-current={activePath === "/" ? "page" : undefined}
           >
-            <span className="opacity-0 group-hover:opacity-100">&gt;</span> INICIO
+            <span className="opacity-0 group-hover:opacity-100">&gt;</span> [INICIO]
           </Link>
           <Link
             className={navClass(activePath.startsWith("/catalogo"))}
             href="/catalogo"
             aria-current={activePath.startsWith("/catalogo") ? "page" : undefined}
           >
-            <span className="opacity-0 group-hover:opacity-100">&gt;</span> CATÁLOGO
+            <span className="opacity-0 group-hover:opacity-100">&gt;</span> [CATÁLOGO]
           </Link>
           <ThemeToggle />
         </nav>

@@ -1,52 +1,83 @@
+function SkeletonLine({ className }: { className: string }) {
+  return <div className={`rounded bg-[#393328] ${className}`} />;
+}
+
 export default function GameDetailLoading() {
   return (
-    <main className="min-h-screen bg-bg text-text">
-      <div className="mx-auto w-full max-w-5xl px-4 py-6 lg:px-6">
-        <div className="h-4 w-40 rounded-1 bg-border/40" />
-
-        <section className="mt-4 rounded-3 border border-border bg-surface p-4 lg:p-6">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-            <div className="h-64 w-full rounded-2 border border-border bg-elevated sm:h-72 lg:h-80" />
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <div className="h-6 w-48 rounded-1 bg-border/40" />
-                <div className="h-4 w-24 rounded-1 bg-border/30" />
+    <div
+      className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-background-dark relative"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <span className="sr-only">Cargando ficha</span>
+      <div className="scanlines fixed inset-0 z-0 opacity-20 h-full w-full" />
+      <main className="flex-grow flex flex-col items-center py-6 px-4 sm:px-8 relative">
+        <div className="w-full max-w-[1280px] flex flex-col gap-6 relative z-10">
+          <div className="flex items-center gap-2 py-2 animate-pulse">
+            <SkeletonLine className="h-4 w-48 bg-[#2a2410]" />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-5 flex flex-col gap-4 animate-pulse">
+              <div className="relative w-full aspect-square rounded-lg border-2 border-primary/20 bg-black overflow-hidden">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary z-20" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary z-20" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary z-20" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary z-20" />
+                <div className="absolute inset-2 bg-[#2a2410]" />
               </div>
-              <div className="flex gap-2">
+              <div className="flex justify-between text-xs font-mono text-primary/50 uppercase">
+                <SkeletonLine className="h-3 w-24 bg-[#2a2410]" />
+                <SkeletonLine className="h-3 w-32 bg-[#2a2410]" />
+              </div>
+            </div>
+            <div className="lg:col-span-7 flex flex-col gap-6 animate-pulse">
+              <div className="border-b border-primary/20 pb-6 space-y-3">
+                <div className="flex items-center gap-3">
+                  <SkeletonLine className="h-4 w-20 bg-[#2a2410]" />
+                  <SkeletonLine className="h-3 w-28 bg-[#2a2410]" />
+                </div>
+                <SkeletonLine className="h-10 w-3/4" />
+                <SkeletonLine className="h-4 w-1/2 bg-[#2a2410]" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {Array.from({ length: 3 }).map((_, index) => (
                   <div
-                    key={`theme-skeleton-${index}`}
-                    className="h-6 w-20 rounded-full bg-border/30"
-                  />
+                    key={`stat-skeleton-${index}`}
+                    className="flex flex-col p-4 rounded bg-primary/5 border border-primary/20"
+                  >
+                    <SkeletonLine className="h-3 w-3/5 bg-[#2a2410]" />
+                    <SkeletonLine className="mt-3 h-6 w-2/3" />
+                  </div>
                 ))}
               </div>
-              <div className="space-y-2">
+              <div className="flex flex-wrap gap-2">
                 {Array.from({ length: 4 }).map((_, index) => (
-                  <div
-                    key={`detail-skeleton-${index}`}
-                    className="h-4 w-40 rounded-1 bg-border/30"
-                  />
+                  <SkeletonLine key={`tag-skeleton-${index}`} className="h-7 w-24" />
                 ))}
               </div>
-              <div className="h-10 w-56 rounded-2 bg-border/30" />
+              <div className="flex flex-col gap-2 p-6 rounded-lg border border-dashed border-primary/30 bg-surface-dark/50">
+                <SkeletonLine className="h-4 w-48 bg-[#2a2410]" />
+                <SkeletonLine className="h-4 w-full" />
+                <SkeletonLine className="h-4 w-5/6" />
+                <SkeletonLine className="h-4 w-2/3" />
+              </div>
+              <SkeletonLine className="h-12 w-full max-w-[520px] bg-[#2a2410]" />
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <SkeletonLine className="h-3 w-56 bg-[#2a2410]" />
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <SkeletonLine className="h-3 w-32 bg-[#2a2410]" />
+                <SkeletonLine className="h-3 w-24 bg-[#2a2410]" />
+                <SkeletonLine className="h-3 w-28 bg-[#2a2410]" />
+              </div>
             </div>
           </div>
-        </section>
-
-        <section className="mt-6 rounded-3 border border-border bg-surface p-4 lg:p-6">
-          <div className="h-5 w-32 rounded-1 bg-border/40" />
-          <div className="mt-3 space-y-2">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <div
-                key={`desc-skeleton-${index}`}
-                className="h-4 w-full rounded-1 bg-border/30"
-              />
-            ))}
-          </div>
-        </section>
-
-        <p className="mt-4 text-500 text-muted">Cargando...</p>
+        </div>
+      </main>
+      <div className="h-1 w-full bg-primary/20 mt-auto relative">
+        <div className="absolute right-0 top-0 h-full w-1/3 bg-primary" />
       </div>
-    </main>
+    </div>
   );
 }
