@@ -15,4 +15,5 @@ test("SiteHeader renderiza marca y enlaces principales", () => {
   assert.match(html, /INICIO/);
   assert.match(html, /CATÁLOGO/);
   assert.match(html, /\[MODO\]/);
+  assert.match(html, /menu/);
 });

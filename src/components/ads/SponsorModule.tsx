@@ -22,7 +22,7 @@ export function SponsorModule({
   return (
     <article
       className={[
-        "col-span-1 md:col-span-2 xl:col-span-1 group relative flex flex-col justify-center",
+        "col-span-1 md:col-span-2 xl:col-span-1 group relative flex flex-col justify-center h-full",
         "bg-gradient-to-br from-background-dark to-[#2a2410] border border-[#544c3b] overflow-hidden",
         className,
       ]

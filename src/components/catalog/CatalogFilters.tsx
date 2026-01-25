@@ -14,6 +14,9 @@ type CatalogFiltersProps = {
   onRatingIncrease: () => void;
   onToggleTheme: (theme: string) => void;
   onClear: () => void;
+  mode?: "desktop" | "mobile";
+  panelId?: string;
+  className?: string;
 };
 
 function toSlug(value: string) {
@@ -38,13 +41,21 @@ export function CatalogFilters({
   onRatingIncrease,
   onToggleTheme,
   onClear,
+  mode = "desktop",
+  panelId,
+  className,
 }: CatalogFiltersProps) {
   const valueLabel = `${formatPriceWithQ(priceMin, 2)} - ${formatPriceWithQ(priceMax, 2)}`;
+  const isMobile = mode === "mobile";
+  const baseClass = isMobile
+    ? "flex flex-col w-full bg-[#181611] p-4"
+    : "hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 sticky top-16 overflow-hidden";
+  const resolvedPanelId = panelId ?? (isMobile ? undefined : "filters-panel");
 
   return (
     <aside
-      id="filters-panel"
-      className="hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 sticky top-16 overflow-hidden"
+      id={resolvedPanelId}
+      className={[baseClass, className].filter(Boolean).join(" ")}
     >
       <div className="mb-8">
         <h1 className="text-primary text-xl font-bold tracking-widest mb-1 break-all leading-tight">

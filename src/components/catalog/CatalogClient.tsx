@@ -111,6 +111,7 @@ export function CatalogClient({
   }, [searchParamsString, themeOptions]);
 
   const [filters, setFilters] = useState<GameFilters>(initialFilters);
+  const [isFiltersOpen, setFiltersOpen] = useState(false);
 
   const normalizedFilters = useMemo(
     () => ({
@@ -156,6 +157,23 @@ export function CatalogClient({
       router.replace(nextUrl, { scroll: false });
     }
   }, [filters, pathname, router, searchParamsString, themeOptions]);
+
+  useEffect(() => {
+    if (!isFiltersOpen) {
+      return;
+    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setFiltersOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isFiltersOpen]);
 
   function startFiltering(update: (prev: GameFilters) => GameFilters) {
     startTransition(() => {
@@ -215,7 +233,22 @@ export function CatalogClient({
     startFiltering(() => defaultFilters);
   }
 
+  function openFilters() {
+    setFiltersOpen(true);
+  }
+
+  function closeFilters() {
+    setFiltersOpen(false);
+  }
+
   function focusFilters() {
+    if (typeof window !== "undefined") {
+      const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+      if (isMobile) {
+        openFilters();
+        return;
+      }
+    }
     const panel = document.getElementById("filters-panel");
     if (panel) {
       panel.scrollIntoView({ block: "start" });
@@ -241,8 +274,56 @@ export function CatalogClient({
           onToggleTheme={toggleTheme}
           onClear={clearFilters}
         />
-        <main className="flex-1 p-6 lg:p-10 flex flex-col min-h-screen">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 border-b border-[#393328] pb-4">
+        {isFiltersOpen ? (
+          <div className="fixed inset-0 z-[60] lg:hidden">
+            <button
+              type="button"
+              className="absolute inset-0 bg-black/70 animate-fade-in"
+              aria-label="Cerrar filtros"
+              onClick={closeFilters}
+            />
+            <div
+              id="filters-drawer"
+              role="dialog"
+              aria-modal="true"
+              className="absolute top-0 left-0 h-full w-[85%] max-w-[360px] overflow-y-auto border-r border-primary/40 bg-[#181611] shadow-[10px_0_30px_rgba(0,0,0,0.6)] animate-slide-in-left"
+            >
+              <div className="flex items-center justify-between px-4 pt-4">
+                <div className="text-primary font-bold tracking-widest uppercase text-sm">
+                  FILTROS
+                </div>
+                <button
+                  type="button"
+                  className="text-primary"
+                  aria-label="Cerrar filtros"
+                  onClick={closeFilters}
+                >
+                  <span className="material-symbols-outlined">close</span>
+                </button>
+              </div>
+              <CatalogFilters
+                mode="mobile"
+                panelId="filters-panel-mobile"
+                priceMin={priceMinValue}
+                priceMax={priceMaxValue}
+                priceBoundMin={priceBounds.min}
+                priceBoundMax={priceBounds.max}
+                ratingMin={ratingMin}
+                themes={themeOptions}
+                selectedThemes={filters.themes ?? []}
+                onPriceMinChange={updatePriceMinValue}
+                onPriceMaxChange={updatePriceMaxValue}
+                onRatingDecrease={decreaseRating}
+                onRatingIncrease={increaseRating}
+                onToggleTheme={toggleTheme}
+                onClear={clearFilters}
+                className="pt-2"
+              />
+            </div>
+          </div>
+        ) : null}
+        <main className="flex-1 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-[#393328] pb-4">
             <div>
               <div className="flex items-center gap-2 text-xs font-mono text-gray-500 mb-1">
                 <span>RAÍZ</span>
@@ -263,17 +344,26 @@ export function CatalogClient({
               <span>ENCONTRADOS: {toCountLabel(filteredGames.length)} REGISTROS</span>
               <span className="hidden sm:inline">|</span>
               <span className="hidden sm:inline">{isPending ? "LATENCIA: ..." : "LATENCIA: 12ms"}</span>
+              <button
+                type="button"
+                className="lg:hidden ml-auto px-3 py-1 border border-primary text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-black transition-colors"
+                aria-controls="filters-drawer"
+                aria-expanded={isFiltersOpen}
+                onClick={openFilters}
+              >
+                FILTRAR
+              </button>
             </div>
           </div>
           {filteredGames.length === 0 ? (
             <CatalogEmptyState onClear={clearFilters} onFocus={focusFilters} />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+            <div className="grid gap-3 sm:gap-6 mb-10 sm:mb-12 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))] lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
               {promotedGames.map(({ game }) => (
                 <Link
                   key={`promo-${game.id}`}
                   href={`/catalogo/${game.id}`}
-                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 col-span-full sm:col-auto lg:col-auto h-full"
                   aria-label={`Ver detalles de ${game.name}`}
                 >
                   <CatalogPromotedCard game={game} />
@@ -283,7 +373,7 @@ export function CatalogClient({
                 <Link
                   key={game.id}
                   href={`/catalogo/${game.id}`}
-                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 h-full"
                   aria-label={`Ver detalles de ${game.name}`}
                 >
                   <GameCard
@@ -303,13 +393,17 @@ export function CatalogClient({
                   />
                 </Link>
               ))}
-              {hasSponsor ? <SponsorModule sponsors={sponsors} /> : null}
+              {hasSponsor ? (
+                <div className="col-span-full sm:col-auto lg:col-auto h-full">
+                  <SponsorModule sponsors={sponsors} />
+                </div>
+              ) : null}
               <CatalogSkeletonCard />
               <CatalogSkeletonCard className="hidden md:flex" />
             </div>
           )}
-          <div className="mt-auto flex justify-center pb-8">
-            <button className="relative group px-8 py-3 bg-transparent border border-primary text-primary font-bold tracking-widest uppercase overflow-hidden hover:text-black transition-colors duration-300">
+          <div className="mt-auto flex justify-center pb-8 px-3 sm:px-0">
+            <button className="relative group w-full max-w-[520px] px-6 sm:px-8 py-3 bg-transparent border border-primary text-primary font-bold tracking-widest uppercase overflow-hidden hover:text-black transition-colors duration-300">
               <span className="absolute inset-0 w-full h-full bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
               <span className="relative flex items-center gap-2">
                 [ EJECUTAR_SIGUIENTE_LOTE ]

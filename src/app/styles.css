@@ -155,18 +155,29 @@
 
   .range-thumb::-webkit-slider-runnable-track {
     background: transparent;
+    height: 0;
+    border: 0;
   }
 
   .range-thumb::-webkit-slider-thumb {
     pointer-events: auto;
+    margin-top: 0;
   }
 
   .range-thumb::-moz-range-track {
     background: transparent;
+    height: 0;
+    border: 0;
   }
 
   .range-thumb::-moz-range-thumb {
     pointer-events: auto;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px rgba(242, 166, 13, 0.5);
   }
 }
 
@@ -236,6 +247,26 @@
 
   .animate-fade-up {
     animation: fade-up 600ms var(--ease-emphasis) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 200ms var(--ease-standard) both;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 280ms var(--ease-emphasis) both;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 280ms var(--ease-emphasis) both;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 280ms var(--ease-emphasis) both;
+  }
+
+  .page-transition {
+    animation: fade-in 220ms var(--ease-standard) both;
   }
 
   .anim-delay-1 {
@@ -423,6 +454,48 @@
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes float {
   0%,
   100% {
@@ -461,6 +534,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
+  .animate-fade-in,
+  .animate-slide-in-right,
+  .animate-slide-in-left,
+  .animate-slide-up,
+  .page-transition,
   .anim-float,
   .anim-glow,
   .anim-flicker-soft,
