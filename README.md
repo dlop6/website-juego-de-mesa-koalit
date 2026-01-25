@@ -14,6 +14,11 @@ La sección de marcas usa un marquee horizontal infinito con placeholders.
 Para agregar logos reales, reemplaza `logo.src` y `logo.alt` en `public/db.json`
 con archivos locales o URLs permitidas.
 
+### Regla de ads
+
+- Promocionados: landing (preview) y catalogo (cards destacadas).
+- Sponsors: landing (marquee + protocolos) y catalogo (modulo).
+
 ## Getting Started
 
 First, run the development server:

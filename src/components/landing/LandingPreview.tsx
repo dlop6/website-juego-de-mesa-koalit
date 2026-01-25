@@ -29,18 +29,25 @@ function pickRandomGames(games: Game[], count: number, random: () => number) {
 
 export function LandingPreview({
   games,
+  promotedGames,
   random = Math.random,
 }: {
   games: Game[];
+  promotedGames?: Game[];
   random?: () => number;
 }) {
-  const previewItems = pickRandomGames(games, PREVIEW_COUNT, random).map((game) => ({
+  const usePromoted = Boolean(promotedGames && promotedGames.length > 0);
+  const sourceGames = usePromoted
+    ? promotedGames!.slice(0, PREVIEW_COUNT)
+    : pickRandomGames(games, PREVIEW_COUNT, random);
+  const previewItems = sourceGames.map((game) => ({
     name: normalizePreviewName(game.name),
     year: game.releaseYear ? `${game.releaseYear}` : "--",
     rating: `${formatRatingFiveScale(game.rating?.value ?? 0)}/5`,
     price: formatPriceWithQ(game.price?.amount ?? 0, 2),
     image: game.image?.src || PLACEHOLDER_IMAGE_SQUARE,
     alt: game.image?.alt ?? game.name,
+    promoted: usePromoted,
   }));
   const totalCount = games.length;
   const shownCount = previewItems.length;
@@ -71,6 +78,11 @@ export function LandingPreview({
                 role="img"
                 aria-label={item.alt}
               />
+              {item.promoted ? (
+                <div className="absolute top-2 left-2 bg-primary text-background-dark px-2 py-1 text-[10px] font-bold tracking-widest z-20">
+                  PROMOCIONADO
+                </div>
+              ) : null}
               <div className="absolute top-2 right-2 bg-black/80 border border-primary px-2 py-1 text-xs text-primary font-bold z-20">
                 {item.year}
               </div>

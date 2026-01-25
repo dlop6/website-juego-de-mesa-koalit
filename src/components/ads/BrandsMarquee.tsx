@@ -43,11 +43,11 @@ export function BrandsMarquee({ sponsors }: { sponsors: Sponsor[] }) {
                 <img
                   src={item.logoSrc}
                   alt={item.logoAlt}
-                  className="h-10 w-auto max-w-[140px] object-contain"
+                  className="h-12 w-auto max-w-[160px] object-contain"
                 />
               ) : (
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 text-primary text-xs font-bold">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 text-primary text-xs font-bold">
                     {item.initials || "BM"}
                   </span>
                   <span className="text-primary text-sm font-semibold uppercase tracking-widest">

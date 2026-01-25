@@ -670,7 +670,7 @@
       "id": "s-hasbro",
       "name": "Hasbro",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/Hasbro.png",
         "alt": "Logo de Hasbro"
       },
       "websiteUrl": "",
@@ -681,7 +681,7 @@
       "id": "s-mattel",
       "name": "Mattel",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/mattel.png",
         "alt": "Logo de Mattel"
       },
       "websiteUrl": "",
@@ -692,7 +692,7 @@
       "id": "s-ravensburger",
       "name": "Ravensburger",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/Ravensburger.png",
         "alt": "Logo de Ravensburger"
       },
       "websiteUrl": "",
@@ -703,7 +703,7 @@
       "id": "s-asmodee",
       "name": "Asmodee",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/asmodee.png",
         "alt": "Logo de Asmodee"
       },
       "websiteUrl": "",
@@ -714,7 +714,7 @@
       "id": "s-goliath",
       "name": "Goliath",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/Goliath.png",
         "alt": "Logo de Goliath"
       },
       "websiteUrl": "",
@@ -725,7 +725,7 @@
       "id": "s-games-workshop",
       "name": "Games Workshop",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/games%20workshop.png",
         "alt": "Logo de Games Workshop"
       },
       "websiteUrl": "",
@@ -736,7 +736,7 @@
       "id": "s-stratego",
       "name": "Stratego",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/Stratego.png",
         "alt": "Logo de Stratego"
       },
       "websiteUrl": "",
@@ -747,7 +747,7 @@
       "id": "s-days-of-wonder",
       "name": "Días de Maravilla",
       "logo": {
-        "src": "",
+        "src": "/images/sponsors/dias%20maravilla.png",
         "alt": "Logo de Días de Maravilla"
       },
       "websiteUrl": "",
@@ -761,6 +761,18 @@
       "gameId": "g-voidfall",
       "label": "Promocionado",
       "weight": 12
+    },
+    {
+      "id": "p-terraforming-mars",
+      "gameId": "g-terraforming-mars",
+      "label": "Promocionado",
+      "weight": 10
+    },
+    {
+      "id": "p-dune-imperium",
+      "gameId": "g-dune-imperium",
+      "label": "Promocionado",
+      "weight": 8
     }
   ]
 }

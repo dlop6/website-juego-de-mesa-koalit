@@ -47,3 +47,34 @@ test("LandingPreview muestra registros y CTA de catalogo", () => {
   assert.match(html, /BETA_QUEST/);
   assert.match(html, /GAMMA_SIEGE/);
 });
+
+test("LandingPreview prioriza juegos promocionados", () => {
+  const games: Game[] = [
+    {
+      id: "g-alpha",
+      name: "Alpha Board",
+      price: { amount: 100, currency: "GTQ" },
+      rating: { value: 4.2, scale: 5 },
+      themes: ["Estrategia"],
+      shortDescription: "Juego de prueba.",
+      image: { src: "https://example.com/alpha.jpg", alt: "Alpha" },
+      releaseYear: 2020,
+    },
+    {
+      id: "g-beta",
+      name: "Beta Quest",
+      price: { amount: 200, currency: "GTQ" },
+      rating: { value: 3.8, scale: 5 },
+      themes: ["Familiar"],
+      shortDescription: "Juego de prueba.",
+      image: { src: "https://example.com/beta.jpg", alt: "Beta" },
+      releaseYear: 2021,
+    },
+  ];
+  const html = renderToStaticMarkup(
+    <LandingPreview games={games} promotedGames={[games[1]]} />
+  );
+
+  assert.match(html, /BETA_QUEST/);
+  assert.match(html, /PROMOCIONADO/);
+});
