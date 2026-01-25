@@ -29,7 +29,7 @@ export default async function Home() {
         <LandingHero />
         <LandingPreview games={games} promotedGames={promotedGames} />
         <BrandsMarquee sponsors={sponsors} />
-        <LandingProtocols sponsors={sponsors} />
+        <LandingProtocols />
         <LandingTrust />
       </main>
     </div>
