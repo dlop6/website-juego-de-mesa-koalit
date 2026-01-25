@@ -14,7 +14,6 @@ import {
 import { clampPage, getTotalPages, parsePageParam } from "@/lib/pagination";
 import { excludePromotedGames, selectPromotedGames } from "@/lib/ads/ads";
 import { GameCard } from "@/components/game/GameCard";
-import { SponsorModule } from "@/components/ads/SponsorModule";
 import { BrandsMarquee } from "@/components/ads/BrandsMarquee";
 import { CatalogFilters } from "@/components/catalog/CatalogFilters";
 import { CatalogPromotedCard } from "@/components/catalog/CatalogPromotedCard";
@@ -157,7 +156,6 @@ export function CatalogClient({
     return baseGames.slice(startIndex, startIndex + PAGE_SIZE);
   }, [baseGames, currentPage]);
 
-  const hasSponsor = sponsors.length > 0;
   const hasPrevPage = currentPage > 1;
   const hasNextPage = currentPage < totalPages;
   const showPromotedBlocks = currentPage === 1;
@@ -444,11 +442,6 @@ export function CatalogClient({
                     />
                   </Link>
                 ))}
-                {showPromotedBlocks && hasSponsor ? (
-                  <div className="col-span-full sm:col-auto lg:col-auto h-full">
-                    <SponsorModule sponsors={sponsors} />
-                  </div>
-                ) : null}
                 <CatalogSkeletonCard />
                 <CatalogSkeletonCard className="hidden md:flex" />
               </div>
@@ -479,17 +472,6 @@ export function CatalogClient({
               </div>
             </>
           )}
-          <div className="mt-auto flex justify-center pb-8 px-3 sm:px-0">
-            <button className="relative group w-full max-w-[520px] px-6 sm:px-8 py-3 bg-transparent border border-primary text-primary font-bold tracking-widest uppercase overflow-hidden hover:text-black transition-colors duration-300">
-              <span className="absolute inset-0 w-full h-full bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
-              <span className="relative flex items-center justify-center gap-2 w-full">
-                [ EJECUTAR_SIGUIENTE_LOTE ]
-                <span className="material-symbols-outlined animate-bounce">
-                  keyboard_double_arrow_down
-                </span>
-              </span>
-            </button>
-          </div>
         </main>
       </div>
     </div>
