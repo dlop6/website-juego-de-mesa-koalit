@@ -47,10 +47,9 @@ export function CatalogClient({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const searchParamsString = searchParams.toString();
-  const initialFiltersRef = useRef<GameFilters | null>(null);
   const didSyncRef = useRef(false);
   const resetPageRef = useRef(false);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const themeOptions = useMemo(() => {
     const seen = new Set<string>();
@@ -101,19 +100,9 @@ export function CatalogClient({
     return new Map(entries);
   }, [games]);
 
-  const initialFilters = useMemo(() => {
-    if (initialFiltersRef.current) {
-      return initialFiltersRef.current;
-    }
-    const parsed = parseFiltersFromSearchParams(
-      new URLSearchParams(searchParamsString),
-      themeOptions
-    );
-    initialFiltersRef.current = parsed;
-    return parsed;
-  }, [searchParamsString, themeOptions]);
-
-  const [filters, setFilters] = useState<GameFilters>(initialFilters);
+  const [filters, setFilters] = useState<GameFilters>(() =>
+    parseFiltersFromSearchParams(new URLSearchParams(searchParamsString), themeOptions)
+  );
   const [isFiltersOpen, setFiltersOpen] = useState(false);
 
   const normalizedFilters = useMemo(
