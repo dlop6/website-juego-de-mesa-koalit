@@ -59,10 +59,10 @@ export function CatalogFilters({
     >
       <div className="mb-8">
         <h1 className="text-primary text-xl font-bold tracking-widest mb-1 break-all leading-tight">
-          ENTRADA_DE_PARÁMETROS
+          PARÁMETROS
         </h1>
         <p className="text-[#bab09c] text-xs font-mono border-l-2 border-primary/50 pl-2">
-          // CONFIGURAR MATRIZ DE BÚSQUEDA
+          {`// CONFIGURAR MATRIZ DE BÚSQUEDA`}
         </p>
       </div>
       <div className="flex flex-col gap-8">

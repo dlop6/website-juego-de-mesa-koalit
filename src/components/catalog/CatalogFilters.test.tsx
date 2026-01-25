@@ -22,7 +22,7 @@ test("CatalogFilters muestra controles base", () => {
     />
   );
 
-  assert.match(html, /ENTRADA_DE_PARÁMETROS/);
+  assert.match(html, /PARÁMETROS/);
   assert.match(html, /RANGO_DE_PRECIO/);
   assert.match(html, /VALORACIÓN_MÍNIMA/);
   assert.match(html, /TEMÁTICAS/);
@@ -50,5 +50,5 @@ test("CatalogFilters admite modo mobile con panelId", () => {
   );
 
   assert.match(html, /filters-panel-mobile/);
-  assert.match(html, /ENTRADA_DE_PARÁMETROS/);
+  assert.match(html, /PARÁMETROS/);
 });
