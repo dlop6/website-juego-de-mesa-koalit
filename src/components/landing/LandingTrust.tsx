@@ -25,7 +25,7 @@ export function LandingTrust() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         {trustItems.map((item) => (
           <div key={item.title} className="flex flex-col items-center gap-2 group">
-            <div className="w-12 h-12 flex items-center justify-center border border-primary rounded-full group-hover:bg-primary group-hover:text-black transition-colors text-primary">
+            <div className="w-12 h-12 flex items-center justify-center border border-primary rounded-full group-hover:bg-primary group-hover:text-bg transition-colors text-primary">
               <span className="material-symbols-outlined">{item.icon}</span>
             </div>
             <h5 className="text-primary font-bold text-sm tracking-wider">{item.title}</h5>

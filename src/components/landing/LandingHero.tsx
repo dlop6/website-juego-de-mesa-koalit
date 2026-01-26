@@ -27,7 +27,7 @@ export function LandingHero() {
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 href="/catalogo"
-                className="relative bg-primary text-background-dark text-lg font-bold px-8 py-3 rounded-none uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-glow hover:shadow-lg active:translate-y-1"
+                className="relative bg-primary text-bg text-lg font-bold px-8 py-3 rounded-none uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-glow hover:shadow-lg active:translate-y-1"
               >
                 [ ACCEDER AL CATÁLOGO ]
               </Link>
@@ -39,7 +39,7 @@ export function LandingHero() {
               </Link>
             </div>
           </div>
-          <div className="w-full md:w-6/12 aspect-video bg-black border-2 border-primary/50 relative p-6 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
+          <div className="w-full md:w-6/12 aspect-video bg-panel border-2 border-primary/50 relative p-6 rounded shadow-[inset_0_0_20px_rgba(242,166,13,0.2)] flex flex-col justify-center items-center">
             <div className="absolute top-2 left-2 right-2 h-px bg-primary/30" />
             <div className="text-primary font-mono text-xs md:text-sm leading-relaxed w-full">
               <span className="text-primary-dim">C:\VAULT&gt;</span> ejecutar_diagnostico.exe

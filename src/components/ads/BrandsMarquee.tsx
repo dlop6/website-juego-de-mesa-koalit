@@ -31,7 +31,7 @@ export function BrandsMarquee({ sponsors }: { sponsors: Sponsor[] }) {
       >
         Patrocinadores
       </h2>
-      <div className="marquee w-full max-w-full rounded-lg border border-primary/20 bg-background-dark/60 px-4 py-6">
+      <div className="marquee w-full max-w-full rounded-lg border border-border/60 bg-panel/70 px-4 py-6">
         <ul className="marquee-track" role="list">
           {items.concat(items).map((item, index) => (
             <li
