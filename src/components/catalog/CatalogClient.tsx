@@ -1,4 +1,4 @@
-// se definió el componente `CatalogClient` que orquestó filtros, paginación y sincronización con la url.
+// define el componente `CatalogClient` que orquesta filtros, paginación y sincronización con la url.
 "use client";
 
 import { useMemo, useRef, useState, useTransition, useEffect } from "react";

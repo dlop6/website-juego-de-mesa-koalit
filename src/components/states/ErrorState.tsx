@@ -3,7 +3,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 
-// se definieron las props para el estado de error con opción de icono y acciones
+// define las props para el estado de error con opción de icono y acciones
 export interface ErrorStateProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
@@ -14,9 +14,9 @@ export interface ErrorStateProps extends HTMLAttributes<HTMLDivElement> {
   icon?: ReactNode;
 }
 
-// se renderizó un estado de error con botón principal de retry
-// - el icono se mostró solo si fue provisto
-// - el botón secundario se mostró solo si label y handler fueron provistos
+// renderiza un estado de error con botón principal de retry
+// - muestra el icono solo si fue provisto
+// - muestra el botón secundario solo si label y handler fueron provistos
 export function ErrorState({
   title,
   description,

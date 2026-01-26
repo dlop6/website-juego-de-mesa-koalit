@@ -1,2 +1,2 @@
-// se permitió la importación de archivos css en ts/tsx
+// permite la importación de archivos css en ts/tsx
 declare module '*.css';

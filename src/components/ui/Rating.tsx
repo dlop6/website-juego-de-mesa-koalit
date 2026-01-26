@@ -1,4 +1,4 @@
-// se definió el componente `Rating` que mostró una estrella y el valor formateado dentro de una escala.
+// define el componente `Rating` que muestra una estrella y el valor formateado dentro de una escala.
 "use client";
 
 import type { HTMLAttributes } from "react";
@@ -11,10 +11,12 @@ export interface RatingProps extends HTMLAttributes<HTMLDivElement> {
   ariaLabel?: string;
 }
 
+// limita el valor entre min y max.
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+// formatea el valor a un decimal.
 function formatValue(value: number) {
   return value.toFixed(1);
 }

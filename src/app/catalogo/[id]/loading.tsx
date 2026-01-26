@@ -1,4 +1,4 @@
-// se definió la vista de carga para la ficha de juego que mostró esqueletos de contenido.
+// define la vista de carga para la ficha de juego que muestra esqueletos de contenido.
 function SkeletonLine({ className }: { className: string }) {
   return <div className={`rounded bg-border/60 ${className}`} />;
 }

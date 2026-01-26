@@ -1,4 +1,4 @@
-// se definió el manejador global de errores que mostró la pantalla offline en cliente.
+// define el manejador global de errores que muestra la pantalla offline en cliente.
 "use client";
 
 import { OfflineErrorScreen } from "@/components/states/OfflineErrorScreen";

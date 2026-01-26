@@ -1,4 +1,4 @@
-// se definió el componente `GameDetail` que presentó la vista detallada de un juego y sus metadatos.
+// define el componente `GameDetail` que presenta la vista detallada de un juego y sus metadatos.
 import type { Game } from "@/lib/dal";
 import { BuyButton } from "@/components/game/BuyButton";
 import { BackToCatalog } from "@/components/nav/BackToCatalog";
@@ -9,8 +9,10 @@ import {
   formatThemeLabel,
 } from "@/lib/formatters";
 
+// define el tipo para los parámetros de búsqueda.
 type SearchParams = Record<string, string | string[] | undefined>;
 
+// formatea un rango de números como string.
 function formatRange(min?: number, max?: number) {
   if (typeof min !== "number") {
     return null;
@@ -21,11 +23,13 @@ function formatRange(min?: number, max?: number) {
   return `${min}`;
 }
 
+// construye un id de sistema limpio para el juego.
 function buildSystemId(gameId: string) {
   const cleaned = gameId.toUpperCase().replace(/[^A-Z0-9]+/g, "-");
   return `#${cleaned}`;
 }
 
+// genera los iconos de estrellas para la valoración.
 function getStarIcons(value: number) {
   const clamped = Math.max(0, Math.min(RATING_MAX, value));
   const rounded = Math.round(clamped * 2) / 2;

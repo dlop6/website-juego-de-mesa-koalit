@@ -1,4 +1,4 @@
-// se definió el componente `SponsorModule` que seleccionó y mostró un patrocinador destacado.
+// define el componente `SponsorModule` que selecciona y muestra un patrocinador destacado.
 import type { Sponsor } from "@/lib/dal";
 import { selectSponsor } from "@/lib/ads/ads";
 

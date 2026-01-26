@@ -1,4 +1,4 @@
-// se definió el componente `LandingHero` que presentó el bloque principal de la página de inicio.
+// define el componente `LandingHero` que presenta el bloque principal de la página de inicio.
 import Link from "next/link";
 
 export function LandingHero() {

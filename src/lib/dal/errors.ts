@@ -1,7 +1,7 @@
-// se definieron los códigos de error usados por el acceso a datos
+// define los códigos de error usados por el acceso a datos
 export type DataAccessErrorCode = "NETWORK_SIMULATED" | "FETCH_FAILED" | "UNKNOWN";
 
-// se definió la clase DataAccessError que encapsuló código y mensaje
+// define la clase DataAccessError que encapsula código y mensaje
 export class DataAccessError extends Error {
   readonly code: DataAccessErrorCode;
 

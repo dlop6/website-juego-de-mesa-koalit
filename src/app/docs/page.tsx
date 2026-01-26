@@ -1,3 +1,4 @@
+// define la página de documentación que presenta el manual de operación.
 export default function DocsPage() {
   return (
     <main className="bg-background-light dark:bg-background-dark text-[#333] dark:text-primary min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-black">

@@ -1,10 +1,14 @@
+// define el componente `ThemeToggle` que alterna entre temas claro y oscuro.
 "use client";
 
 import { useTheme } from "@/providers/ThemeProvider";
 
 export function ThemeToggle() {
+  // extrae el tema actual y la función para alternarlo.
   const { theme, toggleTheme } = useTheme();
+  // calcula la etiqueta del próximo tema.
   const nextThemeLabel = theme === "dark" ? "claro" : "oscuro";
+  // determina el icono del próximo tema.
   const icon = theme === "dark" ? "light_mode" : "dark_mode";
 
   return (

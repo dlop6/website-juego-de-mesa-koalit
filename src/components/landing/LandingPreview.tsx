@@ -1,4 +1,4 @@
-// se definió el componente `LandingPreview` que construyó una vista previa de juegos y formateó datos.
+// define el componente `LandingPreview` que construye una vista previa de juegos y formatea datos.
 import Link from "next/link";
 
 import type { Game } from "@/lib/dal";

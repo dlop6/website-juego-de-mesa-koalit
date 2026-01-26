@@ -1,3 +1,4 @@
+// define el componente `SiteHeader` que renderiza la cabecera del sitio con navegación.
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,9 +7,12 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
+  // controla el estado del menú móvil.
   const [isMenuOpen, setMenuOpen] = useState(false);
+  // obtiene la ruta actual de la página.
   const activePath = usePathname() ?? "";
 
+  // genera las clases css para los enlaces de navegación según si están activos.
   function navClass(isActive: boolean) {
     const base =
       "px-2 rounded-sm transition-colors duration-200 text-sm font-bold tracking-widest uppercase flex items-center gap-1 group";
@@ -18,6 +22,7 @@ export function SiteHeader() {
     return `${base} text-primary hover:text-background-dark hover:bg-primary`;
   }
 
+  // maneja el cierre del menú con escape y bloquea el scroll del body.
   useEffect(() => {
     if (!isMenuOpen) {
       return;

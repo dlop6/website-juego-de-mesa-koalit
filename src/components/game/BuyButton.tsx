@@ -1,4 +1,4 @@
-// se definió el componente `BuyButton` que mostró el CTA de compra (enlace externo o boton deshabilitado).
+// define el componente `BuyButton` que muestra el CTA de compra (enlace externo o botón deshabilitado).
 export function BuyButton({ purchaseUrl }: { purchaseUrl?: string }) {
   return (
     <div className="mt-4 flex flex-col sm:flex-row gap-4 items-center pt-4 border-t border-primary/20">

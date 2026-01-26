@@ -1,4 +1,4 @@
-// se definió el template que envolvió rutas permitiendo transiciones por pathname.
+// define el template que envuelve rutas permitiendo transiciones por pathname.
 "use client";
 
 import type { ReactNode } from "react";

@@ -1,4 +1,4 @@
-// se definió el contrato de datos para `game` usado por el dal
+// define el contrato de datos para `game` usado por el dal
 export interface Game {
   id: string;
   name: string;

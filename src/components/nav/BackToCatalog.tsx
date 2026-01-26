@@ -1,7 +1,10 @@
+// define el componente `BackToCatalog` que construye un enlace de vuelta al catálogo con filtros preservados.
 import Link from "next/link";
 
+// define el tipo para los parámetros de búsqueda.
 type SearchParams = Record<string, string | string[] | undefined>;
 
+// construye la url del catálogo preservando los filtros de búsqueda.
 function buildCatalogHref(searchParams?: SearchParams) {
   if (!searchParams) {
     return "/catalogo";

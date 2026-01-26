@@ -1,3 +1,4 @@
+// define el componente `SiteFooter` que renderiza el pie de página del sitio.
 import Link from "next/link";
 
 export function SiteFooter() {

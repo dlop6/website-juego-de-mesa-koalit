@@ -1,4 +1,4 @@
-// se definió la página de not-found para fichas no encontradas que reutilizó el componente compartido.
+// define la página de not-found para fichas no encontradas que reutiliza el componente compartido.
 import { NotFoundScreen } from "@/components/states/NotFoundScreen";
 
 export default function GameNotFound() {

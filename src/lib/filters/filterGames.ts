@@ -1,4 +1,4 @@
-// se implementó el filtrado de juegos por precio, rating y temáticas
+// implementa el filtrado de juegos por precio, rating y temáticas
 import type { Game } from "@/lib/dal";
 
 export interface GameFilters {
@@ -15,7 +15,7 @@ interface NormalizedFilters {
   themes: string[] | null;
 }
 
-// se normalizó un valor numérico; se devolvió null si no fue número finito
+// normaliza un valor numérico; devuelve null si no fue número finito
 function normalizeNumber(value: unknown): number | null {
   if (typeof value !== "number") {
     return null;
@@ -26,12 +26,12 @@ function normalizeNumber(value: unknown): number | null {
   return value;
 }
 
-// se limitó un valor dentro de un rango inclusivo
+// limita un valor dentro de un rango inclusivo
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
-// se normalizaron temáticas eliminando entradas inválidas y duplicados
+// normaliza temáticas eliminando entradas inválidas y duplicados
 function normalizeThemes(value: unknown): string[] | null {
   if (!Array.isArray(value)) {
     return null;
@@ -50,7 +50,7 @@ function normalizeThemes(value: unknown): string[] | null {
   return Array.from(new Set(normalized));
 }
 
-// se normalizaron filtros y se resolvieron inconsistencias (swap/clamp)
+// normaliza filtros y resuelve inconsistencias (swap/clamp)
 function normalizeFilters(filters: GameFilters): NormalizedFilters {
   const rawPriceMin = normalizeNumber(filters.priceMin);
   const rawPriceMax = normalizeNumber(filters.priceMax);
@@ -77,12 +77,12 @@ function normalizeFilters(filters: GameFilters): NormalizedFilters {
   };
 }
 
-// se validó que el precio sea número finito y no negativo
+// valida que el precio sea número finito y no negativo
 function isValidPriceAmount(value: unknown) {
   return typeof value === "number" && Number.isFinite(value) && value >= 0;
 }
 
-// se validó que el rating fuese número finito en rango 0-5
+// valida que el rating fuese número finito en rango 0-5
 function isValidRatingValue(value: unknown) {
   return (
     typeof value === "number" &&
@@ -92,12 +92,12 @@ function isValidRatingValue(value: unknown) {
   );
 }
 
-// se filtró la lista de juegos aplicando cada criterio normalizado
+// filtra la lista de juegos aplicando cada criterio normalizado
 export function filterGames(games: Game[], filters: GameFilters) {
   const normalized = normalizeFilters(filters);
 
   return games.filter((game) => {
-    // se evaluaron límites de precio solo si alguno fue especificado
+    // evalúa límites de precio solo si alguno fue especificado
     if (normalized.priceMin !== null || normalized.priceMax !== null) {
       if (!isValidPriceAmount(game.price?.amount)) {
         return false;
@@ -110,7 +110,7 @@ export function filterGames(games: Game[], filters: GameFilters) {
       }
     }
 
-    // se evaluó el rating mínimo si fue especificado
+    // evalúa el rating mínimo si fue especificado
     if (normalized.ratingMin !== null) {
       if (!isValidRatingValue(game.rating?.value)) {
         return false;
@@ -120,7 +120,7 @@ export function filterGames(games: Game[], filters: GameFilters) {
       }
     }
 
-    // se validaron las temáticas requiriendo que el juego contenga todas las solicitadas
+    // valida las temáticas requiriendo que el juego contenga todas las solicitadas
     if (normalized.themes) {
       const gameThemes = normalizeThemes(game.themes);
       if (!gameThemes) {

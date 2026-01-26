@@ -1,4 +1,4 @@
-// se definió el componente `CatalogPromotedCard` que mostró una tarjeta destacada para juegos promocionados.
+// define el componente `CatalogPromotedCard` que muestra una tarjeta destacada para juegos promocionados.
 import type { Game } from "@/lib/dal";
 import {
   PLACEHOLDER_IMAGE_WIDE,

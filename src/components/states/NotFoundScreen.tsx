@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// se renderizó la pantalla 404 con enlaces de navegación alternativos
+// renderiza la pantalla 404 con enlaces de navegación alternativos
 export function NotFoundScreen() {
   return (
     <div className="bg-bg text-fg font-display overflow-x-hidden selection:bg-selection selection:text-selection-fg min-h-full relative">
