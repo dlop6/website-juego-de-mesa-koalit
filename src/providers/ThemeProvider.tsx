@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
+import { createContext, useEffect, useSyncExternalStore } from "react";
+import { THEME_STORAGE_KEY } from "@/constants";
 
 // define el tipo de tema usado en la app
 type Theme = "dark" | "light";
@@ -11,9 +12,7 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-const THEME_STORAGE_KEY = "theme";
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const DEFAULT_THEME: Theme = "dark";
 const listeners = new Set<() => void>();
 
@@ -81,11 +80,4 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-// exporta un hook para consumir el contexto; lanza error si no se usa dentro del provider
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme debe usarse dentro de ThemeProvider");
-  }
-  return context;
-}
+

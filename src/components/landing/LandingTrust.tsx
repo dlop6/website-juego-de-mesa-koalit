@@ -1,24 +1,7 @@
 // define el componente `LandingTrust` que lista garantías y beneficios en la página de inicio.
-const trustItems = [
-  {
-    icon: "verified_user",
-    title: "[DATOS VERIFICADOS]",
-    description:
-      "Todas las entradas cruzadas manualmente con archivos físicos.",
-  },
-  {
-    icon: "visibility",
-    title: "[PUBLICIDAD TRANSPARENTE]",
-    description:
-      "Distinción clara entre contenido y registros patrocinados.",
-  },
-  {
-    icon: "accessibility_new",
-    title: "[ACCESIBILIDAD CUMPLIDA]",
-    description:
-      "Diseñado para legibilidad de alto contraste y soporte de lector de pantalla.",
-  },
-];
+import { TRUST_ITEMS } from "@/constants";
+
+const trustItems = TRUST_ITEMS;
 
 export function LandingTrust() {
   return (

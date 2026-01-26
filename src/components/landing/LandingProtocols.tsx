@@ -1,21 +1,7 @@
 // define el componente `LandingProtocols` que muestra protocolos de búsqueda como tarjetas.
-const protocolItems = [
-  {
-    icon: "payments",
-    title: "POR PRECIO",
-    description: "Filtrar por precio",
-  },
-  {
-    icon: "hotel_class",
-    title: "POR VALORACIÓN",
-    description: "Filtrar por valoración",
-  },
-  {
-    icon: "category",
-    title: "POR TEMÁTICA",
-    description: "Filtrar por temática",
-  },
-];
+import { PROTOCOLS } from "@/constants";
+
+const protocolItems = PROTOCOLS;
 
 export function LandingProtocols() {
   return (

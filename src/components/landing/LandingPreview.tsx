@@ -7,8 +7,7 @@ import {
   formatPriceWithQ,
   formatRatingFiveScale,
 } from "@/lib/formatters";
-
-const PREVIEW_COUNT = 3;
+import { PREVIEW_COUNT } from "@/constants";
 
 function normalizePreviewName(name: string) {
   return name

@@ -1,7 +1,7 @@
 // define el componente `ThemeToggle` que alterna entre temas claro y oscuro.
 "use client";
 
-import { useTheme } from "@/providers/ThemeProvider";
+import { useTheme } from "@/hooks";
 
 export function ThemeToggle() {
   // extrae el tema actual y la función para alternarlo.

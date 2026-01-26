@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "@/hooks";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {

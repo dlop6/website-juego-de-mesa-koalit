@@ -20,16 +20,10 @@ import { CatalogFilters } from "@/components/catalog/CatalogFilters";
 import { CatalogPromotedCard } from "@/components/catalog/CatalogPromotedCard";
 import { CatalogSkeletonCard } from "@/components/catalog/CatalogSkeletonCard";
 import { CatalogEmptyState } from "@/components/catalog/CatalogEmptyState";
+import { PAGE_SIZE, RATING_STEP, DEFAULT_FILTERS } from "@/constants";
 
-const defaultFilters: GameFilters = {
-  priceMin: null,
-  priceMax: null,
-  ratingMin: 0,
-  themes: [],
-};
-
-const ratingStep = 0.5;
-const PAGE_SIZE = 9;
+const defaultFilters: GameFilters = DEFAULT_FILTERS;
+const ratingStep = RATING_STEP;
 
 function toCountLabel(value: number) {
   return value.toLocaleString("es-GT");
