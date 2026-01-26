@@ -67,9 +67,9 @@ export function LandingPreview({
         {previewItems.map((item) => (
           <div
             key={item.name}
-            className="group border-2 border-primary bg-background-dark p-1 hover:border-white transition-colors duration-300"
+            className="group border-2 border-border bg-panel p-1 hover:border-primary transition-colors duration-300"
           >
-            <div className="relative aspect-square w-full overflow-hidden bg-black mb-3 border border-primary/30">
+            <div className="relative aspect-square w-full overflow-hidden bg-panel mb-3 border border-border/60">
               <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 pointer-events-none" />
               <div
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500 group-hover:scale-110 grayscale sepia contrast-125 group-hover:grayscale-0 group-hover:sepia-0 opacity-80 group-hover:opacity-100"
@@ -79,19 +79,19 @@ export function LandingPreview({
                 aria-label={item.alt}
               />
               {item.promoted ? (
-                <div className="absolute top-2 left-2 bg-primary text-background-dark px-2 py-1 text-[10px] font-bold tracking-widest z-20">
+                <div className="absolute top-2 left-2 bg-primary text-bg px-2 py-1 text-[10px] font-bold tracking-widest z-20">
                   PROMOCIONADO
                 </div>
               ) : null}
-              <div className="absolute top-2 right-2 bg-black/80 border border-primary px-2 py-1 text-xs text-primary font-bold z-20">
+              <div className="absolute top-2 right-2 bg-panel/80 border border-border px-2 py-1 text-xs text-primary font-bold z-20">
                 {item.year}
               </div>
             </div>
             <div className="px-2 pb-2">
-              <h4 className="text-lg font-bold text-primary truncate group-hover:text-white">
+              <h4 className="text-lg font-bold text-primary truncate group-hover:text-fg">
                 {item.name}
               </h4>
-              <div className="flex justify-between items-center mt-2 text-sm font-mono text-primary/80 border-t border-primary/30 pt-2">
+              <div className="flex justify-between items-center mt-2 text-sm font-mono text-fg-muted border-t border-border pt-2">
                 <span className="flex items-center gap-1">
                   <span className="material-symbols-outlined text-xs icon-filled">star</span>
                   {item.rating}

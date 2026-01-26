@@ -19,7 +19,7 @@ const protocolItems = [
 export function LandingProtocols() {
   return (
     <section className="border border-primary p-6 relative bg-primary/5">
-      <div className="absolute -top-3 left-4 bg-background-dark px-2 text-primary font-bold border border-primary text-sm uppercase">
+      <div className="absolute -top-3 left-4 bg-panel px-2 text-primary font-bold border border-primary text-sm uppercase">
         Protocolos de Búsqueda
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-full">
