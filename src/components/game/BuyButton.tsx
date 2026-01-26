@@ -6,7 +6,7 @@ export function BuyButton({ purchaseUrl }: { purchaseUrl?: string }) {
           href={purchaseUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group w-full sm:w-auto flex-1 h-14 bg-primary text-background-dark rounded font-bold text-lg uppercase tracking-wide hover:bg-white hover:shadow-[0_0_15px_rgba(242,166,13,0.6)] transition-all flex items-center justify-center gap-3 relative overflow-hidden anim-glow"
+          className="group w-full sm:w-auto flex-1 h-14 bg-primary text-ink rounded font-bold text-lg uppercase tracking-wide hover:bg-white hover:shadow-[0_0_15px_rgba(242,166,13,0.6)] transition-all flex items-center justify-center gap-3 relative overflow-hidden anim-glow"
         >
           <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-white/20 skew-x-[20deg] group-hover:animate-[shine_1s_infinite]" />
           <span className="material-symbols-outlined">shopping_cart_checkout</span>
@@ -15,7 +15,7 @@ export function BuyButton({ purchaseUrl }: { purchaseUrl?: string }) {
       ) : (
         <button
           type="button"
-          className="group w-full sm:w-auto flex-1 h-14 bg-primary text-background-dark rounded font-bold text-lg uppercase tracking-wide transition-all flex items-center justify-center gap-3 relative overflow-hidden opacity-60 cursor-not-allowed"
+          className="group w-full sm:w-auto flex-1 h-14 bg-primary text-ink rounded font-bold text-lg uppercase tracking-wide transition-all flex items-center justify-center gap-3 relative overflow-hidden opacity-60 cursor-not-allowed"
           disabled
         >
           <span className="material-symbols-outlined">shopping_cart_checkout</span>

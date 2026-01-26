@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function NotFoundScreen() {
   return (
-    <div className="bg-background-dark text-primary font-display overflow-x-hidden selection:bg-primary selection:text-black min-h-full relative">
+    <div className="bg-bg text-fg font-display overflow-x-hidden selection:bg-selection selection:text-selection-fg min-h-full relative">
       <div className="fixed inset-0 z-50 pointer-events-none scanlines opacity-30 h-full w-full" />
       <div className="fixed inset-0 z-40 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]" />
       <main className="flex flex-1 items-center justify-center p-4 sm:p-8 relative z-10">
@@ -15,7 +15,7 @@ export function NotFoundScreen() {
           }}
         />
         <div className="w-full max-w-4xl flex flex-col items-center">
-          <div className="w-full crt-box-glow bg-[#050505] border-2 border-primary/30 rounded-lg overflow-hidden relative backdrop-blur-md">
+          <div className="w-full crt-box-glow bg-panel border-2 border-primary/30 rounded-lg overflow-hidden relative backdrop-blur-md">
             <div className="flex items-center justify-between px-4 py-2 bg-primary/10 border-b border-primary/30">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -50,7 +50,7 @@ export function NotFoundScreen() {
                   del Vault. El archivo puede haber sido movido o purgado del sistema.
                 </p>
               </div>
-              <div className="w-full max-w-lg mt-4 bg-black/40 border border-primary/20 rounded p-4 text-left font-mono text-xs sm:text-sm text-primary/80 h-32 overflow-hidden relative shadow-inner">
+              <div className="w-full max-w-lg mt-4 bg-panel/60 border border-primary/20 rounded p-4 text-left font-mono text-xs sm:text-sm text-primary/80 h-32 overflow-hidden relative shadow-inner">
                 <div className="absolute top-0 right-0 p-2">
                   <span className="animate-pulse w-2 h-4 bg-primary inline-block" />
                 </div>
@@ -70,12 +70,12 @@ export function NotFoundScreen() {
                   </p>
                   <p className="whitespace-nowrap">&gt; Awaiting manual override...</p>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-panel to-transparent pointer-events-none" />
               </div>
               <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-6">
                 <Link
                   href="/"
-                  className="group relative overflow-hidden bg-primary text-black font-bold py-3 px-8 rounded border-2 border-primary hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(242,166,13,0.4)]"
+                  className="group relative overflow-hidden bg-primary text-ink font-bold py-3 px-8 rounded border-2 border-primary hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(242,166,13,0.4)]"
                 >
                   <span className="absolute inset-0 w-full h-full bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
                   <span className="relative flex items-center gap-2 uppercase tracking-wide">

@@ -1,6 +1,6 @@
 export function OfflineErrorScreen({ onRetry }: { onRetry: () => void }) {
   return (
-    <div className="font-display bg-background-dark text-white crt-overlay overflow-x-hidden min-h-full flex flex-col relative selection:bg-primary selection:text-black">
+    <div className="font-display bg-bg text-fg crt-overlay overflow-x-hidden min-h-full flex flex-col relative selection:bg-selection selection:text-selection-fg">
       <div className="scanline-bar scanline-bar-offline" />
       <main className="px-4 md:px-40 flex flex-1 justify-center py-12 items-center">
         <div className="layout-content-container flex flex-col max-w-[800px] w-full relative">
@@ -9,7 +9,7 @@ export function OfflineErrorScreen({ onRetry }: { onRetry: () => void }) {
             <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-primary" />
             <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-primary" />
             <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary" />
-            <div className="p-6 md:p-12 flex flex-col items-center gap-8 bg-black/40 rounded inner-shadow">
+            <div className="p-6 md:p-12 flex flex-col items-center gap-8 bg-panel/60 rounded inner-shadow">
               <div className="w-full flex justify-between text-xs text-primary/50 font-mono tracking-[0.2em] border-b border-primary/20 pb-2 mb-4">
                 <span>// TERMINAL_OVERRIDE_INITIATED</span>
                 <span>SYS_ERR_503</span>
@@ -83,7 +83,7 @@ export function OfflineErrorScreen({ onRetry }: { onRetry: () => void }) {
                 <button
                   type="button"
                   onClick={onRetry}
-                  className="group relative overflow-hidden bg-primary text-background-dark font-bold text-lg px-8 py-4 rounded w-full sm:w-auto min-w-[280px] hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(242,166,13,0.4)] hover:shadow-[0_0_25px_rgba(242,166,13,0.6)] flex items-center justify-center gap-3"
+                  className="group relative overflow-hidden bg-primary text-ink font-bold text-lg px-8 py-4 rounded w-full sm:w-auto min-w-[280px] hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(242,166,13,0.4)] hover:shadow-[0_0_25px_rgba(242,166,13,0.6)] flex items-center justify-center gap-3"
                 >
                   <span className="material-symbols-outlined text-2xl group-hover:rotate-180 transition-transform duration-700">
                     refresh
@@ -97,7 +97,7 @@ export function OfflineErrorScreen({ onRetry }: { onRetry: () => void }) {
                 </p>
               </div>
             </div>
-            <div className="bg-black/80 h-8 flex items-center px-4 border-t border-primary/20 justify-between text-[10px] text-primary/40 font-mono uppercase tracking-widest">
+            <div className="bg-panel/80 h-8 flex items-center px-4 border-t border-primary/20 justify-between text-[10px] text-primary/40 font-mono uppercase tracking-widest">
               <span>Terminal V.4.0.2</span>
               <div className="flex gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-900 animate-pulse" />

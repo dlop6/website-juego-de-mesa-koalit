@@ -74,7 +74,7 @@ export function GameDetail({
   const imageAlt = game.image?.alt ?? game.name;
 
   return (
-    <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-background-dark relative">
+    <div className="bg-bg text-fg min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-selection selection:text-selection-fg relative">
       <div className="scanlines fixed inset-0 z-0 opacity-20 h-full w-full" />
       <main className="flex-grow flex flex-col items-center py-6 px-4 sm:px-8 relative">
         <div className="w-full max-w-[1280px] flex flex-col gap-6 relative z-10">
@@ -83,12 +83,12 @@ export function GameDetail({
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-4 animate-fade-up anim-delay-2">
-              <div className="relative w-full aspect-square rounded-lg border-2 border-primary/20 bg-black overflow-hidden group anim-float">
+              <div className="relative w-full aspect-square rounded-lg border-2 border-primary/20 bg-panel overflow-hidden group anim-float">
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary z-20" />
                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary z-20" />
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary z-20" />
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary z-20" />
-                <div className="absolute inset-2 overflow-hidden bg-background-dark">
+                <div className="absolute inset-2 overflow-hidden bg-bg">
                   {imageSrc ? (
                     <div
                       className="w-full h-full bg-cover bg-center"
@@ -102,7 +102,7 @@ export function GameDetail({
                     </div>
                   )}
                 </div>
-                <div className="absolute bottom-6 right-6 text-primary text-xs font-mono tracking-widest bg-black/80 px-2 py-1 border border-primary/30">
+                <div className="absolute bottom-6 right-6 text-primary text-xs font-mono tracking-widest bg-panel/80 px-2 py-1 border border-primary/30">
                   ESCANEO_DE_IMAGEN
                 </div>
               </div>
@@ -114,7 +114,7 @@ export function GameDetail({
             <div className="lg:col-span-7 flex flex-col gap-6">
               <div className="border-b border-primary/20 pb-6 relative animate-fade-up anim-delay-3">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-background-dark tracking-widest anim-flicker-soft">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-ink tracking-widest anim-flicker-soft">
                     CLASIFICADO
                   </span>
                   <span className="text-primary/60 text-xs font-mono tracking-wider">
@@ -181,14 +181,14 @@ export function GameDetail({
                   ? game.themes.map((theme) => (
                       <span
                         key={theme}
-                        className="px-3 py-1 rounded border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-background-dark cursor-default transition-colors"
+                        className="px-3 py-1 rounded border border-primary/40 text-primary text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-ink cursor-default transition-colors"
                       >
                         {formatThemeLabel(theme)}
                       </span>
                     ))
                   : null}
               </div>
-              <div className="flex flex-col gap-2 p-6 rounded-lg border border-dashed border-primary/30 bg-surface-dark/50 animate-fade-up anim-delay-6">
+              <div className="flex flex-col gap-2 p-6 rounded-lg border border-dashed border-primary/30 bg-panel/70 animate-fade-up anim-delay-6">
                 <div className="flex items-center gap-2 mb-2 border-b border-primary/10 pb-2">
                   <span className="material-symbols-outlined text-primary/50 text-base">
                     terminal
