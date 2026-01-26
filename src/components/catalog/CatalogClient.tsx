@@ -289,7 +289,7 @@ export function CatalogClient({
   }
 
   return (
-    <div className="bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-black min-h-screen flex flex-col">
+    <div className="bg-bg text-fg font-display overflow-x-hidden min-h-screen flex flex-col">
       <div className="scanlines fixed inset-0 z-50 opacity-20 h-full w-full" />
       <div className="flex flex-1 relative max-w-[1920px] mx-auto w-full">
         <CatalogFilters
@@ -319,7 +319,7 @@ export function CatalogClient({
               id="filters-drawer"
               role="dialog"
               aria-modal="true"
-              className="absolute top-0 left-0 h-full w-[85%] max-w-[360px] overflow-y-auto border-r border-primary/40 bg-[#181611] shadow-[10px_0_30px_rgba(0,0,0,0.6)] animate-slide-in-left"
+              className="absolute top-0 left-0 h-full w-[85%] max-w-[360px] overflow-y-auto border-r border-border bg-panel shadow-[10px_0_30px_rgba(0,0,0,0.6)] animate-slide-in-left"
             >
               <div className="flex items-center justify-between px-4 pt-4">
                 <div className="text-primary font-bold tracking-widest uppercase text-sm">
@@ -356,9 +356,9 @@ export function CatalogClient({
           </div>
         ) : null}
         <main className="flex-1 min-w-0 px-3 py-6 sm:px-4 lg:p-10 flex flex-col min-h-screen">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-[#393328] pb-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8 border-b border-border pb-4">
             <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-gray-500 mb-1">
+              <div className="flex items-center gap-2 text-xs font-mono text-fg-muted mb-1">
                 <span>RAÍZ</span>
                 <span className="material-symbols-outlined text-[10px]">
                   chevron_right
@@ -369,11 +369,11 @@ export function CatalogClient({
                 </span>
                 <span className="text-primary">SECTOR_07</span>
               </div>
-              <h1 className="text-3xl font-bold text-white uppercase tracking-tight">
+              <h1 className="text-3xl font-bold text-fg uppercase tracking-tight">
                 Base de Datos de Juegos
               </h1>
             </div>
-            <div className="flex items-center gap-4 text-sm font-mono text-[#bab09c]">
+            <div className="flex items-center gap-4 text-sm font-mono text-fg-muted">
               <span>ENCONTRADOS: {toCountLabel(filteredGames.length)} REGISTROS</span>
               <span className="hidden sm:inline"></span>
                             <button
@@ -424,7 +424,7 @@ export function CatalogClient({
                       ratingValue={game.rating?.value ?? 0}
                       themes={Array.isArray(game.themes) ? game.themes : []}
                       badgeSlot={
-                        <span className="px-2 py-1 bg-black/80 border border-primary text-primary text-[10px] font-bold tracking-wider uppercase">
+                        <span className="px-2 py-1 bg-panel/80 border border-border text-primary text-[10px] font-bold tracking-wider uppercase">
                           Rango #{index + 1 + (currentPage - 1) * PAGE_SIZE}
                         </span>
                       }
@@ -435,7 +435,7 @@ export function CatalogClient({
                 <CatalogSkeletonCard className="hidden md:flex" />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6 mb-10 sm:mb-12">
-                <div className="text-xs font-mono uppercase tracking-[0.2em] text-[#bab09c]">
+                <div className="text-xs font-mono uppercase tracking-[0.2em] text-fg-muted">
                   Página {currentPage} de {totalPages}
                 </div>
                 <div className="flex items-center gap-2">

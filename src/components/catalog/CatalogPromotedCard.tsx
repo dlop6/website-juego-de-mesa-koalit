@@ -11,8 +11,8 @@ export function CatalogPromotedCard({ game }: { game: Game }) {
   const priceLabel = formatPriceWithQ(game.price?.amount ?? 0);
 
   return (
-    <article className="group relative flex flex-col bg-[#1a1505] border-2 border-dashed border-primary/50 hover:border-primary transition-all duration-300 h-full">
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black px-3 py-0.5 border border-primary text-primary text-[10px] font-bold tracking-widest z-30 flex items-center gap-1">
+    <article className="group relative flex flex-col bg-panel border-2 border-dashed border-primary/50 hover:border-primary transition-all duration-300 h-full">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-panel px-3 py-0.5 border border-primary text-primary text-[10px] font-bold tracking-widest z-30 flex items-center gap-1">
         <span className="w-1.5 h-1.5 bg-primary animate-pulse" />
         PROMOCIONADO
       </div>
@@ -34,7 +34,7 @@ export function CatalogPromotedCard({ game }: { game: Game }) {
             shopping_cart
           </span>
         </div>
-        <p className="text-[10px] sm:text-xs text-[#bab09c] line-clamp-2">
+        <p className="text-[10px] sm:text-xs text-fg-muted line-clamp-2">
           {game.shortDescription}
         </p>
         <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-primary/20 mt-2">
@@ -42,7 +42,7 @@ export function CatalogPromotedCard({ game }: { game: Game }) {
             <span className="material-symbols-outlined text-sm">rocket_launch</span>
             <span className="font-mono text-xs">PRE-ORDEN</span>
           </div>
-          <div className="font-mono text-white font-bold text-sm sm:text-base">
+          <div className="font-mono text-fg font-bold text-sm sm:text-base">
             {priceLabel}
           </div>
         </div>

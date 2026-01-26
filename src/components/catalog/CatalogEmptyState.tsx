@@ -6,11 +6,11 @@ export function CatalogEmptyState({
   onFocus: () => void;
 }) {
   return (
-    <div className="border border-primary/30 bg-surface-dark/60 p-6 text-center text-primary/80">
+    <div className="border border-border bg-panel p-6 text-center text-fg">
       <h3 className="text-lg font-bold text-primary mb-2">
         NO HAY RESULTADOS CON ESTOS FILTROS
       </h3>
-      <p className="text-sm text-primary/60 mb-4">
+      <p className="text-sm text-fg-muted mb-4">
         Ajusta los filtros para encontrar lo que buscas en el archivo.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">

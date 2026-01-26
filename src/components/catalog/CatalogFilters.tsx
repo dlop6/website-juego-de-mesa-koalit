@@ -48,8 +48,8 @@ export function CatalogFilters({
   const valueLabel = `${formatPriceWithQ(priceMin, 2)} - ${formatPriceWithQ(priceMax, 2)}`;
   const isMobile = mode === "mobile";
   const baseClass = isMobile
-    ? "flex flex-col w-full bg-[#181611] p-4"
-    : "hidden lg:flex flex-col w-80 min-w-[320px] border-r border-[#393328] bg-[#181611] p-6 sticky top-16 overflow-hidden";
+    ? "flex flex-col w-full bg-panel p-4"
+    : "hidden lg:flex flex-col w-80 min-w-[320px] border-r border-border bg-panel p-6 sticky top-16 overflow-hidden";
   const resolvedPanelId = panelId ?? (isMobile ? undefined : "filters-panel");
 
   return (
@@ -61,25 +61,25 @@ export function CatalogFilters({
         <h1 className="text-primary text-xl font-bold tracking-widest mb-1 break-all leading-tight">
           PARÁMETROS
         </h1>
-        <p className="text-[#bab09c] text-xs font-mono border-l-2 border-primary/50 pl-2">
+        <p className="text-fg-muted text-xs font-mono border-l-2 border-primary/50 pl-2">
           {`// CONFIGURAR MATRIZ DE BÚSQUEDA`}
         </p>
       </div>
       <div className="flex flex-col gap-8">
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-white/90">
+          <div className="flex items-center gap-2 text-fg">
             <span className="material-symbols-outlined text-primary text-lg">
               currency_bitcoin
             </span>
             <span className="text-sm font-medium tracking-wide">RANGO_DE_PRECIO</span>
           </div>
-          <div className="bg-surface-dark p-4 border border-[#393328] rounded">
+          <div className="bg-panel p-4 border border-border rounded">
             <div className="flex justify-between text-xs text-primary font-mono mb-2">
               <span>MIN: {formatPriceWithQ(priceBoundMin, 0)}</span>
               <span>MAX: {formatPriceWithQ(priceBoundMax, 0)}</span>
             </div>
             <div className="relative h-6">
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 rounded bg-[#544c3b]" />
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 rounded bg-border" />
               <input
                 id="price-min"
                 className="range-thumb absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 w-full z-10"
@@ -103,18 +103,18 @@ export function CatalogFilters({
                 aria-label="Precio máximo"
               />
             </div>
-            <div className="mt-3 flex justify-between items-center border-t border-[#393328] pt-2">
-              <span className="text-[10px] text-gray-500 uppercase">Valor_Entrada</span>
+            <div className="mt-3 flex justify-between items-center border-t border-border pt-2">
+              <span className="text-[10px] text-fg-muted uppercase">Valor_Entrada</span>
               <span className="text-primary font-mono font-bold">{valueLabel}</span>
             </div>
           </div>
         </div>
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-white/90">
+          <div className="flex items-center gap-2 text-fg">
             <span className="material-symbols-outlined text-primary text-lg">grade</span>
             <span className="text-sm font-medium tracking-wide">VALORACIÓN_MÍNIMA</span>
           </div>
-          <div className="flex items-center justify-between bg-surface-dark border border-[#393328] rounded p-1">
+          <div className="flex items-center justify-between bg-panel border border-border rounded p-1">
             <button
               type="button"
               onClick={onRatingDecrease}
@@ -123,7 +123,7 @@ export function CatalogFilters({
             >
               <span className="material-symbols-outlined">remove</span>
             </button>
-            <div className="font-mono text-xl font-bold text-white tracking-widest">
+            <div className="font-mono text-xl font-bold text-fg tracking-widest">
               {ratingMin.toFixed(1)}
             </div>
             <button
@@ -137,11 +137,11 @@ export function CatalogFilters({
           </div>
         </div>
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-white/90">
+          <div className="flex items-center gap-2 text-fg">
             <span className="material-symbols-outlined text-primary text-lg">category</span>
             <span className="text-sm font-medium tracking-wide">TEMÁTICAS</span>
           </div>
-          <div className="space-y-2 pl-2 border-l border-[#393328]">
+          <div className="space-y-2 pl-2 border-l border-border">
             {themes.map((theme) => {
               const slug = toSlug(theme);
               const checked = selectedThemes.includes(theme);
@@ -154,7 +154,7 @@ export function CatalogFilters({
                   <div className="relative flex items-center">
                     <input
                       id={`theme-${slug}`}
-                      className="peer h-4 w-4 appearance-none border border-[#544c3b] rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all"
+                      className="peer h-4 w-4 appearance-none border border-border rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all"
                       type="checkbox"
                       checked={checked}
                       onChange={() => onToggleTheme(theme)}
@@ -163,7 +163,7 @@ export function CatalogFilters({
                       check
                     </span>
                   </div>
-                  <span className="text-sm text-[#bab09c] group-hover:text-primary transition-colors font-mono">
+                  <span className="text-sm text-fg-muted group-hover:text-primary transition-colors font-mono">
                     [{formatThemeTag(theme)}]
                   </span>
                 </label>
