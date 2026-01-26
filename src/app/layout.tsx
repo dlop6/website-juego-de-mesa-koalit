@@ -18,7 +18,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Bóveda de Juegos",
+  title: "The Board Game Vault - Catálogo de Juegos de Mesa",
   description: "Catálogo de juegos de mesa",
 };
 
