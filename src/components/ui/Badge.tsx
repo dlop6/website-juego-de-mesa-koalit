@@ -1,3 +1,4 @@
+// se definió el componente `Badge` que renderizó una etiqueta compacta según variante.
 "use client";
 
 import type { HTMLAttributes } from "react";

@@ -1,3 +1,4 @@
+// se definió la prueba que verificó la integración de las secciones principales del landing.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import type { ReactElement } from "react";

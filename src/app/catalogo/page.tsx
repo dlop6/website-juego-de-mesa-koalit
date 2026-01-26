@@ -1,3 +1,4 @@
+// se definió la página de catálogo que cargó datos y montó el cliente de catálogo.
 import { getGames, getPromotions, getSponsors } from "@/lib/dal";
 import { CatalogClient } from "@/components/catalog/CatalogClient";
 

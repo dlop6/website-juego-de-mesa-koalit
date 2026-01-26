@@ -1,3 +1,4 @@
+// se definió el componente `GameDetail` que presentó la vista detallada de un juego y sus metadatos.
 import type { Game } from "@/lib/dal";
 import { BuyButton } from "@/components/game/BuyButton";
 import { BackToCatalog } from "@/components/nav/BackToCatalog";

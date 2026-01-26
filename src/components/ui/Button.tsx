@@ -1,3 +1,4 @@
+// se definió el componente `Button` que renderizó un botón estilizado y recibió variantes, tamaño y props nativas.
 "use client";
 
 import type { ButtonHTMLAttributes } from "react";

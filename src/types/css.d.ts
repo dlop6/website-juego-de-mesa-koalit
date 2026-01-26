@@ -1,1 +1,2 @@
-declare module '*.css'; // sugerido por chatgpt para importar archivos css en ts
+// se permitió la importación de archivos css en ts/tsx
+declare module '*.css';

@@ -3,6 +3,7 @@
 import type { HTMLAttributes } from "react";
 import { Button } from "@/components/ui/Button";
 
+// se definieron las props del componente empty state
 export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
@@ -12,6 +13,8 @@ export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   onSecondaryAction?: () => void;
 }
 
+// se renderizó un estado vacío con título, descripción y botones de acción
+// - se mostró el botón secundario solo si label y handler fueron provistos
 export function EmptyState({
   title,
   description,

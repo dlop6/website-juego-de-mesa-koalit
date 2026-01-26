@@ -1,3 +1,4 @@
+// se definió el componente `CatalogEmptyState` que mostró acciones cuando no hubo resultados.
 export function CatalogEmptyState({
   onClear,
   onFocus,

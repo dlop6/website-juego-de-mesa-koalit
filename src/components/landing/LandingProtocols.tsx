@@ -1,3 +1,4 @@
+// se definió el componente `LandingProtocols` que mostró protocolos de búsqueda como tarjetas.
 const protocolItems = [
   {
     icon: "payments",

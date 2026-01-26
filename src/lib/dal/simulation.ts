@@ -1,3 +1,4 @@
+// se implementó una simulación de red para el dal que ajustó latencia y errores
 import { DataAccessError } from "./errors";
 
 type DataMode = "test" | "development" | "production";
@@ -8,6 +9,7 @@ interface SimulationConfig {
   forceError: boolean;
 }
 
+// se leyó la configuración desde variables de entorno (públicas y privadas)
 const DATA_MODE =
   (process.env.NEXT_PUBLIC_DATA_MODE as DataMode | undefined) ??
   (process.env.DATA_MODE as DataMode | undefined);
@@ -21,34 +23,42 @@ const DATA_JITTER_MS =
 const DATA_FORCE_ERROR =
   process.env.NEXT_PUBLIC_DATA_FORCE_ERROR ?? process.env.DATA_FORCE_ERROR;
 
+// se convirtió strings a number y se devolvió el fallback si no fue válido
 function toNumber(value: string | undefined, fallback: number) {
   if (!value) return fallback;
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
+// se interpretó strings comunes como booleano
 function toBoolean(value: string | undefined) {
   if (!value) return false;
   return value === "1" || value === "true" || value === "yes";
 }
 
+// se limitó un valor dentro de un rango inclusive
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+// se calculó la configuración final de la simulación según entorno y env vars
 function getSimulationConfig(): SimulationConfig {
   const isTest = DATA_MODE === "test" || NODE_ENV === "test";
   const isDevelopment = NODE_ENV === "development";
   const isProduction = NODE_ENV === "production";
 
+  // se definió una latencia base diferente para test, dev y prod
   const baseLatency = isTest ? 20 : isProduction ? 0 : 350;
   const latencyRaw = toNumber(DATA_LATENCY_MS, baseLatency);
+
+  // en test se forzó baja latencia; en dev se aplicó clamp para evitar valores extremos
   const latencyMs = isTest
     ? 20
     : isDevelopment
-      ? clamp(latencyRaw, 250, 450)
-      : Math.max(0, latencyRaw);
+    ? clamp(latencyRaw, 250, 450)
+    : Math.max(0, latencyRaw);
 
+  // se aplicó jitter solo fuera de test
   const jitterMs = isTest ? 0 : Math.max(0, toNumber(DATA_JITTER_MS, 0));
 
   return {
@@ -58,11 +68,13 @@ function getSimulationConfig(): SimulationConfig {
   };
 }
 
+// se creó un pequeño wrapper para esperar ms
 function delay(ms: number) {
   if (ms <= 0) return Promise.resolve();
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// se simuló la latencia acumulando latency + jitter y se lanzó error si estuvo forzado
 export async function simulateNetwork() {
   const config = getSimulationConfig();
   await delay(config.latencyMs + config.jitterMs);

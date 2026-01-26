@@ -1,3 +1,4 @@
+// esto sirve para manejar la logica de promociones y sponsors
 import type { Game, Promotion, Sponsor } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";
 import { filterGames } from "@/lib/filters/filterGames";
@@ -7,10 +8,12 @@ export type PromotedGame = {
   game: Game;
 };
 
+// esto sirve para ordenar nombres de forma estable
 function sortByNameAsc(a: string, b: string) {
   return a.localeCompare(b);
 }
 
+// esto sirve para elegir promos aplicando filtros y orden deterministico
 export function selectPromotedGames(
   promotions: Promotion[],
   gamesById: Map<string, Game>,
@@ -74,6 +77,7 @@ export function selectPromotedGames(
   return sorted.slice(0, 3);
 }
 
+// esto sirve para quitar promos del listado base
 export function excludePromotedGames(
   games: Game[],
   promotedGames: PromotedGame[]
@@ -86,6 +90,7 @@ export function excludePromotedGames(
   return games.filter((game) => !promotedIds.has(game.id));
 }
 
+// esto sirve para elegir sponsor principal con prioridad
 export function selectSponsor(sponsors: Sponsor[]): Sponsor | null {
   if (sponsors.length === 0) {
     return null;

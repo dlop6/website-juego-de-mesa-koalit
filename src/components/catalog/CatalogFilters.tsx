@@ -1,3 +1,4 @@
+// se definió el componente `CatalogFilters` que representó controles de precio, valoración y temáticas.
 import { formatPriceWithQ, formatThemeTag } from "@/lib/formatters";
 
 type CatalogFiltersProps = {

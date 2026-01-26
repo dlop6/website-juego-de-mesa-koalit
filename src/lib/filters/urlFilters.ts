@@ -1,7 +1,9 @@
+// se implementó la serialización y parseo de filtros hacia/desde query params
 import type { GameFilters } from "./filterGames";
 
 type SearchParamsLike = URLSearchParams;
 
+// se normalizó un valor numérico; se devolvió null si no fue número finito
 function toNumber(value: unknown): number | null {
   if (typeof value !== "number") {
     return null;
@@ -12,10 +14,12 @@ function toNumber(value: unknown): number | null {
   return value;
 }
 
+// se limitó un valor dentro de un rango inclusivo
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+// se parseó un parámetro numérico desde string; se devolvió null si inválido
 function parseNumberParam(value: string | null): number | null {
   if (!value) {
     return null;
@@ -24,6 +28,7 @@ function parseNumberParam(value: string | null): number | null {
   return Number.isFinite(parsed) ? parsed : null;
 }
 
+// se decodificó un valor minimo evitando excepciones en caso de encoding inválido
 function safeDecode(value: string) {
   try {
     return decodeURIComponent(value);
@@ -32,6 +37,7 @@ function safeDecode(value: string) {
   }
 }
 
+// se construyó un mapa de opciones de tema para resolver versiones canónicas
 function buildThemeMap(themeOptions: string[]) {
   const map = new Map<string, string>();
   for (const theme of themeOptions) {
@@ -50,6 +56,7 @@ function buildThemeMap(themeOptions: string[]) {
   return map;
 }
 
+// se normalizaron temas usando opciones válidas y eliminando duplicados
 function normalizeThemes(value: unknown, themeOptions: string[] = []): string[] {
   if (!Array.isArray(value)) {
     return [];
@@ -86,6 +93,7 @@ function normalizeThemes(value: unknown, themeOptions: string[] = []): string[] 
   return result;
 }
 
+// se normalizaron filtros y se aplicaron validaciones/clamps
 export function normalizeFilters(
   filters: GameFilters,
   themeOptions: string[] = []
@@ -115,6 +123,7 @@ export function normalizeFilters(
   };
 }
 
+// se parsearon filtros desde URLSearchParams y se normalizaron
 export function parseFiltersFromSearchParams(
   searchParams: SearchParamsLike,
   themeOptions: string[] = []
@@ -139,6 +148,7 @@ export function parseFiltersFromSearchParams(
   );
 }
 
+// se serializaron filtros a URLSearchParams omitiendo valores por defecto
 export function serializeFiltersToSearchParams(
   filters: GameFilters,
   themeOptions: string[] = []

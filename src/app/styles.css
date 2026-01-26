@@ -1,3 +1,4 @@
+/* se definieron variables de tema y estilos globales usados por la aplicación. */
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));

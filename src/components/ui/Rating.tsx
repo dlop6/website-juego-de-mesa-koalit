@@ -1,3 +1,4 @@
+// se definió el componente `Rating` que mostró una estrella y el valor formateado dentro de una escala.
 "use client";
 
 import type { HTMLAttributes } from "react";

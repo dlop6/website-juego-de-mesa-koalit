@@ -1,3 +1,4 @@
+// se definió el componente `BrandsMarquee` que replicó logos para crear un carrusel visual.
 import type { Sponsor } from "@/lib/dal";
 
 function getInitials(name: string) {

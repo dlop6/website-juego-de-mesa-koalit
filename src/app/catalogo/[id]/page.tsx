@@ -1,3 +1,4 @@
+// se definió la página de detalle que resolvió el id y mostró el componente de detalle de juego.
 import { notFound } from "next/navigation";
 import { getGameById } from "@/lib/dal";
 import { GameDetail } from "@/components/game/GameDetail";

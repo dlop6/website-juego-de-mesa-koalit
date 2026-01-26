@@ -1,3 +1,4 @@
+// se definió el componente `LandingTrust` que listó garantías y beneficios en la página de inicio.
 const trustItems = [
   {
     icon: "verified_user",

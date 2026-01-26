@@ -1,3 +1,4 @@
+// se definió la página principal que cargó datos y ensambló las secciones del landing.
 import { getGames, getPromotions, getSponsors } from "@/lib/dal";
 import { BrandsMarquee } from "@/components/ads/BrandsMarquee";
 import { LandingHero } from "@/components/landing/LandingHero";

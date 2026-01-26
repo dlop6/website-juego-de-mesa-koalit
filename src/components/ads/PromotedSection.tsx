@@ -1,3 +1,4 @@
+// se definió el componente `PromotedSection` que filtró y mostró juegos promocionados si existieron.
 import Link from "next/link";
 import type { Game, Promotion } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";

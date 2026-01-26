@@ -1,8 +1,10 @@
+// esto sirve para validar el filtrado de juegos
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import type { Game } from "@/lib/dal";
 import { filterGames } from "./filterGames";
 
+// esto sirve para crear juegos de prueba
 function createGame(overrides: Partial<Game>): Game {
   return {
     id: overrides.id ?? "g-default",
@@ -23,6 +25,7 @@ function createGame(overrides: Partial<Game>): Game {
   };
 }
 
+// esto sirve para validar rangos inclusivos de precio
 test("precio min y max inclusivo", () => {
   const games = [
     createGame({ id: "g-100", price: { amount: 100, currency: "GTQ" } }),
@@ -37,6 +40,7 @@ test("precio min y max inclusivo", () => {
   );
 });
 
+// esto sirve para validar rating minimo
 test("rating minimo inclusivo", () => {
   const games = [
     createGame({ id: "g-4-0", rating: { value: 4, scale: 5 } }),
@@ -50,6 +54,7 @@ test("rating minimo inclusivo", () => {
   );
 });
 
+// esto sirve para validar swap de min y max
 test("priceMin mayor que priceMax se normaliza", () => {
   const games = [
     createGame({ id: "g-150", price: { amount: 150, currency: "GTQ" } }),
@@ -63,6 +68,7 @@ test("priceMin mayor que priceMax se normaliza", () => {
   );
 });
 
+// esto sirve para validar clamp de rating
 test("ratingMin mayor a 5 se clamp a 5", () => {
   const games = [
     createGame({ id: "g-5-0", rating: { value: 5, scale: 5 } }),
@@ -76,6 +82,7 @@ test("ratingMin mayor a 5 se clamp a 5", () => {
   );
 });
 
+// esto sirve para validar clamp inferior de rating
 test("ratingMin menor a 0 se clamp a 0", () => {
   const games = [
     createGame({ id: "g-0-0", rating: { value: 0, scale: 5 } }),
@@ -90,6 +97,7 @@ test("ratingMin menor a 0 se clamp a 0", () => {
   );
 });
 
+// esto sirve para validar clamp de precios negativos
 test("priceMin y priceMax negativos se clamp a 0", () => {
   const games = [
     createGame({ id: "g-0", price: { amount: 0, currency: "GTQ" } }),
@@ -104,6 +112,7 @@ test("priceMin y priceMax negativos se clamp a 0", () => {
   );
 });
 
+// esto sirve para validar tematicas en modo AND
 test("tematicas AND con normalizacion", () => {
   const games = [
     createGame({ id: "g-ok", themes: ["Estrategia", "Familia"] }),
@@ -117,6 +126,7 @@ test("tematicas AND con normalizacion", () => {
   );
 });
 
+// esto sirve para validar normalizacion de tematicas
 test("tematica normaliza trim y case-insensitive", () => {
   const games = [
     createGame({ id: "g-match", themes: ["Estrategia"] }),
@@ -130,6 +140,7 @@ test("tematica normaliza trim y case-insensitive", () => {
   );
 });
 
+// esto sirve para validar exclusion por rating invalido
 test("rating invalido se excluye cuando hay filtro activo", () => {
   const games = [
     createGame({ id: "g-ok", rating: { value: 4.5, scale: 5 } }),
@@ -143,6 +154,7 @@ test("rating invalido se excluye cuando hay filtro activo", () => {
   );
 });
 
+// esto sirve para validar exclusion por precio invalido
 test("precio invalido se excluye cuando hay filtro activo", () => {
   const games = [
     createGame({ id: "g-ok", price: { amount: 200, currency: "GTQ" } }),
@@ -156,6 +168,7 @@ test("precio invalido se excluye cuando hay filtro activo", () => {
   );
 });
 
+// esto sirve para validar exclusion por tematicas invalidas
 test("tematicas invalidas se excluyen cuando hay filtro activo", () => {
   const games = [
     createGame({ id: "g-ok", themes: ["Estrategia"] }),

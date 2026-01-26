@@ -1,3 +1,4 @@
+// se definió el layout raíz que envolvió la aplicación con provider de tema, encabezado y pie.
 import type { Metadata } from "next";
 import { Space_Grotesk, Noto_Sans } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";

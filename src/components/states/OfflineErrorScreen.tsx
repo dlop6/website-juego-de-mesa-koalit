@@ -1,3 +1,5 @@
+// se renderizó una pantalla de error offline con estilo terminal
+// - se incluyó un botón que llamó a onRetry cuando fue pulsado
 export function OfflineErrorScreen({ onRetry }: { onRetry: () => void }) {
   return (
     <div className="font-display bg-bg text-fg crt-overlay overflow-x-hidden min-h-full flex flex-col relative selection:bg-selection selection:text-selection-fg">

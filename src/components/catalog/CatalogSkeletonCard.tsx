@@ -1,3 +1,4 @@
+// se definió el componente `CatalogSkeletonCard` que renderizó marcadores de carga para la cuadrícula.
 export function CatalogSkeletonCard({ className }: { className?: string }) {
   return (
     <article

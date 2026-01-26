@@ -1,4 +1,4 @@
-
+// se definió el manejador de error del catálogo que mostró la pantalla offline en cliente.
 "use client";
 
 import { OfflineErrorScreen } from "@/components/states/OfflineErrorScreen";

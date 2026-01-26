@@ -2,11 +2,13 @@
 
 import type { HTMLAttributes } from "react";
 
+// se definieron las props del loading state
 export interface LoadingStateProps extends HTMLAttributes<HTMLDivElement> {
   count?: number;
   label?: string;
 }
 
+// se representó una tarjeta skeleton simple usada para placeholder en listas
 function SkeletonCard() {
   return (
     <div className="rounded-2 border border-border bg-elevated p-3">
@@ -24,6 +26,7 @@ function SkeletonCard() {
   );
 }
 
+// se renderizó un estado de carga con n skeletons y una etiqueta opcional
 export function LoadingState({
   count = 9,
   label = "Cargando...",

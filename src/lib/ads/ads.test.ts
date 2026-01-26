@@ -1,9 +1,11 @@
+// esto sirve para validar la logica de ads y sponsors
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import type { Game, Promotion } from "@/lib/dal";
 import type { GameFilters } from "@/lib/filters/filterGames";
 import { excludePromotedGames, selectPromotedGames, selectSponsor } from "./ads";
 
+// esto sirve para crear juegos de prueba
 function createGame(overrides: Partial<Game>): Game {
   return {
     id: overrides.id ?? "g-default",
@@ -24,6 +26,7 @@ function createGame(overrides: Partial<Game>): Game {
   };
 }
 
+// esto sirve para crear promos de prueba
 function createPromotion(overrides: Partial<Promotion>): Promotion {
   return {
     id: overrides.id ?? "p-1",
@@ -40,6 +43,7 @@ const defaultFilters: GameFilters = {
   themes: [],
 };
 
+// esto sirve para validar filtros en promos
 test("promo respeta filtros activos", () => {
   const game = createGame({
     id: "g-1",
@@ -53,6 +57,7 @@ test("promo respeta filtros activos", () => {
   assert.equal(result.length, 0);
 });
 
+// esto sirve para validar orden con weight
 test("orden deterministico por weight desc y name asc", () => {
   const gameA = createGame({ id: "g-a", name: "Alpha" });
   const gameB = createGame({ id: "g-b", name: "Beta" });
@@ -75,6 +80,7 @@ test("orden deterministico por weight desc y name asc", () => {
   );
 });
 
+// esto sirve para validar orden por rating cuando no hay weight
 test("orden deterministico por rating desc y name asc cuando no hay weight", () => {
   const gameA = createGame({ id: "g-a", name: "Alpha", rating: { value: 4.2, scale: 5 } });
   const gameB = createGame({ id: "g-b", name: "Beta", rating: { value: 4.8, scale: 5 } });
@@ -97,6 +103,7 @@ test("orden deterministico por rating desc y name asc cuando no hay weight", () 
   );
 });
 
+// esto sirve para validar limite de promos
 test("limite de promos nunca supera 3", () => {
   const games = Array.from({ length: 4 }).map((_, index) =>
     createGame({ id: `g-${index}`, name: `Juego ${index}` })
@@ -110,6 +117,7 @@ test("limite de promos nunca supera 3", () => {
   assert.equal(result.length, 3);
 });
 
+// esto sirve para validar que no haya promo si no aplica
 test("seccion promo es condicional cuando no hay elegibles", () => {
   const game = createGame({ id: "g-1", name: "Alpha" });
   const promotions = [createPromotion({ id: "p-1", gameId: "g-missing" })];
@@ -119,6 +127,7 @@ test("seccion promo es condicional cuando no hay elegibles", () => {
   assert.equal(result.length, 0);
 });
 
+// esto sirve para validar que no se dupliquen promos
 test("no duplicacion entre promos y listado base", () => {
   const gameA = createGame({ id: "g-a" });
   const gameB = createGame({ id: "g-b" });
@@ -136,6 +145,7 @@ test("no duplicacion entre promos y listado base", () => {
   );
 });
 
+// esto sirve para validar orden de sponsor por priority
 test("sponsor deterministico por priority desc y name asc", () => {
   const sponsors = [
     {
@@ -162,6 +172,7 @@ test("sponsor deterministico por priority desc y name asc", () => {
   assert.equal(result?.id, "s-2");
 });
 
+// esto sirve para validar sponsor null sin datos
 test("sponsor null cuando no hay sponsors", () => {
   const result = selectSponsor([]);
   assert.equal(result, null);

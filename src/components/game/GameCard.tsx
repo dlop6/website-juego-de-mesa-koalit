@@ -1,3 +1,4 @@
+// se definió el componente `GameCard` que renderizó la tarjeta visual del juego con temas, precio y valoración.
 import type { CSSProperties, ReactNode } from "react";
 import {
   PLACEHOLDER_IMAGE_WIDE,

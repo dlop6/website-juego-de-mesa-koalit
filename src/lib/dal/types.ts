@@ -1,3 +1,4 @@
+// se definió el contrato de datos para `game` usado por el dal
 export interface Game {
   id: string;
   name: string;
@@ -16,6 +17,7 @@ export interface Game {
   releaseYear?: number;
 }
 
+// se definió el contrato de datos para `sponsor` usado por el dal
 export interface Sponsor {
   id: string;
   name: string;
@@ -25,6 +27,7 @@ export interface Sponsor {
   priority?: number;
 }
 
+// se definió el contrato de datos para `promotion` usado por el dal
 export interface Promotion {
   id: string;
   gameId: string;
@@ -35,6 +38,7 @@ export interface Promotion {
   endsAt?: string;
 }
 
+// se definió la forma del objeto `database` que fue cargado desde db.json
 export interface Database {
   games: Game[];
   sponsors: Sponsor[];

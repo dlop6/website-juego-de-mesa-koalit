@@ -1,3 +1,4 @@
+// se definió la vista de carga del catálogo que mostró esqueletos mientras se resolvieron datos.
 import { CatalogSkeletonCard } from "@/components/catalog/CatalogSkeletonCard";
 
 function SkeletonLine({ className }: { className: string }) {
