@@ -36,7 +36,7 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-background-light dark:bg-background-dark border-b-2 border-primary border-double px-6 py-4">
+    <header className="sticky top-0 z-40 w-full bg-bg border-b-2 border-border border-double px-6 py-4">
       <div className="mx-auto max-w-[1200px] flex flex-wrap items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
           <span className="material-symbols-outlined text-3xl text-primary animate-pulse">
