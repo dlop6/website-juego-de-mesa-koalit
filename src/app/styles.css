@@ -1,35 +1,68 @@
-/* se definieron variables de tema y estilos globales usados por la aplicación. */
+/* importa las utilidades de tailwindcss v4 para construir el sistema de diseño. */
 @import "tailwindcss";
 
+/* define una variante personalizada 'dark:' que aplica estilos cuando el elemento o ancestro tiene clase .dark,
+   permitiendo alternar entre tema claro y oscuro sin media queries. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* define el tema base oscuro retro-terminal con paleta ámbar (#f2a60d) sobre negro profundo,
+   incluyendo variables de color para fondos degradados, superficies elevadas, bordes sutiles,
+   sistema tipográfico space grotesk + noto sans, sombras con glow ámbar para efecto crt,
+   radios mínimos para estética retro, espaciado modular 4px-64px, duraciones rápidas 120-240ms,
+   curvas de bezier para transiciones fluidas, y patrones de fondo para efectos scanline y grid. */
 @theme {
+  /* paleta ámbar primaria (#f2a60d) para acentos, bordes y glow crt. */
   --color-primary: #f2a60d;
+  /* versión atenuada del primario para estados hover o disabled. */
   --color-primary-dim: #b57b0a;
+  /* fondo beige claro (#f8f7f5) usado solo en tema claro. */
   --color-background-light: #f8f7f5;
+  /* negro casi puro (#0a0a0a) para el fondo principal del tema oscuro. */
   --color-background-dark: #0a0a0a;
+  /* negro suavizado (#12100c) con tinte cálido para paneles y terminales. */
   --color-background-dark-soft: #12100c;
+  /* gris oscuro cálido (#181611) para fondos atenuados y overlays. */
   --color-background-dark-muted: #181611;
+  /* gris oscuro (#141414) para superficies elevadas como tarjetas y paneles. */
   --color-surface-dark: #141414;
+  /* marrón oscuro (#1e1b15) para superficies con elevación intermedia. */
   --color-surface-dark-soft: #1e1b15;
+  /* marrón oscuro intenso (#221c10) para superficies más elevadas o estados hover. */
   --color-surface-dark-muted: #221c10;
+  /* fondo de terminal (#12100c) con tinte cálido para pantallas de error y consolas. */
   --color-terminal-bg: #12100c;
+  /* ámbar (#f2a60d) para bordes destacados con efecto glow. */
   --color-border-amber: #f2a60d;
+  /* marrón grisáceo (#393328) para bordes sutiles y divisores. */
   --color-border-dim: #393328;
+  /* gris oscuro (#333) para texto sobre fondos claros en tema light. */
   --color-ink: #333333;
+  /* overlay semitransparente para efecto scanline crt. */
   --color-scanline: rgba(18, 16, 16, 0.5);
+  /* alias de background-dark para simplicidad. */
   --color-bg: #0a0a0a;
+  /* alias de surface-dark para paneles principales. */
   --color-panel: #141414;
+  /* blanco puro (#fff) para texto principal en tema oscuro. */
   --color-fg: #ffffff;
+  /* beige atenuado (#bab09c) para texto secundario y metadatos. */
   --color-fg-muted: #bab09c;
+  /* alias de border-dim para bordes generales. */
   --color-border: #393328;
+  /* alias de primary para acentos y ctas. */
   --color-accent: #f2a60d;
+  /* ámbar (#f2a60d) para fondo de selección de texto. */
   --color-selection: #f2a60d;
+  /* negro (#000) para texto sobre selección ámbar. */
   --color-selection-fg: #000000;
 
+  /* fuente display space grotesk (monoespaciada geométrica) para títulos y ui principal. */
   --font-display: var(--font-space), "Space Grotesk", monospace;
+  /* fuente body noto sans (humanista) para texto largo y párrafos. */
   --font-body: var(--font-noto), "Noto Sans", sans-serif;
+  /* fuente mono space grotesk para código y terminales. */
   --font-mono: var(--font-space), "Space Grotesk", monospace;
+  /* escala tipográfica modular desde 48px (900) hasta 12px (300). */
   --font-size-900: 3rem;
   --font-size-800: 2.25rem;
   --font-size-700: 1.5rem;
@@ -37,23 +70,29 @@
   --font-size-500: 1rem;
   --font-size-400: 0.875rem;
   --font-size-300: 0.75rem;
+  /* pesos tipográficos desde bold (700) hasta regular (400). */
   --font-weight-700: 700;
   --font-weight-600: 600;
   --font-weight-500: 500;
   --font-weight-400: 400;
 
+  /* sombra ámbar doble (10px + 20px) para efecto glow crt en bordes y texto. */
   --shadow-glow: 0 0 10px rgba(242, 166, 13, 0.5),
     0 0 20px rgba(242, 166, 13, 0.3);
+  /* sombra biselada estilo años 90 con luz superior izquierda para botones normales. */
   --shadow-bevel: inset 2px 2px 0 rgba(255, 255, 255, 0.1),
     inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+  /* sombra biselada invertida para estado pressed/active de botones. */
   --shadow-bevel-pressed: inset 2px 2px 0 rgba(0, 0, 0, 0.5),
     inset -2px -2px 0 rgba(255, 255, 255, 0.1);
 
+  /* radios de borde mínimos (4px-12px) para estética retro angular, excepto full para pills. */
   --radius-1: 0.25rem;
   --radius-2: 0.5rem;
   --radius-3: 0.75rem;
   --radius-full: 9999px;
 
+  /* escala de espaciado modular 4px base desde 4px hasta 64px para layouts consistentes. */
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;
@@ -63,20 +102,27 @@
   --spacing-7: 3rem;
   --spacing-8: 4rem;
 
+  /* duraciones de transición rápidas (120-240ms) para mantener interfaz ágil. */
   --duration-1: 120ms;
   --duration-2: 180ms;
   --duration-3: 240ms;
 
+  /* curva standard (ease-out) para transiciones generales suaves. */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* curva con rebote (overshoot) para animaciones enfáticas tipo slide/fade. */
   --ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
 
+  /* patrón de grid retro con líneas grises (#222) horizontales y verticales de 1px. */
   --background-image-grid-pattern: linear-gradient(to right, #222 1px, transparent 1px),
     linear-gradient(to bottom, #222 1px, transparent 1px);
+  /* patrón scanline crt: líneas horizontales negras al 50% + aberración cromática rgb sutil. */
   --background-image-scanlines: linear-gradient(rgba(18, 16, 12, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
     linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
 }
 
 @layer base {
+  /* resetea margin, padding y fuerza box-sizing border-box en todos los elementos,
+     incluyendo pseudoelementos ::before y ::after para modelo de caja predecible. */
   *,
   *::before,
   *::after {
@@ -85,6 +131,8 @@
     padding: 0;
   }
 
+  /* establece fuente base space grotesk a 16px con line-height 1.5 para legibilidad,
+     activa antialiasing en webkit y firefox para renderizado suave de fuentes. */
   html {
     font-family: var(--font-display);
     font-size: 16px;
@@ -93,23 +141,37 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* fuerza altura mínima viewport completo y aplica color de fondo oscuro del tema. */
   body {
     min-height: 100vh;
     background-color: var(--color-bg);
     color: var(--color-fg);
   }
 
+  /* tema claro activado via data-theme="light": invierte a paleta beige cálida (#f4efe4) con
+     acentos marrón (#b45309), conservando estructura pero reduciendo contraste para confort diurno.
+     mantiene jerarquía visual pero con tonos tierra en lugar de negro profundo. */
   [data-theme="light"] {
+    /* fondo beige cálido principal. */
     --color-bg: #f4efe4;
+    /* beige oscurecido para paneles y superficies elevadas. */
     --color-panel: #eee6d6;
+    /* marrón oscuro para texto principal sobre beige. */
     --color-fg: #7a3f00;
+    /* marrón medio para texto secundario. */
     --color-fg-muted: #9a5a1a;
+    /* beige grisáceo para bordes sutiles. */
     --color-border: #d6c6ae;
+    /* marrón quemado (#b45309) reemplaza ámbar como acento principal. */
     --color-accent: #b45309;
+    /* amarillo suave (#ffe08a) para selección de texto legible. */
     --color-selection: #ffe08a;
+    /* marrón muy oscuro para texto sobre selección. */
     --color-selection-fg: #5a2d00;
+    /* sobrescribe primary con marrón para consistencia. */
     --color-primary: #b45309;
     --color-primary-dim: #9a5a1a;
+    /* unifica todas las variables de fondo a beige para simplicidad. */
     --color-background-light: #f4efe4;
     --color-background-dark: #f4efe4;
     --color-background-dark-soft: #eee6d6;
@@ -123,16 +185,22 @@
     --color-ink: #7a3f00;
   }
 
+  /* sobrescribe selección de texto nativa del navegador con colores del tema:
+     ámbar (#f2a60d) en oscuro o amarillo suave (#ffe08a) en claro para alto contraste. */
   ::selection {
     background-color: var(--color-selection);
     color: var(--color-selection-fg);
   }
 
+  /* outline de foco solo visible con navegación por teclado (no con click de mouse),
+     usa primario (ámbar/marrón) con outline de 2px separado 2px del elemento para claridad. */
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
+  /* aplica transiciones suaves de 180ms a propiedades visuales frecuentes en elementos interactivos,
+     evita transiciones en propiedades costosas como width/height para mejor performance. */
   button,
   a,
   input,
@@ -143,6 +211,8 @@
     transition-timing-function: var(--ease-standard);
   }
 
+  /* scrollbar delgado (8px) estilo retro para webkit (chrome/safari/edge):
+     track oscuro (#181611) con thumb marrón (#393328) que brilla ámbar al hover. */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -161,6 +231,8 @@
     background: var(--color-primary);
   }
 
+  /* estiliza input type="range" para webkit: thumb circular de 16px ámbar con glow,
+     track horizontal de 4px marrón oscuro (#544c3b), margin-top -6px centra thumb sobre track. */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 16px;
@@ -180,6 +252,8 @@
     border-radius: 2px;
   }
 
+  /* clase helper para ocultar track duplicado en sliders multi-thumb:
+     hace track transparente y sin altura, dejando solo el thumb visible y funcional. */
   .range-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -216,93 +290,119 @@
 }
 
 @layer utilities {
+  /* clases de utilidad para sistema tipográfico (fuentes, tamaños, pesos),
+     animaciones de entrada (fade, slide), delays escalonados, efectos visuales crt (glow, scanlines, glitch),
+     marquee de logos, cursores parpadeantes, y grid responsivo de catálogo. */
+
+  /* aplica fuente space grotesk para ui, títulos y elementos display. */
   .font-display {
     font-family: var(--font-display);
   }
 
+  /* aplica fuente noto sans humanista para texto largo y párrafos. */
   .font-body {
     font-family: var(--font-body);
   }
 
+  /* aplica fuente space grotesk monoespaciada para código, terminales y texto técnico. */
   .font-mono {
     font-family: var(--font-mono);
   }
 
+  /* peso bold (700) para títulos y enfatización fuerte. */
   .font-700 {
     font-weight: var(--font-weight-700);
   }
 
+  /* peso semibold (600) para subtítulos y enfatización media. */
   .font-600 {
     font-weight: var(--font-weight-600);
   }
 
+  /* peso medium (500) para labels y texto ligeramente enfatizado. */
   .font-500 {
     font-weight: var(--font-weight-500);
   }
 
+  /* peso regular (400) para texto body y párrafos normales. */
   .font-400 {
     font-weight: var(--font-weight-400);
   }
 
+  /* tamaño hero (48px) con line-height 1.1 compacto para títulos principales. */
   .text-900 {
     font-size: var(--font-size-900);
     line-height: 1.1;
   }
 
+  /* tamaño xl (36px) con lh 1.15 para headers de sección. */
   .text-800 {
     font-size: var(--font-size-800);
     line-height: 1.15;
   }
 
+  /* tamaño large (24px) con lh 1.2 para subtítulos. */
   .text-700 {
     font-size: var(--font-size-700);
     line-height: 1.2;
   }
 
+  /* tamaño medium (20px) con lh 1.3 para headers de tarjeta. */
   .text-600 {
     font-size: var(--font-size-600);
     line-height: 1.3;
   }
 
+  /* tamaño base (16px) con lh 1.4 para texto body general. */
   .text-500 {
     font-size: var(--font-size-500);
     line-height: 1.4;
   }
 
+  /* tamaño small (14px) con lh 1.4 para labels y metadatos. */
   .text-400 {
     font-size: var(--font-size-400);
     line-height: 1.4;
   }
 
+  /* tamaño xs (12px) con lh 1.4 para captions y texto auxiliar. */
   .text-300 {
     font-size: var(--font-size-300);
     line-height: 1.4;
   }
 
+  /* animación fade-up: elemento aparece desde 12px abajo con ease-emphasis en 600ms. */
   .animate-fade-up {
     animation: fade-up 600ms var(--ease-emphasis) both;
   }
 
+  /* fade-in simple: opacidad 0 a 1 con ease-standard en 200ms. */
   .animate-fade-in {
     animation: fade-in 200ms var(--ease-standard) both;
   }
 
+  /* slide-in desde derecha: elemento entra 16px desde la derecha en 280ms. */
   .animate-slide-in-right {
     animation: slide-in-right 280ms var(--ease-emphasis) both;
   }
 
+  /* slide-in desde izquierda: elemento entra 16px desde la izquierda en 280ms. */
   .animate-slide-in-left {
     animation: slide-in-left 280ms var(--ease-emphasis) both;
   }
 
+  /* slide-up desde abajo: elemento sube 16px con ease-emphasis en 280ms. */
   .animate-slide-up {
     animation: slide-up 280ms var(--ease-emphasis) both;
   }
 
+  /* fade-in genérico de 220ms para transiciones entre rutas del app router. */
   .page-transition {
     animation: fade-in 220ms var(--ease-standard) both;
   }
 
+  /* delays escalonados de 120ms en 120ms (hasta 720ms) para animar listas o grids
+     donde cada item aparece secuencialmente creando efecto cascada visual. */
   .anim-delay-1 {
     animation-delay: 120ms;
   }
@@ -327,48 +427,60 @@
     animation-delay: 720ms;
   }
 
+  /* flotación sutil vertical ±6px en loop infinito de 6s para iconos y badges. */
   .anim-float {
     animation: float 6s ease-in-out infinite;
   }
 
+  /* pulso de box-shadow ámbar de 0 a 16px en loop de 2.6s para botones cta y elementos destacados. */
   .anim-glow {
     animation: glow-pulse 2.6s ease-in-out infinite;
   }
 
+  /* flicker suave de opacidad (1 → 0.75 → 1) en 2.8s para simular parpadeo de monitor crt. */
   .anim-flicker-soft {
     animation: flicker-soft 2.8s ease-in-out infinite;
   }
 
+  /* pulso rápido de opacidad (1 → 0.5 → 1) en 1.5s para loading states y placeholders. */
   .animate-pulse-fast {
     animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
+  /* flicker irregular de opacidad (0.9-0.99) en 3s para efecto crt más agresivo. */
   .animate-flicker {
     animation: flicker 3s linear infinite;
   }
 
+  /* aplica glow a texto. */
   .text-glow {
     text-shadow: 0 0 5px rgba(242, 166, 13, 0.6);
   }
 
+  /* aplica glow a bordes. */
   .border-glow {
     box-shadow: 0 0 8px rgba(242, 166, 13, 0.4);
   }
 
+  /* añade sombra interna. */
   .inner-shadow {
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
   }
 
+  /* text-shadow ámbar doble (5px + 10px) más intenso para texto tipo terminal crt. */
   .crt-glow {
     text-shadow: 0 0 5px rgba(242, 166, 13, 0.5),
       0 0 10px rgba(242, 166, 13, 0.3);
   }
 
+  /* box-shadow ámbar exterior (10px) + interior (10px) para cajas tipo monitor crt. */
   .crt-box-glow {
     box-shadow: 0 0 10px rgba(242, 166, 13, 0.2),
       inset 0 0 10px rgba(242, 166, 13, 0.1);
   }
 
+  /* efecto glitch de texto con ::before y ::after que duplican contenido con text-shadow
+     cian (#00fff9) y magenta (#ff00c1), animados con clip aleatorio para simular interferencia vhs. */
   .glitch-text {
     position: relative;
   }
@@ -398,14 +510,18 @@
     animation: glitch-anim2 5s infinite linear alternate-reverse;
   }
 
+  /* activa relleno completo (FILL=1) en iconos material symbols outlined para versión filled. */
   .material-symbols-outlined.icon-filled {
     font-variation-settings: "FILL" 1;
   }
 
+  /* desactiva relleno (FILL=0) en iconos material symbols para versión outlined por defecto. */
   .material-symbols-outlined.icon-outline {
     font-variation-settings: "FILL" 0;
   }
 
+  /* overlay crt fijo fullscreen (position:fixed inset:0 z:50) con scanlines horizontales (2px)
+     + aberración cromática rgb vertical (3px), no bloqueante (pointer-events:none). */
   .crt::before {
     content: " ";
     display: block;
@@ -418,6 +534,8 @@
     pointer-events: none;
   }
 
+  /* overlay crt absoluto (position:absolute inset:0 z:2) igual que .crt pero para contenedores
+     específicos en lugar de fullscreen, ideal para paneles individuales. */
   .crt-overlay::before {
     content: " ";
     display: block;
@@ -430,6 +548,9 @@
     pointer-events: none;
   }
 
+  /* barra scanline animada: franja horizontal de 100px con gradiente ámbar difuminado,
+     posicionada fuera de pantalla (bottom:100%) y animada para recorrer viewport en 10s loop,
+     simula barrido de monitor crt retro. */
   .scanline-bar {
     width: 100%;
     height: 100px;
@@ -447,6 +568,8 @@
     pointer-events: none;
   }
 
+  /* variante de scanline para pantallas offline: barra fina (5px) ámbar con animación más rápida (6s)
+     y mayor opacidad (0.4) para enfatizar estado de error. */
   .scanline-bar-offline {
     height: 5px;
     background: rgba(242, 166, 13, 0.15);
@@ -454,22 +577,29 @@
     animation: scanline-offline 6s linear infinite;
   }
 
+  /* aplica patrón de scanlines como background-image: líneas horizontales (4px) + rgb (6px),
+     no bloqueante, para dar textura crt a fondos. */
   .scanlines {
     background-image: var(--background-image-scanlines);
     background-size: 100% 4px, 6px 100%;
     pointer-events: none;
   }
 
+  /* animación flicker ultra rápida (150ms) para efecto crt agresivo en errores críticos. */
   .crt-flicker {
     animation: flicker 0.15s infinite;
   }
 
+  /* filtro que convierte imagen a escala de grises, aplica sepia, rota matiz a ámbar (350°),
+     satura x3 y aumenta contraste x1.2, con blend mode hard-light para efecto monitor ámbar retro. */
   .amber-filter {
     filter: grayscale(100%) sepia(100%) hue-rotate(350deg) saturate(300%)
       contrast(1.2);
     mix-blend-mode: hard-light;
   }
 
+  /* contenedor con fondo ámbar (#f2a60d) donde imágenes hijas se oscurecen (opacity:0.8),
+     mezclan con multiply y convierten a grayscale con alto contraste para efecto monocromático ámbar. */
   .amber-tint-container {
     position: relative;
     background-color: var(--color-primary);
@@ -482,11 +612,14 @@
     filter: grayscale(100%) contrast(1.2);
   }
 
+  /* contenedor de marquee con overflow:hidden para ocultar contenido fuera de vista. */
   .marquee {
     overflow: hidden;
     position: relative;
   }
 
+  /* track interno del marquee: flex con gap 2.5rem, width max-content para no truncar,
+     animado con translateX(-50%) en 24s loop para scroll infinito continuo. */
   .marquee-track {
     display: flex;
     gap: 2.5rem;
@@ -494,6 +627,8 @@
     animation: marquee-scroll 24s linear infinite;
   }
 
+  /* item individual de marquee: min-width 160px (220px en sm+), padding 0.75rem 1rem,
+     borde sutil, border-radius pill, fondo panel y sombra interior ámbar para look de badge retro. */
   .marquee-item {
     display: flex;
     align-items: center;
@@ -512,10 +647,13 @@
     }
   }
 
+  /* pausa animación del marquee al hacer hover para permitir lectura de contenido. */
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
 
+  /* añade cursor parpadeante (█) con animación blink 1s step-end infinita,
+     margin-left 4px y color ámbar para efecto terminal retro. */
   .blink-cursor::after {
     content: "█";
     animation: blink 1s step-end infinite;
@@ -523,6 +661,8 @@
     color: var(--color-primary);
   }
 
+  /* pseudoelemento ::before absoluto que superpone patrón scanline sobre contenido,
+     z-index 2 para estar sobre hijos pero debajo de overlays, no bloqueante. */
   .scanlines::before {
     content: " ";
     display: block;
@@ -536,18 +676,23 @@
 }
 
 @layer utilities {
+  /* grid responsivo para catálogo de juegos:
+     1 columna en mobile, 2 en tablet (640px+), 3 en desktop (1024px+),
+     usa minmax(0, 1fr) para evitar overflow de contenido largo. */
   .catalog-grid {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
+/* breakpoint tablet 640px: expande catalog-grid a 2 columnas para mejor uso del espacio horizontal. */
 @media (min-width: 640px) {
   .catalog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* breakpoint desktop 1024px: expande catalog-grid a 3 columnas para máxima densidad de contenido. */
 @media (min-width: 1024px) {
   .catalog-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -555,6 +700,7 @@
 }
 
 @keyframes scanline {
+  /* translada barra verticalmente de 0% a 100% del viewport para efecto barrido crt. */
   0% {
     transform: translateY(0%);
   }
@@ -564,6 +710,7 @@
 }
 
 @keyframes scanline-offline {
+  /* versión offline: inicia desde -100% (arriba) hasta 100% (abajo) más rápido que normal. */
   0% {
     transform: translateY(-100%);
   }
@@ -573,6 +720,7 @@
 }
 
 @keyframes blink {
+  /* alterna opacidad 1 → 0 → 1 con step-end (cambio instantáneo) para cursor parpadeante. */
   0%,
   100% {
     opacity: 1;
@@ -583,6 +731,8 @@
 }
 
 @keyframes flicker {
+  /* flicker crt irregular: oscila opacidad entre 0.9-0.99 con pasos múltiples para simular
+     parpadeo errático de monitor viejo. */
   0% {
     opacity: 0.97;
   }
@@ -610,6 +760,7 @@
 }
 
 @keyframes pulse {
+  /* pulso simple: opacidad 1 → 0.5 → 1 con ease in-out para loading states. */
   0%,
   100% {
     opacity: 1;
@@ -620,6 +771,7 @@
 }
 
 @keyframes glitch-anim {
+  /* clip aleatorio para ::before del glitch: cambia rect() cada 20% para simular distorsión vhs. */
   0% {
     clip: rect(14px, 9999px, 86px, 0);
   }
@@ -641,6 +793,7 @@
 }
 
 @keyframes glitch-anim2 {
+  /* clip aleatorio para ::after del glitch: patrones diferentes a glitch-anim para doble interferencia. */
   0% {
     clip: rect(24px, 9999px, 76px, 0);
   }
@@ -662,6 +815,7 @@
 }
 
 @keyframes marquee-scroll {
+  /* translada horizontalmente de 0 a -50% (mitad del contenido duplicado) para loop infinito seamless. */
   0% {
     transform: translateX(0);
   }
@@ -671,6 +825,7 @@
 }
 
 @keyframes fade-up {
+  /* fade-in desde abajo: inicia opacity 0 y translateY(12px), termina en 1 y 0 para entrada suave. */
   0% {
     opacity: 0;
     transform: translateY(12px);
@@ -682,6 +837,7 @@
 }
 
 @keyframes fade-in {
+  /* fade-in simple: opacity 0 → 1 sin movimiento, para transiciones discretas. */
   0% {
     opacity: 0;
   }
@@ -691,6 +847,7 @@
 }
 
 @keyframes slide-in-right {
+  /* slide desde la derecha: translateX(16px) → 0 con opacity 0 → 1 para entrada lateral. */
   0% {
     opacity: 0;
     transform: translateX(16px);
@@ -702,6 +859,7 @@
 }
 
 @keyframes slide-in-left {
+  /* slide desde la izquierda: translateX(-16px) → 0 con opacity 0 → 1 para entrada lateral opuesta. */
   0% {
     opacity: 0;
     transform: translateX(-16px);
@@ -713,6 +871,7 @@
 }
 
 @keyframes slide-up {
+  /* slide vertical: translateY(16px) → 0 con opacity 0 → 1, entrada desde abajo. */
   0% {
     opacity: 0;
     transform: translateY(16px);
@@ -724,6 +883,7 @@
 }
 
 @keyframes float {
+  /* flotación suave: oscila translateY entre 0 (50%) y -6px (0%/100%) con ease-in-out. */
   0%,
   100% {
     transform: translateY(0);
@@ -734,6 +894,7 @@
 }
 
 @keyframes glow-pulse {
+  /* pulso de resplandor: box-shadow ámbar desde 0 hasta 16px blur en 50%, regresa a 0. */
   0%,
   100% {
     box-shadow: 0 0 0 rgba(242, 166, 13, 0.0);
@@ -744,6 +905,7 @@
 }
 
 @keyframes flicker-soft {
+  /* flicker suave: opacidad entre 0.97-1 con pasos sutiles para parpadeo casi imperceptible. */
   0%,
   100% {
     opacity: 1;
@@ -759,6 +921,8 @@
   }
 }
 
+/* prefers-reduced-motion: deshabilita todas las animaciones y transiciones
+   para accesibilidad (usuarios con sensibilidad a movimiento). */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .animate-fade-in,
@@ -776,6 +940,7 @@
 }
 
 @keyframes shine {
+  /* efecto de brillo pasando: left de -100% a 200% con opacity 0 → 0.5 → 0 para rayo de luz. */
   0% {
     left: -100%;
     opacity: 0;
@@ -790,6 +955,7 @@
 }
 
 @keyframes shimmer {
+  /* shimmer skeleton: translateX de -100% a 100% con skewX(12deg) para gradiente diagonal. */
   0% {
     transform: translateX(-100%) skewX(12deg);
   }
